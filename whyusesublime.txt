@@ -1,0 +1,17 @@
+multiple cursor Cmd+D, Alt+arrow to jump across words, když označím celé slovo a zadám [], vloží to závorky na začátek a konec
+obyč Cmd můžu manuálně označit několik míst kam chci vepisovat
+Alt+tažení levým myšítkem nebo Ctrl+Shift+up/down arrow- Column selection
+Ctrl+Alt+down jde označit sloupce pod sebou a snadno připravit např. batchové skripty k přejmenování
+
+["NP_93043923424", "XP_549353845", "YP_4059340593"]
+
+Shift+Cmd+P turn on the command pallette, where interesting features can be found like toggle comment, select newlines
+
+sublimeREPL - plugin that allows programming interpreters in a new tab
+
+Cmd+Alt+F turns on the replace function, that is compatible with regex
+
+
+
+
+Alt+F3 označí všechny výskyty v linuxu, podobně jako Cmd+D+Shift

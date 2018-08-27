@@ -1,0 +1,9 @@
+Dear Colleague,
+
+Please correct the fatal validation errors in this submission. If you do not
+know how to fix the problems, write to gb-admin@ncbi.nlm.nih.gov.
+Remember that annotation is not required for TSA submissions.
+
+ERROR: valid [SEQ_DESCR.TaxonomyServiceProblem] Taxonomy service connection failure BIOSEQ-SET: genbank: lcl|Contig1
+ERROR: valid [SEQ_DESCR.TaxonomyServiceProblem] Taxonomy service connection failure BIOSEQ-SET: genbank: lcl|Contig20066
+ERROR: valid [SEQ_DESCR.TaxonomyServiceProblem] Taxonomy service connection failure BIOSEQ-SET: genbank: lcl|Contig40128
