@@ -1,8 +1,11 @@
 import os
-filelist = os.listdir()
-filelist.remove('.DS_Store')
-filelist.remove('tablemaker.py')
-filelist.remove('results_table.tsv')
+
+homedir = "/Users/zoliq/ownCloud/"
+#homedir = "/Volumes/zoliq data/ownCloud"
+wd = homedir + "progs/SCRIPTS/Kinannote_1.0/results/"
+os.chdir(wd)
+
+filelist = [f for f in os.listdir(".") if f.endswith("txt")]
 print("Files to be analyzed: ", filelist, "\n\n")
 
 #first, create a list of all kinases in the results

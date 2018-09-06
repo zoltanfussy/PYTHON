@@ -162,7 +162,7 @@ for f in tqdm(files, desc="progress"):
 #or
 with open(queryfile) as f:
 	seqcount = f.read().count(">")
-print("Sequence reading progress: {0:.1f}%".format(100*(c / seqcount)))
+print("Sequence reading progress: {:.1f}%".format(100*(c / seqcount)))
 
 #useful functions
 def query_yes_no(question, default="yes"):
