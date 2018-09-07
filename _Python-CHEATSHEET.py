@@ -80,8 +80,8 @@ else:
 	choice = raw_input().lower()
 
 import time
-print("Start time:", ctime())
-print("Finish time:", ctime())
+print("Start time:", time.ctime())
+print("Finish time:", time.ctime())
 
 
 
