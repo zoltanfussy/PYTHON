@@ -2,6 +2,10 @@ import os
 from Bio import SeqIO
 import time
 
+#IMPORTANT BUG - when looking for flanking polymorphisms, SNPs of neighbouring genes may be 
+#falsely included as intra-CDS!
+#code rewritten but not tested
+
 homedir = "/Users/zoliq/ownCloud/"
 #homedir = "/Volumes/zoliq data/ownCloud/"
 wd = homedir + "genomes/phatr/happy phatr"
@@ -448,17 +452,14 @@ with open("compared_annotations_chosen_targets.txt", "w") as result, \
 				details.write("\t{}\n".format(formulation.replace("@0.0% length","flanking")))
 		if key in polymorphisms_near_genes:
 			for p in polymorphisms_near_genes[key]:
-				formulation = "{}:{}({}@{:.1f}% length);Freq:{},Pval:{},Strand-Bias:{}".format(p, 
-				polymorphisms_d[p]["Protein Effect"], 
-				polymorphisms_d[p]["Amino Acid Change"],
-				polymorphisms_d[p]["CDS Position"]/coupled_d[key]["CDS Length"]*100,
+				formulation = "{}:(flanking);Freq:{},Pval:{},Strand-Bias:{}".format(p, 
 				polymorphisms_d[p]["Variant Frequency"],
 				polymorphisms_d[p]["Variant P-Value"],
 				polymorphisms_d[p]["Strand-Bias"])
-				details.write("\t{}\n".format(formulation.replace("@0.0% length","flanking")))
+				details.write("\t{}\n".format(formulation))
 
 fastadb = {}
-print("Writing protein fasta for gene function annotation...")
+print("Writing protein fasta for gene functional annotation...")
 with open("compared_annotations.fasta", "w") as out:
 	for f in fastafile:
 		if f.name.split(".")[0] in notable_mutations:

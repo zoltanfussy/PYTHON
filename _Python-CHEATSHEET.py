@@ -164,6 +164,15 @@ with open(queryfile) as f:
 	seqcount = f.read().count(">")
 print("Sequence reading progress: {:.1f}%".format(100*(c / seqcount)))
 
+
+from __future__ import division
+import numpy as np
+
+data = np.genfromtxt('file.pdb') #effective way how to import tables directly into an array
+array = data[:, -3:] #if the data is here
+np.mean(data[:,-3:], axis=0) #mean along the vertical axis, more or less means calculate centroid
+
+
 #useful functions
 def query_yes_no(question, default="yes"):
 	"""Ask a yes/no question via raw_input() and return their answer.
