@@ -4,6 +4,7 @@ homedir = "/Users/zoliq/ownCloud/"
 #homedir = "/Volumes/zoliq data/ownCloud"
 wd = homedir + "Jankoviny/Tick_transcriptome/"
 
+
 os.chdir(wd)
 
 with open("GOtable.txt", "w") as result:

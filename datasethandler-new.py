@@ -10,8 +10,14 @@ parser.add_argument('-t', '--treemaker', help='Program for tree inference', defa
 
 args = parser.parse_args()
 
-os.chdir("/Users/zoliq/ownCloud/Jankoviny/Tick_transcriptome/fucosyltree/family-specific")
-outdir = "TREE3"
+
+#home = "/Users/zoliq/ownCloud/"
+home = "/Volumes/zoliq data/OwnCloud/"
+os.chdir(home + "genomes/euglena gracilis/trees")
+for generation in range(1,15):
+	if os.path.isdir("TREE" + str(generation)) == False:
+		outdir = "TREE" + str(generation)
+		break
 
 allowed = ("fasta", "fas", "fst", "phy", "phylip")
 if args.infile == "batch":
@@ -24,6 +30,7 @@ else:
 	quit("file type not recognized - is it fasta/fas/fst or phy/phylip?")
 
 print("Files to be analyzed: " + ", ".join(infilelist))
+print("Data output to dir: " + outdir)
 
 badchars = ("|@+,:;()'") #also []/
 taxonpattern = r'\[(.+)\]'

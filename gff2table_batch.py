@@ -6,6 +6,7 @@ homedir = "/Users/zoliq/ownCloud/"
 #homedir = "/Volumes/zoliq data/ownCloud"
 wd = homedir + "Jankoviny/Tick_transcriptome/"
 
+
 os.chdir(wd)
 
 files = os.listdir('./interproscan/')

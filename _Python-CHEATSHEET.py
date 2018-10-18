@@ -1,5 +1,11 @@
 if isinstance(function, str): #determine if instance is string/list/set/whatever
 
+#non-ascii character error:
+import io
+notincluded = io.open("abstracts.txt", "r", encoding="utf-8") #this is an analog of open(file).read()
+
+break vs continue #break ends the for loop, continue end the cycle for the current item
+
 import re
 IPSpattern = r'"InterPro: (\w+)'
 IPSID = re.search(IPSpattern, line).group(1)
@@ -142,7 +148,8 @@ if sequence.startswith('>'):
 
 
 #to print shortened decimals
-print '%.3f' % (somenumber)
+print('%.3f' % (somenumber))
+print("{:.2f}".format(somenumber))
 
 
 #avoid trailing newline in fastq

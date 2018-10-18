@@ -4,7 +4,10 @@ import argparse
 from Bio import SeqIO
 
 #set working directory
-os.chdir("/Users/zoliq/ownCloud/genomes/bico/genomeseq/spadesfilt/draft genome/trees")
+homedir = "/Users/zoliq/ownCloud/"
+#homedir = "/Volumes/zoliq data/ownCloud/"
+wd = homedir + "Jankoviny/Tick_transcriptome/lectintree"
+os.chdir(wd)
 
 print("This script removes unwanted branches from a dataset based on an input nexus tree.")
 print("Mark the branches to be removed in the input tree by a colour (using FigTree). Please use basic colours or format found in your nex file. ")

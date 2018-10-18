@@ -56,3 +56,18 @@ elif filetype == "fasta":
 				else:
 					description = "".join(x for x in l.description if x not in badchars)
 					out.write(">{}\n{}\n".format(description, l.seq))
+
+"""
+Swissprot works in a similar way:
+>>> from Bio import ExPASy,SwissProt
+
+>>> handle = ExPASy.get_sprot_raw(hitid)
+>>> record = SwissProt.read(handle)
+>>> dir(record)
+['__doc__', '__init__', '__module__', 'accessions', 'annotation_update',
+'comments', 'created', 'cross_references', 'data_class', 'description',
+'entry_name', 'features', 'gene_name', 'host_organism', 'keywords',
+'molecule_type', 'organelle', 'organism', 'organism_classification',
+'references', 'seqinfo', 'sequence', 'sequence_length',
+'sequence_update', 'taxonomy_id']
+"""

@@ -314,7 +314,9 @@ print("After reiteration, {} uncoupled CDS, {} uncoupled genes remained".format(
 # here we reiterate through PMs and genes to match them
 #to assign a list of polymorphisms to genes:
 polymorphisms_in_genes = {}
+SNPs_in = set()
 polymorphisms_near_genes = {}
+SNPs_near = set()
 #polymorphisms_in_genes[gene_id] = {set()}
 uncoupled_id = {}
 # maybe a little renaming of subkeys would be appropriate:
@@ -357,6 +359,7 @@ for PMrange in polymorphisms_d:
 
 		#here we extract PMs within identified genes - this should be after all genes/PMs were loaded!
 		if overlaps(span, gene_span) in ("embed", "overlap"):
+			SNPs_in.add(span)
 			if gene_id not in polymorphisms_in_genes.keys():
 				polymorphisms_in_genes[gene_id] = set([PMrange])
 			else:		
@@ -365,11 +368,15 @@ for PMrange in polymorphisms_d:
 				coupled_d[gene_id].update({"has_polymorphisms": polymorphisms_in_genes[gene_id]})
 		#optionally, we could extract PMs in close vicinity to genes, say 500bp each direction
 		elif overlaps(span, (gene_span[0]-500, gene_span[1]+500)) in ("embed", "overlap"):
+			SNPs_near.add(span)
 			if gene_id not in polymorphisms_near_genes.keys():
 				polymorphisms_near_genes[gene_id] = set([PMrange])
 			else:		
 				polymorphisms_near_genes[gene_id].add(PMrange)
 print("SNP assignment finish time:", time.ctime())
+with open("compared_annotations_stats.txt", "w") as stat:
+	stat.write("{} SNPs in genes, {} SNPs near genes (+- 500 bp flanking sequence)\n".format(len(SNPs_in), len(SNPs_near - SNPs_in)))
+	print("{} SNPs in genes, {} SNPs near genes (+- 500 bp flanking sequence)".format(len(SNPs_in), len(SNPs_near - SNPs_in)))
 
 # filtering and writing results
 print("Now to filter and write results...")
