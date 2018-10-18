@@ -3,6 +3,7 @@ from Bio import SeqIO
 
 os.chdir("/Users/zoliq/ownCloud/progs/PYTHON/mydata")
 """
+prefixes = [x for x in os.listdir() if x.endswith(".ali")]
 prefixes = ["PF00134_rp75", "PF02984_rp75"]
 for prefix in prefixes:
 	os.system("~/.local/bin/hmmer-3.2.1/src/hmmbuild {0}.hmm {0}.ali".format(prefix))
