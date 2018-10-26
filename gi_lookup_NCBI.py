@@ -7,11 +7,11 @@ filetype =  ["fasta", "renamefile"][0]
 
 badchars = ("|@+,:;()'")
 allowed = ("fasta", "fas", "fst", "phy", "phylip")
-os.chdir("/Users/zoliq/ownCloud/Jankoviny/Tick_transcriptome/fucosyltree/family-specific")
+os.chdir("/Users/zoliq/ownCloud/Jankoviny/Tick_transcriptome/lectintree-filt")
 if filetype == "renamefile":
 	files = [x for x in os.listdir(".") if x.startswith("rename")]
 	for file in files:
-		newfile = "new" + file
+		newfile = "new_" + file
 		print("Processing file " + file)
 		with open(file) as f, open(newfile, "w") as out:
 			for l in f:
@@ -35,7 +35,7 @@ elif filetype == "fasta":
 	files = [x for x in os.listdir(".") if x.endswith("fasta")]
 	#test purposes only: files = ["STT3_pfam02516.fasta"]
 	for file in files:
-		newfile = "new" + file
+		newfile = "new_" + file
 		print("Processing file " + file)
 		f = SeqIO.parse(file, "fasta")
 		with open(newfile, "w") as out:

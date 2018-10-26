@@ -6,7 +6,7 @@ from Bio import SeqIO
 #set working directory
 homedir = "/Users/zoliq/ownCloud/"
 #homedir = "/Volumes/zoliq data/ownCloud/"
-wd = homedir + "Jankoviny/Tick_transcriptome/lectintree"
+wd = homedir + "genomes/chromera/trees/cell_cycle/new_set"
 os.chdir(wd)
 
 print("This script removes unwanted branches from a dataset based on an input nexus tree.")
@@ -31,7 +31,7 @@ else:
 intree = open(args.tree).read()
 filtercolour = args.colour
 
-basecolours = {'blue': '0000ff', 'brown': '996633', 'cyan': '00ffff', 'green': '00ff00', 'magenta': 'ff00ff', 'orange': 'ff8000', 'purple': '800080', 'red': 'ff0000' , 'yellow': 'ffff00'}
+basecolours = {'blue': '0000ff', 'brown': '996633', 'cyan': '00ffff', 'green': '00ff00', 'magenta': 'ff00ff', 'orange': 'ff8000', 'purple': '800080', 'red': 'ff0000' , 'yellow': 'ffff00', 'white': 'ffffff'}
 black = ['-16777216', '000000']
 if filtercolour in basecolours:
 	filtercolour = basecolours[filtercolour]
