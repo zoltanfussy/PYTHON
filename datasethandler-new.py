@@ -102,14 +102,21 @@ for file in infilelist:
 			renaming.write("{}\t{}\n".format(value[1][:50], value[0]))
 			safefile.write(">{}\n{}\n".format(value[1][:50], value[2]))
 
-	command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir)
+	if args.aligner == "run_pasta.py":
+		command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir)
+	elif args.aligner == "mafft":
+		command = "{0} --maxiterate 1000 --localpair --thread 4 {1} > safe-{1}.aln".format(args.aligner, filename)
 	print("PHYLOHANDLER: issuing aligner\n" + command)
 	os.system(command)
 
 	#copy and rename PASTA alignment to current directory and issue trimal
-	os.system("cp ./{1}/{0}.marker001.safe-{0}.aln ./safe-{0}.aln".format(filename, outdir))
-	print("PHYLOHANDLER: issuing trimmer:\ntrimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -automated1".format(filename))
-	os.system("trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.1".format(filename)) #-gappyout / -automated1 / -gt 0.3
+	if args.aligner == "run_pasta.py":
+		os.system("cp ./{1}/{0}.marker001.safe-{0}.aln ./safe-{0}.aln".format(filename, outdir))
+		print("PHYLOHANDLER: issuing trimmer:\ntrimal -in safe-{0}.aln -out trim-{0}.aln -fasta -automated1".format(filename))
+		os.system("trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.1".format(filename)) #-gappyout / -automated1 / -gt 0.3
+	elif args.aligner == "mafft":
+		print("PHYLOHANDLER: issuing trimmer:\ntrimal -in safe-{0}.aln -out trim-{0}.aln -fasta -automated1".format(filename))
+		os.system("trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.1".format(filename)) #-gappyout / -automated1 / -gt 0.3		
 
 	#open trimal-trimmed alignment for dumping any gaps-only sequences
 	trimalignmentfile = AlignIO.read("trim-{0}.aln".format(filename), "fasta")
