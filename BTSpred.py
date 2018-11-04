@@ -18,7 +18,6 @@ args = parser.parse_args()
 
 filename = args.infile.split(".")[0]
 
-#tahle funkce mozna nekamaradi s Ubuntu:
 def query_yes_no(question, default="yes"):
 	"""Ask a yes/no question via raw_input() and return their answer.
 
@@ -86,10 +85,6 @@ predisi = open("predisi.txt").readlines()
 predsl = open("predsl.txt").readlines()
 
 
-##########
-#!!!!!!!!TADY JE TREBA UPRAVIT INDEXY PODLE VYSTUPU TECH PREDIKTORU!!!!
-#########
-
 print("parsing PrediSi and PredSL predictions and sequences into data dictionary")
 for line in predisi:
 	line = line.split("\t")
@@ -105,7 +100,7 @@ for line in predisi:
 for line in predsl:
 	line = line.split()
 	#sequence id	mTP score	SP score	prediction	cleavage site
-	#[0]			[1]		[2]			[3]			[4]			
+	#[0]			[1]			[2]			[3]			[4]			
 	if line[0] in names:
 		name = line[0]
 		#line[3] for nonplant prediction - complex algae
