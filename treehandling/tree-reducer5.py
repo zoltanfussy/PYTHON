@@ -4,9 +4,9 @@ import argparse
 from Bio import SeqIO
 
 #set working directory
-homedir = "/Users/zoliq/ownCloud/"
-#homedir = "/Volumes/zoliq data/ownCloud/"
-wd = homedir + "genomes/chromera/trees/cell_cycle/new_set"
+#homedir = "/Users/zoliq/ownCloud/"
+homedir = "/Volumes/zoliq data/ownCloud/"
+wd = homedir + "genomes/euglena longa/trees/MTOX"
 os.chdir(wd)
 
 print("This script removes unwanted branches from a dataset based on an input nexus tree.")
