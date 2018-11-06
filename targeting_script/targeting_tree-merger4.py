@@ -82,6 +82,7 @@ for item in asafind:
 		preds_d[name] = {'asafind': pred}
 
 
+#HECTAR is not so great
 hectar = open(prefix + "-hectar.txt").read().split('\n')
 possiblepredshectar = {'mitochondrion': 'MITOCHONDRION', 'no signal peptide or anchor': 'OTHER', 'other localisation': 'OTHER', 'chloroplast': 'PLASTID', 'signal anchor': 'SIGNAL', 'signal peptide': 'SIGNAL'}
 for item in hectar:
@@ -149,7 +150,7 @@ for item in hectar:
 				leavesfrompreds.add(name)
 
 
-ML2ANIM = open(prefix + "-ML2animalHI.txt").read().split('\n')
+ML2ANIM = open(prefix + "-ML2animal.txt").read().split('\n')
 possiblepredsml2 = {"chloroplast": "PLASTID", 'cytoplasmic': "CYTOSOL", "ER": "ER", "extracellular": "EXTRACELLULAR", "Golgi apparatus": "GOLGI", "mitochondrial": "MITOCHONDRION", "nuclear": "NUCLEUS", "lysosomal": "LYSOSOME", "peroxisomal": "PEROXISOME", "plasma membrane": "PLASMA MEMBRANE", "vacuolar": "VACUOLE"}
 for item in ML2ANIM:
 	#protein	decreasing localization predictions from: cytoplasmic, ER, extracellular, Golgi apparatus, mitochondrial, nuclear, lysosomal, peroxisomal, plasma membrane
@@ -166,7 +167,7 @@ for item in ML2ANIM:
 			leavesfrompreds.add(name)
 
 
-ML2PLANT = open(prefix + "-ML2plantHI.txt").read().split('\n')
+ML2PLANT = open(prefix + "-ML2plant.txt").read().split('\n')
 for item in ML2PLANT:
 	#protein	decreasing localization predictions from: chloroplast, cytoplasmic, ER, extracellular, Golgi apparatus, mitochondrial, nuclear, lysosomal, peroxisomal, plasma membrane, vacuolar
 	if not item.startswith('#') and len(item) != 0:
@@ -249,71 +250,105 @@ print("preds_dictionary collected")
 #### Read own codes ####
 ########################
 #read predefined taxa codes
-taxacodes = {
-	'crypGUILt': 'Guillardia theta', 'rhiAMMOs': 'Ammonia sp.', 'dinGYMNc': 'Gymnodinium catenatum', 'funASPEf': 'Aspergillus fumigatus', 
-	'kytORYZs': 'Oryza sativa Japonica', 'amoPAULc': 'Paulinella chromatophora', 'dinLINGp': 'Lingulodinium polyedra', 'oomPHYra': 'Phytophthora ramorum', 
-	'hwal': 'Haloquadratum walsbyi', 'alfaNITRh': 'Nitrobacter hamburgensis', 'chryHETak': 'Heterosigma akashiwo', 'mlep': 'Mycobacterium leprae', 
-	'chlaLOTam': 'Lotharella amoebiformis', 'strTHRAs': 'Thraustochytrium sp.', 'rhiPLASb': 'Plasmodiophora brassicae', 
-	'strNANNO': 'Nannochloropsis gaditana B-31', 'redTIMSo': 'Timspurckia oligopyrenoides', 'chryCHATs': 'Chattonella subsalsa', 
-	'rhiROSAs': 'Rosalina sp.', 'tgon': 'Toxoplasma gondii', 'ddis': 'Dictyostelium discoideum', 'rhiSORIs': 'Sorites sp.', 
-	'strCAFca': 'Cafeteria Caron', 'mmar': 'Methanococcus maripaludi', 'perkPmari': 'Perkinsus marinus', 'dhan': 'Debaryomyces hansenii', 
-	'crei': 'Chlamydomonas reinhardtii', 'hsap': 'Homo sapiens', 'gamaYERSp': 'Yersinia pestis', 'sent': 'Salmonella enterica', 
-	'firmLISTm': 'Listeria monocytogenes', 'bant': 'Bacillus anthracis', 'osat': 'Oryza sativa Japonica', 'grnBATHp': 'Bathycoccus prasinos', 
-	'apiCRYPm': 'Cryptosporidium muris', 'redGALDs': 'Galdieria sulphuraria', 'actiMYCOt': 'Mycobacterium tuberculosis', 'dinHETtr': 'Heterocapsa triquestra', 
-	'cele': 'Caenorhabditis elegans', 'cbot': 'Clostridium botulinum', 'rhiPARTg': 'Partenskyella glossopodia', 'dinCRYPc': 'Crypthecodinium cohnii', 
-	'cilFAVta': 'Favella taraikaensis', 'deth': 'Dehalococcoides ethenogenes', 'atha': 'Arabidopsis thaliana', 'cilTETRt': 'Tetrahymena thermophila', 
-	'cjej': 'Campylobacter jejuni', 'ypes': 'Yersinia pestis', 'archPYROa': 'Pyrobaculum aerophilum', 'redRHSOm': 'Rhodosorus marinus', 
-	'redCHONc': 'Chondrus crispus', 'archSULFt': 'Sulfolobus tokodaii', 'cneg': 'Cryptococcus neoformans', 'strECTsi': 'Ectocarpus siliculosus', 
-	'cyanSYNEs': 'Synechococcus sp.', 'alfaRICKc': 'Rickettsia conori', 'grnPOLYp': 'Polytomella parva', 'wend': 'Wolbachia endosymbiont', 
-	'gamaSHEWb': 'Shewanella baltica', 'oomPYTHu': 'Pythium ultimum', 'chryPTERd': 'Pteridomonas danica', 'aaeo': 'Aquifex aeolicus', 
-	'cyanPROCm': 'Prochlorococcus marinus', 'tpal': 'Treponema pallidum', 'redCYANm': 'Cyanidioschyzon merolae', 'haptPRYMp': 'Prymnesium parvum', 
-	'betaCUPRn': 'Cupriavidus necator', 'dinCERAf': 'Ceratium fusus', 'cpne': 'Chlamydophila pneumoniae', 'haptPLEUc': 'Pleurochrysis carterae', 
-	'strAURAl': 'Aurantiochytrium limacinum', 'glauGLOwi': 'Gloeochaete wittrockiana', 'apiGREGn': 'Gregarina niphandrodes', 
-	'dinAMPHm': 'Amphidinium massartii', 'cilEUPfo': 'Euplotes focardii', 'chlaLOTgl': 'Lotharella globosa', 'dinAMPHc': 'Amphidinium carterae', 
-	'rhiMINch': 'Minchinia chitonis', 'grnPYRpa': 'Pyramimonas parkeae', 'tbru': 'Trypanosoma brucei', 'vcho': 'Vibrio cholerae', 
-	'cyanTHERe': 'Thermosynechococcus elongatus', 'gsul': 'Geobacter sulfurreducens', 'dmel': 'Drosophila melanogaster', 'redPORpu': 'Porphyra purpurea', 
-	'grnCHLAr': 'Chlamydomonas reinhardtii', 'cyanCYANp': 'Cyanothece sp.', 'dinOXYma': 'Oxyrrhis marina', 'dinALEXt': 'Alexandrium tamarense', 
-	'funLACCb': 'Laccaria bicolor', 'excNAEgr': 'Naegleria gruberi', 'tcru': 'Trypanosoma cruzi', 'strTHAps': 'Thalassiosira pseudonana', 
-	'mtub': 'Mycobacterium tuberculosis', 'dinALEXc': 'Alexandrium catenella', 'excPERco': 'Percolomonas cosmopolitus', 'dinALEXa': 'Alexandrium andersonii', 
-	'cilLITOp': 'Litonotus pictus', 'alfaMAGNm': 'Magnetospirillum magneticum', 'grnCHLOv': 'Chlorella variabilis', 'cpos': 'Coccidioides posadasii', 
-	'strAPLAs': 'Aplanochytrium stocchinoi', 'redRHOma': 'Rhodella maculata', 'grnOSTRt': 'Ostreococcus tauri', 'eugEUTn': 'Eutreptiella gymnastica NIES-381', 
-	'grnVOLVc': 'Volvox carteri f. nagariensis', 'aniMONOb': 'Monosiga brevicollis', 'chryOCHRO': 'Ochromonas sp.', 'sfle': 'Shigella flexneri', 
-	'eugEUTc': 'Eutreptiella gymnastica CCMP1594', 'firmSTAPa': 'Staphyllococcus aureus', 'dinKARmi': 'Karlodinium micrum', 'sman': 'Schistosoma mansoni', 
-	'chlaLOToc': 'Lotharella oceanica', 'cilPARAt': 'Paramecium tetraurelia', 'dinDURIb': 'Durinskia baltica', 'apiCHROv': 'Chromera velia', 
-	'kytPHYSp': 'Physcomitrella patens', 'grnCOCCs': 'Coccomyxa subellipsoidea', 'cilFABRs': 'Fabrea salina', 'spom': 'Schizosaccharomyces pombe', 
-	'ylip': 'Yarrowia lipolytica', 'dinPYROb': 'Pyrodinium bahamense', 'strCAFro': 'Cafeteria roenbergensis', 'amoACANc': 'Acanthamoeba castellanii', 
-	'kytARABt': 'Arabidopsis thaliana', 'dinKARb': 'Karenia brevis', 'ggal': 'Gallus gallus', 'betaRALSs': 'Ralstonia solanacearum', 
-	'crypRHOsa': 'Rhodomonas salina', 'lmon': 'Listeria monocytogenes', 'apiVOROp': 'Voromonas pontica', 'actiCORYd': 'Corynebacter diphteriae', 
-	'betaVERMe': 'Verminephrobacter eiseniae', 'rhiELPHm': 'Elphidium margitaceum', 'ctep': 'Chlorobium tepidum', 'hapISOCHg': 'Isochrysis galbana', 
-	'alfaAZOSs': 'Azospirillum sp.', 'cilTIARf': 'Tiarina fusus', 'chlaBIGna': 'Bigelowiella natans', 'eugEUGlo': 'Euglena longa', 'ppat': 'Physcomitrella patens', 
-	'dinNOCTs': 'Noctiluca scintillans', 'haptEMILh': 'Emiliania huxleyi', 'cyanLYNGp': 'Lyngbya sp.', 'cyanANABv': 'Anabaena variabilis', 
-	'calb': 'Candida albicans', 'apiTOXOg': 'Toxoplasma gondii', 'cper': 'Clostridium perfringens', 'tmar': 'Thermotoga maritima', 'wsuc': 'Wolinella succinogenes', 
-	'pfal': 'Plasmodium falciparum', 'ecol': 'Escherichia coli', 'chlaLOTHs': 'Lotharella sp.', 'betaBURKc': 'Burkholderia cenocepacia', 
-	'cilPLATm': 'Platyophrya macrostoma', 'eugEUGgr': 'Euglena gracilis', 'redPORae': 'Porphyridium aerugineum', 'crypCHROO': 'Chroomonas cf. mesostigmatica', 
-	'bcidFLAVc': 'Flavobacterium columnare', 'mmus': 'Mus musculus', 'glauCYPTg': 'Cyanoptyche gloeocystis', 'mjan': 'Methanocaldococcus jannaschii', 
-	'grnPYRam': 'Pyramimonas amylifera', 'ssol': 'Sulfolobus solfataricus', 'cyanNODUs': 'Nodularia spumigena', 'grnDUNte': 'Dunaliella tertiolecta', 
-	'actiSTREc': 'Streptomyces coelicolor', 'glauCYApa': 'Cyanophora paradoxa', 'chryVAUCH': 'Vaucheria litorea', 'grnMICRp': 'Micromonas pusilla', 
-	'bcidBACTf': 'Bacteroides fragilis', 'apiTHEIe': 'Theileria equi', 'eugTRYPb': 'Trypanosoma brucei', 'aory': 'Aspergillus oryzae', 
-	'strPHAtr': 'Phaeodactylum tricornutum', 'dinKRYPf': 'Kryptoperidinium foliaceum', 'amoDICTd': 'Dictyostelium discoideum', 'firmBACIa': 'Bacillus anthracis', 
-	'saur': 'Staphylococcus aureus', 'dinHETro': 'Heterocapsa rotundata', 'msed': 'Metallosphaera sedula', 'dinGLENf': 'Glenodinium foliaceum', 
-	'tvol': 'Thermoplasma volcanium', 'archTHERv': 'Thermoplasma volcanium', 'apiVITbr': 'Vitrella brassicaformis', 'spne': 'Streptococcus pneumoniae', 
-	'bcidPORPg': 'Porphyromonas gingivalis', 'redERYTm': 'Erythrolobus madagascarensis', 'bmaa': 'Brugia malayi', 'bmal': 'Burkholderia mallei', 
-	'cilCONDm': 'Condylostoma magnum', 'alfaRHODs': 'Rhodobacter sphaeroides', 'eugLEISm': 'Leishmania major', 'ncra': 'Neurospora crassa', 
-	'bsui': 'Brucella suis', 'crypGUIth': 'Guillardia theta', 'mmul': 'Macaca mulatta', 'kytSELAm': 'Selaginella moellendorffii', 'dinSYMBs': 'Symbiodinium sp.', 
-	'gamaVIBRc': 'Vibrio cholerae', 'rsol': 'Ralstonia solanacearum', 'apiEIMEt': 'Eimeria tenella', 'strSKEma': 'Skeletonema marinoi', 
-	'aful': 'Archaeoglobus fulgidus', 'afum': 'Aspergillus fumigatus', 'cbur': 'Coxiella burnetii', 'archPICRt': 'Picrophilus torridus', 
-	'strAUREa': 'Aureococcus anophagefferens', 'drad': 'Deinococcus radiodurans', 'egos': 'Eremothecium gossypii', 'klac': 'Kluyveromyces lactis', 
-	'cyanCROCw': 'Crocosphaera watsonii', 'ftul': 'Francisella tularensis', 'rbal': 'Rhodopirellula baltica', 'redMADAe': 'Madagascaria erythrocladoides', 
-	'apiNEOSc': 'Neospora caninum', 'amoENTAh': 'Entamoeba histolytica', 'crypCRYpa': 'Cryptomonas paramecium', 'ecab': 'Equus caballus', 
-	'funCRYPn': 'Cryptococcus neoformans', 'dinPRORm': 'Prorocentrum minimum', 'cimm': 'Coccidioides immitis', 'scer': 'Saccharomyces cerevisiae', 
-	'chryDINOB': 'Dinobryon sp.', 'redERYTa': 'Erythrolobus australicus', 'aniDROSm': 'Drosophila melanogaster', 'bcidPREVr': 'Prevotella ruminicola', 
-	'strNANNg': 'Nannochloropsis gaditana', 'dinDINac': 'Dinophysis acuminata',	'amoSTYGA': 'Stygamoeba regulata', 'hapEXANg': 'Exanthemachrysis gayraliae', 
-	'strPELAG': 'Pelagomonas calceolata', 'strFRAGk': 'Fragilariopsis kerguelensis', 'dinKARZ': 'Karenia brevis', 	'strCYLIN': 'Cylindrotheca closterium', 
-	'strCHRRH': 'Chrysoreinhardia', 'strDICTY': 'Dictyocha speculum', 'strTHNEn': 'Thalassionema nitzschioides', 'strMALLO': 'Mallomonas', 'strPHEOM': 'Phaeomonas parva', 
-	'crypRHODl': 'Rhodomonas lens', 'hapPLEUc': 'Pleurochrysis carterae', 'strAUREl': 'Aureoumbra lagunensis', 'glauGLOEw': 'Gloeochaete wittrockiana', 
-	'strSTAUR': 'Staurosira', 'eugEUTgn': 'Eutreptiella gymnastica NIES-381', 'hapSCYPH': 'Scyphosphaera apsteinii'
-
-}
+taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium tuberculosis", 
+"actiSTREc": "Streptomyces coelicolor", "alfaAZOSs": "Azospirillum sp. B506", 
+"alfaMAGNm": "Magnetospirillum magneticum", "alfaNITRh": "Nitrobacter hamburgensis", 
+"alfaRHODs": "Rhodobacter sphaeroides", "alfaRICKc": "Rickettsia conori", 
+"amoACANc": "Acanthamoeba castellanii str neff", "amoDICTd": "Dictyostelium discoideum", 
+"amoENTAh": "Entamoeba histolytica", "amoFILAn": "Filamoeba nolandi", "amoPOLYp": "Polysphondylium pallidum pn500", 
+"amoSEXAN": "Sexangularia sp. CB-2014", "amoSTYGA": "Stygamoeba regulata", "amoVANEL": "Vannella", 
+"apiBABEb": "Babesia bovis", "apiCHROv": "Chromera velia", "apiCRYPm": "Cryptosporidium muris", 
+"apiEIMEt": "Eimeria tenella", "apiGREGn": "Gregarina niphandrodes", "apiNEOSc": "Neospora caninum", 
+"apiTHEIe": "Theileria equi", "apiTOXOg": "Toxoplasma gondii", "apiVITbr": "Vitrella brassicaformis", 
+"apiVORp": "Voromonas pontica", "archPICRt": "Picrophilus torridus", "archPYROa": "Pyrobaculum aerophilum", 
+"archSULFt": "Sulfolobus tokodaii", "archTHERv": "Thermoplasma volcanium", "bcidBACTf": "Bacteroides fragilis", 
+"bcidFLAVc": "Flavobacterium columnare", "bcidPORPg": "Porphyromonas gingivalis", 
+"bcidPREVr": "Prevotella ruminicola", "betaBURKc": "Burkholderia cenocepacia", "betaCUPRn": "Cupriavidus necator", 
+"betaRALSs": "Ralstonia solanacearum", "betaVERMe": "Verminephrobacter eiseniae", 
+"chlaAMORC": "Amorphochlora amoebiformis", "chlaBIGna": "Bigelowiella natans", "chlaCHLOR": "Chlorarachnion reptans", 
+"chlaLOTam": "Lotharella amoebiformis", "chlaLOTgl": "Lotharella globosa", "chlaLOTgZ": "Lotharella globosa", 
+"chlaLOTHs": "Lotharella sp. CCMP622", "chlaLOToc": "Lotharella oceanica", "chlaPARTg": "Partenskyella glossopodia", 
+"chryCHATs": "Chattonella subsalsa CCMP2191", "chryDINOB": "Dinobryon sp UTEXLB2267", 
+"chryHETak": "Heterosigma akashiwo CCMP3107", "chryOCHRO": "Ochromonas sp. CCMP1393", 
+"chryVAUCH": "Vaucheria litorea CCMP2940", "cilCLIMv": "Climacostomum virens", "cilMESOD": "Mesodinium pulex", 
+"cilLITOp": "Litonotus pictus",
+"cilPARAt": "Paramecium tetraurelia", "cilPLATm": "Platyophrya macrostoma", "cilPROTa": "Protocruzia adherens", 
+"cilPSEUp": "Pseudocohnilembus persalinus", "cilSTENc": "Stentor coeruleus", "cilTETRt": "Tetrahymena thermophila", 
+"crypCHROO": "Chroomonas cf. mesostigmatica", "crypCRYpa": "Cryptomonas paramecium", 
+"crypCRYPp": "Cryptomonas paramecium", "crypGONIp": "Goniomonas pacifica", "crypGUILt": "Guillardia theta", 
+"crypGUIth": "Guillardia theta", "crypPALPb": "Palpitomonas bilix", "crypRHODl": "Rhodomonas lens", 
+"cyanANABv": "Anabaena variabilis", "cyanCROCw": "Crocosphaera watsonii", "cyanCYANp": "Cyanothece sp. PCC 7425", 
+"cyanLYNGp": "Lyngbya sp. PCC 8106", "cyanNODUs": "Nodularia spumigena", "cyanPROCm": "Prochlorococcus marinus", 
+"cyanSYNEs": "Synechococcus sp. PCC 7335", "cyanTHERe": "Thermosynechococcus elongatus", 
+"dinALEXa": "Alexandrium andersonii CCMP2222", "dinALEXc": "Alexandrium catenella OF101", 
+"dinALEXt": "Alexandrium tamarense", "dinAMPHc": "Amphidinium carterae", "dinCERAf": "Ceratium fusus PA161109", 
+"dinCRYPc": "Crypthecodinium cohnii WH Provasly-Seligo", "dinCRYPZ": "Crypthecodinium cohnii", 
+"dinDURIb": "Durinskia baltica CSIRO CS-38", "dinDURIZ": "Durinskia baltica", "dinDINac": "Dinophysis acuminata",
+"dinGLENf": "Glenodinium foliaceum CCAP 1116-3", "dinGYMNc": "Gymnodinium catenatum", 
+"dinHETro": "Heterocapsa rotundata SCCAP K-0483", "dinHETtr": "Heterocapsa triquestra CCMP 448", 
+"dinKARb": "Karenia brevis SP1", "dinKARL": "Karlodinium veneficum", "dinKARmi": "Karlodinium micrum CCMP2283", 
+"dinKARZ": "Karenia brevis", "dinKRYPf": "Kryptoperidinium foliaceum", "dinLINGp": "Lingulodinium polyedra CCMP 1738", 
+"dinNOCTs": "Noctiluca scintillans", "dinOXYma": "Oxyrrhis marina", "dinPERKm": "Perkinsus marinus", 
+"dinPRORm": "Prorocentrum minimum", "dinPYROb": "Pyrodinium bahamense", "dinSCRIP": "Scrippsiella hangoei", 
+"dinSYMBs": "Symbiodinium sp.", "eugANGOd": "Angomonas deanei", "eugBODOs": "Bodo saltans", 
+"eugEUGgr": "Euglena gracilis", "eugEUGlo": "Euglena longa", "eugEUTc": "Eutreptiella gymnastica CCMP1594", 
+"eugEUTn": "Eutreptiella gymnastica NIES-381", "eugLEISm": "Leishmania major", "eugNEOBd": "Neobodo designis", 
+"eugPHYTO": "Phytomonas sp isolate em1", "eugTRYPb": "Trypanosoma brucei", "excNAEgr": "Naegleria gruberi", 
+"excPERco": "Percolomonas cosmopolitus ATCC50343", "firmBACIa": "Bacillus anthracis", 
+"firmLISTm": "Listeria monocytogenes", "firmSTAPa": "Staphyllococcus aureus", "funASPEf": "Aspergillus fumigatus", 
+"funCRYPn": "Cryptococcus neoformans", "funDEBAh": "Debaryomyces hansenii cbs767", "funLACCb": "Laccaria bicolor", 
+"funNEURc": "Neurospora crassa", "funPUCCg": "Puccinia graminis", "funSCHIp": "Schizosaccharomyces pombe", 
+"gamaSHEWb": "Shewanella baltica", "gamaVIBRc": "Vibrio cholerae", "gamaYERSp": "Yersinia pestis", 
+"glauGLOEw": "Gloeochaete wittrockiana", "glauCYApa": "Cyanophora paradoxa", 
+"glauCYPTg": "Cyanoptyche gloeocystis SAG4.97", "glauGLOwi": "Gloeochaete wittrockiana SAG46.84", 
+"grnBATHp": "Bathycoccus prasinos", "grnCHLAl": "Chlamydomonas leiostraca", "grnHELIs": "Helicosporidium sp.",
+"grnDUNAt": "Dunaliella tertiolecta", "grnMICpu": "Micromonas pusilla CCMP1545", "grnMICRZ": "Micromonas pusilla", 
+"grnNEPHp": "Nephroselmis pyriformis", "grnOSTRm": "Ostreococcus mediterraneus", "grnPICCL": "Picochlorum", 
+"grnPICCY": "Picocystis salinarum", "grnPOLYp": "Polytomella parva", "grnPOLYZ": "Polytomella parva", 
+"grnPRASc": "Prasinococcus capsulatus", "grnPYRam": "Pyramimonas amylifera CCMP720", 
+"grnPYRpa": "Pyramimonas parkeae CCMP726", "grnPYRpZ": "Pyramimonas parkeae", "grnTETRa": "Tetraselmis astigmatica", 
+"grnTETRs": "Tetraselmis striata", "grnVOLVc": "Volvox carteri f. nagariensis", "hapCALCl": "Calcidiscus leptoporus", 
+"hapEXANg": "Exanthemachrysis gayraliae", "hapIMANT": "Imantonia", "hapISOCHg": "Isochrysis galbana", 
+"hapPHEOC": "Phaeocystis", "hapPLEUc": "Pleurochrysis carterae", "hapPRYMp": "Prymnesium parvum", 
+"hapSCYPH": "Scyphosphaera apsteinii", "haptEMILh": "Emiliania huxleyi", "haptEMIZ": "Emiliania huxleyi", 
+"haptPLEUc": "Pleurochrysis carterae", "haptPRYMp": "Prymnesium parvum Texoma1", 
+"hetPERCO": "Percolomonas cosmopolitus", "kytAMBOt": "Amborella trichopoda", "kytARABt": "Arabidopsis thaliana", 
+"kytGLYCm": "Glycine max", "kytHORDv": "Hordeum vulgare", "kytORYZs": "Oryza sativa Japonica", 
+"kytPHYSp": "Physcomitrella patens", "kytSELAm": "Selaginella moellendorffii", "kytSOlyc": "Solanum lycopersicum", 
+"kytZEAma": "Zea mays", "metANOLc": "Anolis carolinensis", "metCAENe": "Caenorhabditis elegans", 
+"metDAPHp": "Daphnia pulex", "metHELOr": "Helobdella robusta", "metLOTTg": "Lottia gigantea", 
+"metNEMAv": "Nematostella vectensis", "metSCHIm": "Schistosoma mansoni", "metSTROp": "Strongylocentrotus purpuratus", 
+"metTRICa": "Trichoplax adhaerens", "opiACANT": "Acanthoeca", "opiMONbr": "Monosiga brevicollis", 
+"opiMONOb": "Monosiga brevicollis", "opiSALPr": "Salpingoeca rosetta", "redCHONc": "Chondrus crispus", 
+"redCOMPS": "Compsopogon caeruleus", "redCYANm": "Cyanidioschyzon merolae", "redERYTa": "Erythrolobus australicus", 
+"redERYTa": "Erythrolobus australicus", "redERYTm": "Erythrolobus madagascarensis", 
+"redERYTm": "Erythrolobus madagascarensis", "redGALDs": "Galdieria sulphuraria", 
+"redMADAe": "Madagascaria erythrocladioides", "redMADAe": "Madagascaria erythrocladioides", 
+"redPORae": "Porphyridium aerugineum SAG 1380-2", "redPORae": "Porphyridium aerugineum", 
+"redPORpu": "Porphyra purpurea", "redRHOma": "Rhodella maculata CCMP736", "redRHOSO": "Rhodosorus marinus", 
+"redTIMSP": "Timspurckia oligopyrenoides", "rhiAMMOs": "Ammonia sp.", "rhiAMMOZ": "Ammonia sp.", 
+"rhiELPHm": "Elphidium margitaceum", "rhiMINch": "Minchinia chitonis", "rhiPARTg": "Partenskyella glossopodia RCC365", 
+"rhiPAULc": "Paulinella chromatophora", "rhiPLASb": "Plasmodiophora brassicae", "rhiROSAL": "Rosalina", 
+"rhiSORIT": "Sorites sp.", "strALBUl": "Albugo laibachii", "strAPHAi": "Aphanomyces invadans", 
+"strAPLAN": "Aplanochytrium", "strAURAl": "Aurantiochytrium limacinum", "strAURAZ": "Aurantiochytrium limacinum", 
+"strAUREN": "Aureococcus anophagefferens", "strAUREE": "Aureococcus anophagefferens", 
+"strAUREa": "Aureococcus anophagefferens", "strAUREl": "Aureoumbra lagunensis", 
+"strBICOS": "Bicosoecida sp. CB-2014", "strBLASh": "Blastocystis hominis", "strBOLID": "Bolidomonas", 
+"strBOLIp": "Bolidomonas pacifica", "strCAFro": "Cafeteria roenbergensis", "strCAFsp": "Cafeteria", 
+"strCAFca": "Cafeteria str Caron", "strCHATs": "Chattonella subsalsa", "strCHRRH": "Chrysoreinhardia", 
+"strCYLIN": "Cylindrotheca closterium", "strDETON": "Detonula confervacea", "strDICTY": "Dictyocha speculum", 
+"strDINOB": "Dinobryon", "strDITYL": "Ditylum brightwellii", "strECTsi": "Ectocarpus siliculosus", 
+"strEXTUs": "Extubocellulus spinifer", "strFRAGk": "Fragilariopsis kerguelensis", "strHETak": "Heterosigma akashiwo", 
+"strMALLO": "Mallomonas", "strNANNg": "Nannochloropsis gaditana B31", "strNITZs": "Nitzschia", 
+"strOCHRO": "Ochromonas", "strODONa": "Odontella aurita", "strPARAb": "Paraphysomonas bandaiensis", 
+"strPELAG": "Pelagomonas calceolata", "strPHAtr": "Phaeodactylum tricornutum v3", "strPHEOM": "Phaeomonas parva", 
+"strPHYpa": "Phytophthora parasitica", "strPHYra": "Phytophtora ramorum", "strPINGU": "Pinguiococcus pyrenoidosus", 
+"strPTERd": "Pteridomonas danica", "strPYTHu": "Pythium ultimum var. sporangiiferum BR650", 
+"strPYTHv": "Pythium vexans", "strRHIZC": "Rhizochromulina marina", "strSAPRd": "Saprolegnia diclina", 
+"strSKEco": "Skeletonema costatum", "strSTAUR": "Staurosira", "strSYNCR": "Synchroma pusillum", 
+"strTHAps": "Thalassiosira pseudonana", "strTHNEM": "Thalassionema frauenfeldii", 
+"strTHNEn": "Thalassionema nitzschioides", "strTHRAU": "Thraustochytrium sp.", "strTHTRX": "Thalassiothrix antarctica", 
+"strVAUCl": "Vaucheria litorea"}
 #high taxon assignment file loaded - we will need this
 high_taxon_assignment = open("high_taxon_assignment.txt").read().split("\n")
 high_taxon_assignment_d = {}
@@ -345,7 +380,7 @@ for leaf in leaveslist:
 leavesfromfasta = set()
 """
 inFasta = SeqIO.parse(prefix + ".fasta", 'fasta')
-badaas = ("JOBUXZ")
+badaas = ("BXZ")
 for seq in inFasta:
 	#define sequence starting with Met, get rid of ambiguous aminoacids
 	first_Met = str(seq.seq).find('M')
@@ -353,10 +388,10 @@ for seq in inFasta:
 	modifseq = ''.join(c for c in modifseq if c not in badaas)
 	seqname = seq.name
 	tag = seqname.split("_")[0]
-	if tag in taxacodes:
-		genus = taxacodes[tag].split()[0]
+	if tag in taxarepl9:
+		genus = taxarepl9[tag].split()[0]
 		hightaxon = high_taxon_assignment_d.get(genus, "unassigned")
-		fullseqname = seqname.replace(tag, taxacodes[tag]) + "@" + hightaxon
+		fullseqname = seqname.replace(tag, taxarepl9[tag]) + "@" + hightaxon
 		taxa[seqname] = fullseqname
 		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"]: # and seq.seq.startswith("M")
 			print(">{}\n{}\n".format(fullseqname, modifseq))
@@ -388,7 +423,7 @@ otherhigher = higherorder - stramenopiles 					#TargetP / ASAFind / MultiLoc-pla
 
 
 
-ignored = {'unclassified', 'Undescribed'} | taxacodes.keys()
+ignored = {'unclassified', 'Undescribed'} | taxarepl9.keys()
 
 missingset = set()
 missingcount = 0
@@ -405,13 +440,13 @@ for leaf in taxa:
 			print("no higher taxon assignment: ", leaf)
 			missingcount += 1
 		if group in opisthokonts:
-			prediction = ("{}_//_{}".format(preds_d[query]["hectar"], preds_d[query]["ML2ANIMAL"]))
+			prediction = ("{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["ML2ANIMAL"]))
 		elif group in otherhetero:
 			prediction = ("{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["ML2ANIMAL"]))
 		elif group in primary:
 			prediction = ("{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["ML2PLANT"]))
 		elif group in stramenopiles:
-			prediction = ("{}_//_{}_//_{}".format(preds_d[query]["hectar"], preds_d[query]["asafind"], preds_d[query]["ML2ANIMAL"]))
+			prediction = ("{}_//_{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["asafind"], preds_d[query]["ML2ANIMAL"]))
 		elif group in otherhigher:
 			prediction = ("{}_//_{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["asafind"], preds_d[query]["ML2ANIMAL"]))
 		else:
@@ -468,7 +503,7 @@ for key in leavesfromfasta:
 	if len(key.split("_")) == 1:
 		print(key) 
 
-taxa.update(taxacodes)
+taxa.update(taxarepl9)
 #taxon renaming in the phylogenetic trees
 inTrees = [s for s in os.listdir('.') if s.endswith('.tre') or s.endswith('.treefile')]
 for currtree in inTrees:

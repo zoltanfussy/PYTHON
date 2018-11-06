@@ -142,6 +142,9 @@ protein = mySL.translate()
 #and other useful things
 badchars = (",:.;()'")
 fullname = ''.join(c for c in fullname if c not in badchars)
+#OR
+prediction = re.sub('[():,]', '', prediction)
+
 
 if sequence.startswith('>'):
 	counter += 1

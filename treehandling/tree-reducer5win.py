@@ -6,8 +6,8 @@ from Bio import SeqIO
 #set working directory
 homedir = "/Users/zoliq/ownCloud/"
 #homedir = "/Volumes/zoliq data/ownCloud/"
-wd = homedir + "genomes/chromera/trees/cell_cycle/new_set"
-#os.chdir(wd)
+wd = homedir + "genomes/euglena longa/trees/MTOX/"
+os.chdir(wd)
 
 print("This script removes unwanted branches from a dataset based on an input nexus tree.")
 print("Mark the branches to be removed in the input tree by a colour (using FigTree). Please use basic colours or format found in your nex file. ")
@@ -98,9 +98,9 @@ for line in treelines:
 
 	else:
 		break
-print(seq_d)
+#print(seq_d)
 
-print("done loading taxa, omitted taxa listed in omitted-%s" % (args.infile))
+print("done loading taxa, omitted taxa listed in omitted-{}".format(args.infile))
 #write omitted taxa
 with open('omitted-' + args.infile, 'w') as f:
 	for taxon in skip:
