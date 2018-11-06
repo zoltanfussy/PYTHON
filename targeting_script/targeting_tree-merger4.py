@@ -16,14 +16,15 @@ from Bio import SeqIO
 homedir = "/Users/zoliq/ownCloud/"
 #homedir = "/Volumes/zoliq data/ownCloud/"
 #wd = homedir + "genomes/phatr/phatr mitoglyco/huge alignments/PASTA alignments nonconverging/goods trimmed/final trees/"
-wd = homedir + "genomes/euglena longa/trees/MTOX/RESULT"
+wd = homedir + "genomes/euglena longa/trees/MTOX/RESULT/"
+datadir = homedir + "progs/PYTHON/targeting_script/"
 os.chdir(wd)
 
 #### Collect Input ####
 #######################
 
 parser = argparse.ArgumentParser(description='How to use argparse')
-parser.add_argument('-p', '--prefix', help='Prediction files prefix', default='mtox')
+parser.add_argument('-p', '--prefix', help='Prediction files prefix', default='4pred')
 parser.add_argument('-t', '--treefile', help='Treefile', default='none')
 parser.add_argument('-a', '--accessions', help='Accession rename key file', default='none')
 parser.add_argument('-d', '--directory', help='Working directory', default='.')
@@ -38,7 +39,7 @@ os.chdir(args.directory)
 #accessions = "leaf_renaming.txt"
 
 print("FILE prefix defined: %s" %(prefix))
-if accessions != 'predefined':
+if accessions != 'none':
 	print("Taxa replacement key defined: %s" %(accessions))
 else:
 	print("Only predefined codes are used.")
@@ -59,8 +60,8 @@ def second_largest(numbers):
     return m2 if count >= 2 else None
 
 
-#### Open and parse inputs ####
-###############################
+#### Open and parse predictions ####
+####################################
 
 preds_d = {} #predictions dictionary
 leavesfrompreds = set()
@@ -73,7 +74,7 @@ for item in asafind:
 	#Identifier	SignalP	ASAfind cleavage position	ASAfind/SignalP cleavage site offset	ASAfind 20aa transit score	ASAfind Prediction
 	#[0]		[1]		[2]							[3]										[4]							[5]	
 	
-	if not item.startswith('#') and len(item) != 0:
+	if not item.startswith('Identifier') and len(item) != 0:
 		item = item.split('\t')
 		name = item[0].split("@")[0]
 		leavesfrompreds.add(name)
@@ -92,7 +93,7 @@ for item in hectar:
 	#protein id	step	error message	signal peptide score	type II signal anchor score
 	#[0]		[1]		[2]				[3]						[4]
 
-	if not item.startswith('#') and len(item) != 0:
+	if not item.startswith('protein id') and len(item) != 0:
 		item = item.split('\t')
 		item = list(filter(None, item)) #remove list() function in python2.x
 		name = item[0].split("@")[0]
@@ -151,36 +152,42 @@ for item in hectar:
 
 
 ML2ANIM = open(prefix + "-ML2animal.txt").read().split('\n')
-possiblepredsml2 = {"chloroplast": "PLASTID", 'cytoplasmic': "CYTOSOL", "ER": "ER", "extracellular": "EXTRACELLULAR", "Golgi apparatus": "GOLGI", "mitochondrial": "MITOCHONDRION", "nuclear": "NUCLEUS", "lysosomal": "LYSOSOME", "peroxisomal": "PEROXISOME", "plasma membrane": "PLASMA MEMBRANE", "vacuolar": "VACUOLE"}
-for item in ML2ANIM:
-	#protein	decreasing localization predictions from: cytoplasmic, ER, extracellular, Golgi apparatus, mitochondrial, nuclear, lysosomal, peroxisomal, plasma membrane
-	if not item.startswith('#') and len(item) != 0:
-		item = item.split('\t')
-		name = item[0].split("@")[0]
-		Loc = possiblepredsml2[item[1].split(':')[0]]
-		pred = ("{}_({} > {})".format(Loc,item[1], item[2]))
-		try:
-			preds_d[name].update({"ML2ANIMAL": pred})
-		except KeyError:
-			print("MultiLoc2-animal: bad key " + name)
-			preds_d[name] = {'ML2ANIMAL': pred}
-			leavesfrompreds.add(name)
+possiblepredsml2 = {"chloroplast": "PLASTID", 'cytoplasmic': "CYTOSOL", "ER": "ER", "extracellular": "EXTRACELLULAR", 
+"Golgi apparatus": "GOLGI", "mitochondrial": "MITOCHONDRION", "nuclear": "NUCLEUS", "lysosomal": "LYSOSOME", 
+"peroxisomal": "PEROXISOME", "plasma membrane": "PLASMA MEMBRANE", "secretory pathway": "SECRETORY", "vacuolar": "VACUOLE"}
+if ML2ANIM[0].startswith("MultiLoc2"):
+	ML2ANIM = ML2ANIM[5:]
+	for item in ML2ANIM:
+		#protein	decreasing localization predictions from: cytoplasmic, ER, extracellular, Golgi apparatus, mitochondrial, nuclear, lysosomal, peroxisomal, plasma membrane
+		if len(item) > 0:
+			item = item.split('\t')
+			name = item[0].split("@")[0]
+			Loc = possiblepredsml2[item[1].split(':')[0]]
+			pred = ("{}_({} > {})".format(Loc,item[1], item[2]))
+			try:
+				preds_d[name].update({"ML2ANIMAL": pred})
+			except KeyError:
+				print("MultiLoc2-animal: bad key " + name)
+				preds_d[name] = {'ML2ANIMAL': pred}
+				leavesfrompreds.add(name)
 
 
 ML2PLANT = open(prefix + "-ML2plant.txt").read().split('\n')
-for item in ML2PLANT:
-	#protein	decreasing localization predictions from: chloroplast, cytoplasmic, ER, extracellular, Golgi apparatus, mitochondrial, nuclear, lysosomal, peroxisomal, plasma membrane, vacuolar
-	if not item.startswith('#') and len(item) != 0:
-		item = item.split('\t')
-		name = item[0].split("@")[0]
-		Loc = possiblepredsml2[item[1].split(':')[0]]
-		pred = ("{}_({} > {})".format(Loc,item[1], item[2]))
-		try:
-			preds_d[name].update({"ML2PLANT": pred})
-		except KeyError:
-			print("MultiLoc2-plant: bad key " + name)
-			preds_d[name] = {'ML2PLANT': pred}
-			leavesfrompreds.add(name)
+if ML2PLANT[0].startswith("MultiLoc2"):
+	ML2PLANT = ML2PLANT[5:]
+	for item in ML2PLANT:
+		#protein	decreasing localization predictions from: chloroplast, cytoplasmic, ER, extracellular, Golgi apparatus, mitochondrial, nuclear, lysosomal, peroxisomal, plasma membrane, vacuolar
+		if not item.startswith('#') and len(item) != 0:
+			item = item.split('\t')
+			name = item[0].split("@")[0]
+			Loc = possiblepredsml2[item[1].split(':')[0]]
+			pred = ("{}_({} > {})".format(Loc,item[1], item[2]))
+			try:
+				preds_d[name].update({"ML2PLANT": pred})
+			except KeyError:
+				print("MultiLoc2-plant: bad key " + name)
+				preds_d[name] = {'ML2PLANT': pred}
+				leavesfrompreds.add(name)
 
 
 signalp = open(prefix + "-signalp.txt").read().split('\n') #sensitive version 4.1
@@ -222,7 +229,9 @@ for item in targetp:
 	#BUT PLANT!
 	#Name       Len     cTP     mTP     SP      other   Loc     RC
 	#[0]		[1]		[2]		[3]		[4]		[5]		[6]		[7]
-
+	#PLANT incl Cleavage Site Prediction:
+	#Name       Len     cTP     mTP     SP      other   Loc     RC  TPlen
+	#[0]		[1]		[2]		[3]		[4]		[5]		[6]		[7] [8]
 	if len(item.split()) > 1 and item.split()[1].isnumeric(): #takes only lines with prediction
 		item = item.split()
 		name = item[0].split("@")[0]
@@ -231,11 +240,13 @@ for item in targetp:
 			targetpreds_d = {float(item[2]): 'mTP', float(item[3]): 'SP', float(item[4]): 'other'}
 			Loc = possiblepredstargetp[item[5]]
 			pred = ("{}_({}:{} > {}:{})".format(Loc, targetpreds_d[max(targetpreds_l)], max(targetpreds_l), targetpreds_d[second_largest(targetpreds_l)], second_largest(targetpreds_l)))
-		elif len(item) == 8:
+		elif len(item) == 8 or len(item) == 9:
 			targetpreds_l = [float(item[2]), float(item[3]), float(item[4]), float(item[5])]
 			targetpreds_d = {float(item[2]): 'cTP', float(item[3]): 'mTP', float(item[4]): 'SP', float(item[5]): 'other'}
 			Loc = possiblepredstargetp[item[6]]
 			pred = ("{}_({}:{} > {}:{})".format(Loc, targetpreds_d[max(targetpreds_l)], max(targetpreds_l), targetpreds_d[second_largest(targetpreds_l)], second_largest(targetpreds_l)))
+		else:
+			pred = "nd"
 		try:
 			preds_d[name].update({'targetp': pred})
 		except KeyError:
@@ -247,8 +258,10 @@ for item in targetp:
 
 print("preds_dictionary collected")
 
+
 #### Read own codes ####
 ########################
+
 #read predefined taxa codes
 taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium tuberculosis", 
 "actiSTREc": "Streptomyces coelicolor", "alfaAZOSs": "Azospirillum sp. B506", 
@@ -349,68 +362,48 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "strTHAps": "Thalassiosira pseudonana", "strTHNEM": "Thalassionema frauenfeldii", 
 "strTHNEn": "Thalassionema nitzschioides", "strTHRAU": "Thraustochytrium sp.", "strTHTRX": "Thalassiothrix antarctica", 
 "strVAUCl": "Vaucheria litorea"}
-#high taxon assignment file loaded - we will need this
-high_taxon_assignment = open("high_taxon_assignment.txt").read().split("\n")
-high_taxon_assignment_d = {}
-for line in high_taxon_assignment:
-	line = line.split("\t")
-	try:
-		high_taxon_assignment_d[line[0]] = line[1]
-	except IndexError:
-		print(line, "not found")
-
 #addition of specific taxacodes entered by -a to the taxa vocabulary
-taxa = {}
-
 if accessions != 'none':
 	codes = open(accessions).read().split("\n")
 	#codes = open("leaf_renaming.txt").read().split("\n")
 	for code in codes:
-		if len(code) != 0:
-			code = code.split("\t")
-			taxa[code[0]] = code[1]
+		code = code.split("\t")	
+		if len(code) == 2:
+			taxarepl9[code[0]] = code[1]
 
-leaveslist = list(leavesfrompreds)
-for leaf in leaveslist:
-	taxa[leaf] = leaf
-#### Leafsearch ####
-####################
+#genus-to-high taxon conversion file
+genus2hightaxonfile = open(datadir + "high_taxon_assignment.txt").read().split("\n")
+genus2hightaxon_d = {}
+for line in genus2hightaxonfile:
+	line = line.split("\t")
+	try:
+		genus2hightaxon_d[line[0]] = line[1]
+	except IndexError:
+		print(line, "not found")
 
-#UNCOMMENT THIS PART TO PREPARE A TAXA-REPLACEMENT FILE
-leavesfromfasta = set()
-"""
-inFasta = SeqIO.parse(prefix + ".fasta", 'fasta')
-badaas = ("BXZ")
-for seq in inFasta:
-	#define sequence starting with Met, get rid of ambiguous aminoacids
-	first_Met = str(seq.seq).find('M')
-	modifseq = str(seq.seq)[first_Met:]
-	modifseq = ''.join(c for c in modifseq if c not in badaas)
-	seqname = seq.name
-	tag = seqname.split("_")[0]
+
+#### Leaf2high taxon ####
+#########################
+
+for leaf in list(leavesfrompreds):
+	tag = leaf.split("_")[0]
 	if tag in taxarepl9:
 		genus = taxarepl9[tag].split()[0]
-		hightaxon = high_taxon_assignment_d.get(genus, "unassigned")
-		fullseqname = seqname.replace(tag, taxarepl9[tag]) + "@" + hightaxon
-		taxa[seqname] = fullseqname
-		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"]: # and seq.seq.startswith("M")
-			print(">{}\n{}\n".format(fullseqname, modifseq))
+	elif tag in genus2hightaxon_d:
+		genus = tag
+	else:
+		print("WARNING: {} not present in genus-to-taxon translations. Leaves will be omitted from predictions.")
+	try:
+		curdict = {"hightaxon": genus2hightaxon_d[genus]} #this should not produce an exception
+		preds_d[leaf].update(curdict)
+	except KeyError:
+		print("WARNING: {} not present in genus-to-taxon translations. Leaves will be omitted from predictions.")
 
-	elif seqname not in leavesfrompreds:
-		leavesfromfasta.add(seqname)
-		genus = seqname.split("_")[0]
-		hightaxon = high_taxon_assignment_d.get(genus, "unassigned")
-		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"]: # and seq.seq.startswith("M")
-			print(">{}\n{}\n".format(seqname, modifseq))
-"""
-
-leaveslist += list(leavesfromfasta)
-for leaf in leaveslist:
-	taxa[leaf] = leaf
 
 #### Main ####
 ##############
 
+#GROUP ASSIGNMENTS:
 outgroups = {'Bacteria', 'Archaea'}
 heterotrophs = {'Amoebozoa', 'Heterolobosea', 'Opisthokonta', 'SAR-Ciliophora', 'Parabasalia'}
 opisthokonts = {'Metazoa', 'Fungi', 'Opisthokonta'} 	#Hectar / MultiLoc-animal
@@ -420,55 +413,37 @@ higherorder = {'SAR-Stramenopila', 'Haptophyta', 'Euglenozoa', 'SAR-Apicomplexa'
 eukaryote = heterotrophs | primary | higherorder
 stramenopiles = {'SAR-Stramenopila'}		#Hectar / ASAFind
 otherhigher = higherorder - stramenopiles 					#TargetP / ASAFind / MultiLoc-plant
-
-
-
 ignored = {'unclassified', 'Undescribed'} | taxarepl9.keys()
 
 missingset = set()
 missingcount = 0
-outfilepredictions = open(prefix + '-preds.txt','w')
-outfileleaves = open(prefix + '-LEAVES.txt','w')
-for leaf in taxa:
-	query = taxa[leaf]
-	if query in preds_d:
-		genus = query.split("_")[0]
-		fullgroup = high_taxon_assignment_d.get(genus, "unassigned")
+with open(prefix + '-preds.txt','w') as outfilepredictions, \
+open(prefix + '-LEAVES.txt','w')as outfileleaves:
+	for leaf in preds_d:
+		fullgroup = preds_d[leaf]["hightaxon"]
 		group = fullgroup.split("_")[0]
-		if genus not in high_taxon_assignment_d and genus not in ignored:
-			missingset.add(genus)
-			print("no higher taxon assignment: ", leaf)
-			missingcount += 1
+#######################################
+#need this part
 		if group in opisthokonts:
-			prediction = ("{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["ML2ANIMAL"]))
+			prediction = ("{}: {}_//_{}".format(group, preds_d[leaf]["hectar"], preds_d[leaf]["ML2ANIMAL"]))
 		elif group in otherhetero:
-			prediction = ("{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["ML2ANIMAL"]))
+			prediction = ("{}: {}_//_{}".format(group, preds_d[leaf]["hectar"], preds_d[leaf]["ML2ANIMAL"]))
 		elif group in primary:
-			prediction = ("{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["ML2PLANT"]))
-		elif group in stramenopiles:
-			prediction = ("{}_//_{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["asafind"], preds_d[query]["ML2ANIMAL"]))
+			prediction = ("{}: {}_//_{}_//_{}".format(group, preds_d[leaf]["targetp"], preds_d[leaf]["signalp"], preds_d[leaf]["ML2PLANT"]))
+		elif group in higherorder:
+			prediction = ("{}: {}_//_{}_//_{}".format(group, preds_d[leaf]["hectar"], preds_d[leaf]["asafind"], preds_d[leaf]["ML2ANIMAL"]))
 		elif group in otherhigher:
-			prediction = ("{}_//_{}_//_{}".format(preds_d[query]["targetp"], preds_d[query]["asafind"], preds_d[query]["ML2ANIMAL"]))
+			prediction = ("{}: {}_//_{}_//_{}".format(group, preds_d[leaf]["hectar"], preds_d[leaf]["asafind"], preds_d[leaf]["ML2ANIMAL"]))
 		else:
+			#print(genus, "undetermined")
 			prediction = "not determined"
+
+########################################
+		#prediction = re.sub('[():,]', '', prediction)
 		#zde pridat predikci do taxa dictionary
-		prediction = re.sub('[():,]', '', prediction)
-		taxa[leaf] = ("{}@{}__{}".format(query, fullgroup, prediction))
-		outfileleaves.write("{}@{}__{}\n".format(query, fullgroup, prediction))
-		outfilepredictions.write("{}\t{}\n".format(query, prediction))
-	else:
-		if leaf not in ignored:
-			#print(leaf, "not in preds?")
-			genus = query.replace("_", " ")
-			genus = genus.split()[0]
-			if genus in high_taxon_assignment_d:
-				newleaf = ("{}@{}".format(query.split("@")[0], high_taxon_assignment_d[genus]))		
-				taxa[leaf] = newleaf
-				outfileleaves.write("{}\n".format(newleaf))
-			else:
-				missingset.add(genus)
-				print("no assignment: ", leaf, query)
-				missingcount += 1			
+		#outfileleaves.write("{}@{}__{}\n".format(query, fullgroup, prediction))
+		outfilepredictions.write("{}\t{}\n".format(leaf, prediction))
+	
 
 print("prediction summaries written to file: {}-preds.txt".format(prefix))
 
@@ -497,7 +472,7 @@ if missingcount > 0:
 
 print("==============================================================")
 print("Leaf renaming dictionary ready. Now to tree leaves renaming...")
-
+"""
 #THERE IS SOME ISSUE WITH SINGLE WORD KEYS:
 for key in leavesfromfasta:
 	if len(key.split("_")) == 1:
@@ -556,7 +531,7 @@ for currtree in inTrees:
 
 	else:
 		print(currtree, " is a tree file of unknown (probably modified already?), skipping.")
-
+"""
 """
 for key in sequencesdictionary.keys():
 	code = sequencesdictionary[key].split('_')[0]
