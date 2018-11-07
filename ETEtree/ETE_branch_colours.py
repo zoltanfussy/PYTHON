@@ -1,9 +1,7 @@
 #make a pallette of colours for a set of locations
 from ete3 import Tree, TreeStyle, TextFace, NodeStyle
 import csv
-import matplotlib.pyplot as plt
-import matplotlib
-import math
+
 
 #################
 ### FUNCTIONS ###
