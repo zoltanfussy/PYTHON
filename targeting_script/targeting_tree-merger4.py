@@ -7,6 +7,7 @@ print("Optionally, provide a taxa replacement key file in a .tsv format (-a)\n##
 
 import argparse
 import os
+<<<<<<< HEAD
 import sys
 
 from Bio import SeqIO
@@ -55,6 +56,16 @@ def query_yes_no(question, default="yes"):
 
 #homedir = "/Users/zoliq/ownCloud/"
 homedir = "/Volumes/zoliq data/ownCloud/"
+=======
+import re
+from Bio import SeqIO
+
+#### Change to workdir ####
+###########################
+
+homedir = "/Users/zoliq/ownCloud/"
+#homedir = "/Volumes/zoliq data/ownCloud/"
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 #wd = homedir + "genomes/phatr/phatr mitoglyco/huge alignments/PASTA alignments nonconverging/goods trimmed/final trees/"
 wd = homedir + "genomes/euglena longa/trees/MTOX/RESULT/"
 datadir = homedir + "progs/PYTHON/targeting_script/"
@@ -270,8 +281,13 @@ for item in targetp:
 	#Name       Len     cTP     mTP     SP      other   Loc     RC
 	#[0]		[1]		[2]		[3]		[4]		[5]		[6]		[7]
 	#PLANT incl Cleavage Site Prediction:
+<<<<<<< HEAD
 	#Name       Len     cTP     mTP     SP      other   Loc     RC 		TPlen
 	#[0]		[1]		[2]		[3]		[4]		[5]		[6]		[7]		[8]
+=======
+	#Name       Len     cTP     mTP     SP      other   Loc     RC  TPlen
+	#[0]		[1]		[2]		[3]		[4]		[5]		[6]		[7] [8]
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 	if len(item.split()) > 1 and item.split()[1].isnumeric(): #takes only lines with prediction
 		item = item.split()
 		name = item[0].split("@")[0]
@@ -402,6 +418,7 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "strTHAps": "Thalassiosira pseudonana", "strTHNEM": "Thalassionema frauenfeldii", 
 "strTHNEn": "Thalassionema nitzschioides", "strTHRAU": "Thraustochytrium sp.", "strTHTRX": "Thalassiothrix antarctica", 
 "strVAUCl": "Vaucheria litorea"}
+<<<<<<< HEAD
 
 #EXPORT TAXACODES TO FILE
 # with open(datadir + "taxarepl9.tsv", "w") as taxaout:
@@ -409,6 +426,8 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 # 		taxaout.write("{}\t{}\n".format(k, taxarepl9[k]))
 # quit()
 
+=======
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 #addition of specific taxacodes entered by -a to the taxa vocabulary
 if accessions != 'none':
 	codes = open(accessions).read().split("\n")
@@ -464,7 +483,12 @@ ignored = {'unclassified', 'Undescribed'} | taxarepl9.keys()
 
 missingset = set()
 missingcount = 0
+<<<<<<< HEAD
 with open(prefix + '-preds_beta.txt','w') as outfilepredictions:
+=======
+with open(prefix + '-preds.txt','w') as outfilepredictions, \
+open(prefix + '-LEAVES.txt','w')as outfileleaves:
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 	for leaf in preds_d:
 		fullgroup = preds_d[leaf]["hightaxon"]
 		group = fullgroup.split("_")[0]
@@ -518,6 +542,7 @@ if missingcount > 0:
 
 print("==============================================================")
 print("Leaf renaming dictionary ready. Now to tree leaves renaming...")
+<<<<<<< HEAD
 print("Manual curation of {}-preds.txt needed. Please add 3rd column with possible preds:".format(prefix))
 print("MT (mitochondrion), PT (plastid), CS (cytosol), dual (plastid+mitochondrion, amb (ambiguous), SP (signal peptide)")
 
@@ -538,6 +563,15 @@ with open("{}-preds.txt".format(prefix)) as f:
 print(renaming)
 
 quit("Algorithm not finished. Look up the ETE_branch_colours.py script")
+=======
+"""
+#THERE IS SOME ISSUE WITH SINGLE WORD KEYS:
+for key in leavesfromfasta:
+	if len(key.split("_")) == 1:
+		print(key) 
+
+taxa.update(taxarepl9)
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 #taxon renaming in the phylogenetic trees
 inTrees = [s for s in os.listdir('.') if s.endswith('.tre') or s.endswith('.treefile')]
 for currtree in inTrees:
@@ -545,6 +579,7 @@ for currtree in inTrees:
 		TREETYPE = "RAxML"
 		if "bipartitions" in currtree:
 			currtreename = currtree.split(".tre")[0].replace("RAxML_bipartitions.", "")
+<<<<<<< HEAD
 			#INVOKE TREE FUNCTION
 
 			# tree_line = open(currtree).readline()
@@ -552,12 +587,20 @@ for currtree in inTrees:
 			# 	tree_line = tree_line.replace(key, taxa[key])
 			# with open(currtreename + "-final.tre", "w") as result:
 			# 	result.write(tree_line)
+=======
+			tree_line = open(currtree).readline()
+			for key in taxa:
+				tree_line = tree_line.replace(key, taxa[key])
+			with open(currtreename + "-final.tre", "w") as result:
+				result.write(tree_line)
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 		else:
 			print("skipping {}, not a tree file".format(currtree))
 
 	elif currtree.endswith('.chain.con.tre'):
 		TREETYPE = "PhyloBayes"
 		currtreename = currtree.split(".tre")[0].replace(".chain.con", "")
+<<<<<<< HEAD
 		#INVOKE TREE FUNCTION
 
 		# tree_line = open(currtree).readline()
@@ -565,10 +608,18 @@ for currtree in inTrees:
 		# 	tree_line = tree_line.replace(key, taxa[key])
 		# with open(currtreename + "-PB-final.tre", "w") as result:
 		# 	result.write(tree_line)
+=======
+		tree_line = open(currtree).readline()
+		for key in taxa:
+			tree_line = tree_line.replace(key, taxa[key])
+		with open(currtreename + "-PB-final.tre", "w") as result:
+			result.write(tree_line)
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 
 	elif currtree.endswith('.treefile'):
 		TREETYPE = "IQtree"
 		currtreename = currtree.split(".tre")[0].replace(".MaffTrimal.phy", "")
+<<<<<<< HEAD
 		#INVOKE TREE FUNCTION
 
 		# tree_line = open(currtree).readline()
@@ -584,10 +635,26 @@ for currtree in inTrees:
 		# 		#print(key, "found after modification")
 		# with open(currtreename + "-IQT-final.tre", "w") as result:
 		# 	result.write(tree_line)
+=======
+		tree_line = open(currtree).readline()
+		for key in taxa:
+			if key in tree_line:
+				tree_line = tree_line.replace(key, taxa[key])
+			elif key.replace("-","_") in tree_line:
+				modifkey = key.replace("-","_")
+				tree_line = tree_line.replace(modifkey, taxa[key])
+			elif key.replace("=","_") in tree_line:
+				modifkey = key.replace("=","_")
+				tree_line = tree_line.replace(modifkey, taxa[key])
+				#print(key, "found after modification")
+		with open(currtreename + "-IQT-final.tre", "w") as result:
+			result.write(tree_line)
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 
 	elif currtree.endswith('-ASA.tre'):
 		TREETYPE = "AsaturA"
 		currtreename = currtree.split(".tre")[0]
+<<<<<<< HEAD
 		#INVOKE TREE FUNCTION
 		
 		# tree_line = open(currtree).readline()
@@ -599,4 +666,30 @@ for currtree in inTrees:
 	else:
 		print(currtree, " is a tree file of unknown origin (probably modified already?), skipping.")
 
+=======
+		tree_line = open(currtree).readline()
+		for key in taxa:
+			tree_line = tree_line.replace(key, taxa[key])
+		with open(currtreename + "-final.tre", "w") as result:
+			result.write(tree_line)
+
+	else:
+		print(currtree, " is a tree file of unknown (probably modified already?), skipping.")
+"""
+"""
+for key in sequencesdictionary.keys():
+	code = sequencesdictionary[key].split('_')[0]
+	rest = '_'.join(sequencesdictionary[key].split('_')[1:4])
+	if key in taxa:
+		finalname = '{}_{}'.format(taxa[key], finalpredictions[key])
+	elif code in taxa:
+		finalname = '{}_{}_{}'.format(taxa[code], rest, finalpredictions[key])
+	else:
+		finalname = sequencesdictionary[key] + '_' + finalpredictions[key]
+	strom_line = strom_line.replace(key, finalname)
+
+with open(prefix + '-fin.tre', 'w') as result:
+    result.write(strom_line)
+"""
+>>>>>>> 23368a12a0ee6ec50d129ca77a815d7a40aff314
 print("Hotovo")
