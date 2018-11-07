@@ -4,7 +4,8 @@ if isinstance(function, str): #determine if instance is string/list/set/whatever
 import io
 notincluded = io.open("abstracts.txt", "r", encoding="utf-8") #this is an analog of open(file).read()
 
-break vs continue #break ends the for loop, continue end the cycle for the current item
+break vs continue #break ends the for loop, continue ends the cycle for the current item
+pass #use with if statements
 
 import re
 IPSpattern = r'"InterPro: (\w+)'
@@ -142,6 +143,9 @@ protein = mySL.translate()
 #and other useful things
 badchars = (",:.;()'")
 fullname = ''.join(c for c in fullname if c not in badchars)
+#OR
+prediction = re.sub('[():,]', '', prediction)
+
 
 if sequence.startswith('>'):
 	counter += 1

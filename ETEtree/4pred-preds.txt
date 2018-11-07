@@ -1,0 +1,298 @@
+Amphimedon_queenslandica_XP_003385247.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.01)	MT
+Branchiostoma_belcheri_XP_019614441.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+Candida_albicans_P37005_KGQ97901.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.89 > secretory pathway: 0.07)	MT
+Capitella_teleta_ELU11227.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.97 > cytoplasmic: 0.01)	MT
+Caulerpa_cylindracea_AXB99490.1	Viridiplantae: MITOCHONDRION_(mTP:0.886 > SP:0.102)_//_OTHER_//_MITOCHONDRION_(mitochondrial: 0.61 > chloroplast: 0.33)	MT
+Chlamydomonas_eustigma_GAX73707.1	Viridiplantae: MITOCHONDRION_(mTP:0.836 > cTP:0.142)_//_OTHER_//_PLASTID_(chloroplast: 0.49 > cytoplasmic: 0.23)	MT
+Chlamydomonas_reinhardtii_XP_001692600.1	Viridiplantae: PLASTID_(cTP:0.78 > mTP:0.382)_//_OTHER_//_PLASTID_(chloroplast: 0.82 > mitochondrial: 0.1)	PT
+Chrysochromulina_sp._CCMP291_KOO23867.1	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.88 > secretory pathway: 0.08)	MT
+Crassostrea_gigas_NP_001292289.1	Opisthokonta: OTHER_//_CYTOSOL_(cytoplasmic: 0.38 > mitochondrial: 0.33)	amb
+Dunaliella_salina_AFR58666.1	Viridiplantae: MITOCHONDRION_(mTP:0.755 > cTP:0.3)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.65 > chloroplast: 0.15)	amb
+Dunaliella_salina_AFR58668.1	Viridiplantae: MITOCHONDRION_(mTP:0.717 > cTP:0.686)_//_OTHER_//_PLASTID_(chloroplast: 0.54 > mitochondrial: 0.34)	dual
+eugEUGgr_MTOX1_GEFR01008369.1	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+eugEUGgr_MTOX2	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+eugEUGgr_MTOX3	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.95 > secretory pathway: 0.03)	MT
+eugEUGgr_PTOX1_GEFR01002890.1_m.21785_Euglenozoa_Euglenophyta	Euglenozoa: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.92 > mitochondrial: 0.04)	PT
+eugEUGgr_PTOX2	Euglenozoa: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.86 > mitochondrial: 0.1)	PT
+eugEUGlo_MTOX1_Contig44534	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.82 > nuclear: 0.08)	MT
+eugEUGlo_MTOX2_Contig48458	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+eugEUGlo_MTOX3_Contig58102	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+eugEUGlo_MTOX4_Contig55272	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.04)	MT
+Emiliania_huxleyi_CCMP1516_XP_005774844.1	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.83 > secretory pathway: 0.11)	MT
+Emiliania_huxleyi_CCMP1516_XP_005790675.1	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.84 > secretory pathway: 0.11)	MT
+Exaiptasia_pallida_XP_020896448.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.97 > cytoplasmic: 0.01)	MT
+Gonium_pectorale_KXZ53636.1	Viridiplantae: OTHER_(other:0.76 > mTP:0.334)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.76 > chloroplast: 0.11)	CS
+Klebsormidium_nitens_GAQ78184.1	Viridiplantae: PLASTID_(cTP:0.688 > mTP:0.165)_//_OTHER_//_PLASTID_(chloroplast: 0.9 > mitochondrial: 0.06)	PT
+Lingula_anatina_XP_013379624.1	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.57 > secretory pathway: 0.31)	amb
+Melampsora_larici-populina_98AG31_XP_007405000.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.96 > secretory pathway: 0.02)	MT
+Mizuhopecten_yessoensis_XP_021369549.1	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.53 > cytoplasmic: 0.25)	amb
+Ramazzottius_varieornatus_GAU99582.1	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.97 > cytoplasmic: 0.01)	MT
+Raphidocelis_subcapitata_GBF99932.1	Viridiplantae: PLASTID_(cTP:0.897 > mTP:0.637)_//_OTHER_//_PLASTID_(chloroplast: 0.87 > mitochondrial: 0.08)	PT
+Strongylocentrotus_purpuratus_XP_011669099.1	Opisthokonta: OTHER_//_CYTOSOL_(cytoplasmic: 0.45 > nuclear: 0.29)	CS
+Trichoplax_sp._H2_RDD40748.1	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.01)	MT
+amoACANc_ELR15235_Amoebozoa_Discosea	Amoebozoa: OTHER_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+amoSTYGA_MMETSP0447_Transcript_44381-m.76478_Amoebozoa_Discosea	Amoebozoa: OTHER_//_MITOCHONDRION_(mitochondrial: 0.88 > cytoplasmic: 0.07)	MT
+apiCHROv_Cvel_13636.t1-p1_Apicomplexa	SAR-Apicomplexa: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.92 > mitochondrial: 0.05)	PT
+apiCHROv_Cvel_21608.t1-p1_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+apiCHROv_Cvel_25704.t1-p1_Apicomplexa	SAR-Apicomplexa: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.71 > secretory pathway: 0.2)	amb
+apiCHROv_Cvel_6529.t1-p1_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+apiCRYPm_CMU_000270-t26_1-p1_Apicomplexa	SAR-Apicomplexa: OTHER_//_NON-PLASTID_//_NUCLEUS_(nuclear: 0.57 > cytoplasmic: 0.34)	amb
+apiGREGn_XP_011130587_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+apiGREGn_XP_011134194_Apicomplexa	SAR-Apicomplexa: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.31 > cytoplasmic: 0.28)	amb
+apiGREGn_XP_011134197_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.01)	MT
+apiVITbr_Vbra_14000.t1-p1_Apicomplexa	SAR-Apicomplexa: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.97 > mitochondrial: 0.01)	PT
+apiVITbr_Vbra_14217.t1-p1_Apicomplexa	SAR-Apicomplexa: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > mitochondrial: 0.01)	PT
+apiVITbr_Vbra_14859.t1-p1_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+apiVITbr_Vbra_15987.t1-p1_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.04)	MT
+apiVITbr_Vbra_7072.t1-p1_Apicomplexa	SAR-Apicomplexa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.0)	MT
+chlaAMORC_MMETSP0042_Transcript_10953-m.12025_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.87 > secretory pathway: 0.09)	MT
+chlaAMORC_MMETSP0042_Transcript_29623-m.33038_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.94 > secretory pathway: 0.04)	MT
+chlaBIGna_JGI_V11_47352_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.39 > secretory pathway: 0.39)	amb
+chlaBIGna_JGI_V11_50581_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.38 > cytoplasmic: 0.36)	amb
+chlaBIGna_JGI_V11_81505_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.37 > secretory pathway: 0.28)	MT
+chlaLOTgZ_MMETSP0041_Transcript_17478-m.22500_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.03)	MT
+chlaLOTgZ_MMETSP0041_Transcript_32648-m.42224_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.93 > mitochondrial: 0.05)	PT
+chlaLOTgZ_MMETSP0111_Transcript_25198-m.32681_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.34 > nuclear: 0.3)	CS
+chlaPARTg_MMETSP1318_Transcript_23281-m.28324_Rhizaria_Chlorarachniophyceae	SAR-Rhizaria: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.96 > secretory pathway: 0.02)	MT
+cilLITOp_CAMPEP_0170514592_Ciliata_Litostomatea	SAR-Ciliophora: OTHER_//_CYTOSOL_(cytoplasmic: 0.4 > mitochondrial: 0.29)	amb
+cilPARAt_XP_001454110_Ciliata_Oligohymenophorea	SAR-Ciliophora: OTHER_//_CYTOSOL_(cytoplasmic: 0.46 > nuclear: 0.29)	CS
+cilPARAt_XP_001459809_Ciliata_Oligohymenophorea	SAR-Ciliophora: OTHER_//_CYTOSOL_(cytoplasmic: 0.38 > mitochondrial: 0.36)	amb
+cilPROTa_MMETSP0216_Transcript_57804-m.45340_Ciliophora_Spirotrichea	SAR-Ciliophora: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.94 > secretory pathway: 0.03)	MT
+cilPSEUp_KRX06133_Ciliata_Oligohymenophorea	SAR-Ciliophora: MITOCHONDRION_//_CYTOSOL_(cytoplasmic: 0.62 > nuclear: 0.27)	amb
+cilPSEUp_KRX09782_Ciliata_Oligohymenophorea	SAR-Ciliophora: OTHER_//_CYTOSOL_(cytoplasmic: 0.56 > nuclear: 0.29)	CS
+cilTETRt_EAS05325_Ciliata_Oligohymenophorea	SAR-Ciliophora: OTHER_//_MITOCHONDRION_(mitochondrial: 0.6 > cytoplasmic: 0.26)	CS
+cilTETRt_EAS05326_Ciliata_Oligohymenophorea	SAR-Ciliophora: MITOCHONDRION_//_CYTOSOL_(cytoplasmic: 0.59 > nuclear: 0.28)	amb
+crypCHROO_MMETSP0047_Transcript_11731-m.19334_Cryptophyta_Pyrenomonadales	Cryptophyta: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > mitochondrial: 0.01)	PT
+crypCHROO_MMETSP0047_Transcript_55326-m.91227_Cryptophyta_Pyrenomonadales	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.96 > secretory pathway: 0.02)	MT
+crypCHROO_MMETSP0047_Transcript_58076-m.96029_Cryptophyta_Pyrenomonadales	Cryptophyta: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.43 > cytoplasmic: 0.4)	amb
+crypCHROO_MMETSP0047_Transcript_66155-m.109735_Cryptophyta_Pyrenomonadales	Cryptophyta: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.97 > cytoplasmic: 0.01)	PT
+crypCRYPp_MMETSP0038_Transcript_46281-m.84972_Cryptophyta_Cryptomonadales	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.51 > cytoplasmic: 0.26)	MT
+crypCRYPp_MMETSP0038_Transcript_87772-m.161328_Cryptophyta_Cryptomonadales	Cryptophyta: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.36 > cytoplasmic: 0.35)	amb
+crypGONIp_MMETSP0107_Gene.30083-Transcript_20766_Cryptophyta_Cryptomonadales	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.95 > secretory pathway: 0.03)	MT
+crypGUILt_EKX48981_Cryptophyta	Cryptophyta: OTHER_//_NON-PLASTID_//_NUCLEUS_(nuclear: 0.42 > cytoplasmic: 0.29)	amb
+crypGUILt_EKX53905_Cryptophyta	Cryptophyta: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.39 > mitochondrial: 0.32)	amb
+crypGUIth_MMETSP0046_Gene.110601-Transcript_51210_Cryptophyta_Pyrenomonadales	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.63 > cytoplasmic: 0.25)	MT
+crypGUIth_MMETSP0046_Gene.59341-Transcript_26135_Cryptophyta_Pyrenomonadales	Cryptophyta: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.46 > mitochondrial: 0.28)	amb
+crypGUIth_MMETSP0046_Gene.8355-Transcript_3505_Cryptophyta_Pyrenomonadales	Cryptophyta: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.97 > mitochondrial: 0.01)	PT
+crypPALPb_MMETSP0780_Transcript_47034-m.81367_Cryptophyta_basal	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.0)	MT
+crypPALPb_MMETSP0780_Transcript_47036-m.81373_Cryptophyta_basal	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+crypRHODl_MMETSP0484_Gene.15034-Transcript_9716_Cryptophyta_Pyrenomonadales	Cryptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.94 > secretory pathway: 0.03)	MT
+crypRHODl_MMETSP0484_Gene.15146-Transcript_9762_Cryptophyta_Pyrenomonadales	Cryptophyta: PLASTID_//_PLASTID, LOW_//_SECRETORY_(secretory pathway: 0.97 > mitochondrial: 0.02)	PT
+crypRHODl_MMETSP0484_Gene.39599-Transcript_24832_Cryptophyta_Pyrenomonadales	Cryptophyta: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.77 > cytoplasmic: 0.15)	PT
+dinALEXt_MMETSP0382_Gene.118821-Transcript_57331_Dinophyta_Gonyaulacales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.55 > secretory pathway: 0.42)	MT
+dinALEXt_MMETSP0382_Gene.14965-Transcript_7601_Dinophyta_Gonyaulacales	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.37 > cytoplasmic: 0.32)	amb
+dinALEXt_MMETSP0384_Gene.235909-Transcript_144886_Dinophyta_Gonyaulacales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.95 > secretory pathway: 0.02)	MT
+dinALEXt_MMETSP0384_Gene.6340-Transcript_3976_Dinophyta_Gonyaulacales	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.64 > secretory pathway: 0.24)	amb
+dinCRYPZ_MMETSP0324_Transcript_81951-m.110169_Dinophyta_Gonyaulacales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.83 > secretory pathway: 0.09)	MT
+dinDURIZ_MMETSP0116_Gene.134478-Transcript_67255_Dinophyta_Peridiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.04)	MT
+dinDURIZ_MMETSP0117_Gene.11746-Transcript_9036_Dinophyta_Peridiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.02)	MT
+dinDURIb_CAMPEP_0199928928	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.49 > cytoplasmic: 0.35)	PT
+dinDINac_CAMPEP_0179293410_Dinophyta_Dinophysiales	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.59 > cytoplasmic: 0.17)	PT
+dinDINac_CAMPEP_0179312104_Dinophyta_Dinophysiales	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.64 > secretory pathway: 0.29)	amb
+dinGYMNc_MMETSP0784_Gene.12920-Transcript_7670_Dinophyta_Gymnodiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+dinGYMNc_MMETSP0784_Gene.162253-Transcript_83801_Dinophyta_Gymnodiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.01)	MT
+dinGYMNc_MMETSP0784_Gene.22514-Transcript_12092_Dinophyta_Gymnodiniales	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.62 > cytoplasmic: 0.27)	PT
+dinKARL_MMETSP1017_Transcript_38280-m.38720_Dinophyta_Gymnodiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.76 > cytoplasmic: 0.11)	MT
+dinKARZ_MMETSP0201_Gene.47398-Transcript_41130_Dinophyta_Gymnodiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.02)	MT
+dinKARZ_MMETSP0649_Gene.60098-Transcript_51563_Dinophyta_Gymnodiniales	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_NUCLEUS_(nuclear: 0.43 > cytoplasmic: 0.4)	amb
+dinKRYPf_MMETSP0119_Gene.3543-Transcript_1854_Dinophyta_Peridiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.02)	MT
+dinKRYPf_MMETSP0120_Transcript_114110-m.229327_Dinophyta_Peridiniales	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.96 > secretory pathway: 0.02)	MT
+dinKRYPf_MMETSP0120_Transcript_25553-m.51159_Dinophyta_Peridiniales	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.48 > cytoplasmic: 0.27)	amb
+dinLINGp_CAMPEP_0189968394	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+dinLINGp_CAMPEP_0190002390	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.52 > nuclear: 0.24)	CS
+dinLINGp_CAMPEP_0190036232	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.71 > cytoplasmic: 0.14)	amb
+dinLINGp_CAMPEP_0190052922	SAR-Dinophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.51 > cytoplasmic: 0.27)	PT
+dinNOCTs_MMETSP0253_Transcript_58889-m.106740_Dinophyta_Noctilucales	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.7 > cytoplasmic: 0.22)	amb
+dinNOCTs_MMETSP0253_Transcript_60461-m.109404_Dinophyta_Noctilucales	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.49 > nuclear: 0.25)	CS
+dinOXYma_MMETSP1425_Transcript_12100-m.19675_Dinophyta_Oxyrrhinales	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.56 > cytoplasmic: 0.25)	amb
+dinPERKm_XP_002765284_Dinophyta_Perkinsida	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.37 > cytoplasmic: 0.36)	amb
+dinPERKm_XP_002766164_Dinophyta_Perkinsida	SAR-Dinophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.78 > secretory pathway: 0.14)	MT
+dinPERKm_XP_002788619_Dinophyta_Perkinsida	SAR-Dinophyta: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.94 > secretory pathway: 0.03)	MT
+eugANGOd_EPY32125_Euglenozoa_Kinetoplastida	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.02)	MT
+eugBODOs_CUG93676_Euglenozoa_Kinetoplastida	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > cytoplasmic: 0.02)	MT
+eugEUGgr_GDJR01085993.1_m.246946_Euglenozoa_Euglenophyta	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+eugEUGgr_GEFR01018314.1_m.83881_Euglenozoa_Euglenophyta	Euglenozoa: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.77 > mitochondrial: 0.2)	PT
+eugEUGgr_GEFR01029334.1_m.109584_Euglenozoa_Euglenophyta	Euglenozoa: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.75 > cytoplasmic: 0.15)	MT
+eugEUGgr_GEFR01032607.1_m.115033_Euglenozoa_Euglenophyta	Euglenozoa: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.85 > mitochondrial: 0.11)	PT
+eugEUTc_MMETSP0809_Transcript_31927-m.29761_Euglenozoa_Euglenophyta	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+eugEUTc_MMETSP0810_Transcript_11327-m.11995_Euglenozoa_Euglenophyta	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+eugEUTc_MMETSP0810_Transcript_12928-m.13537_Euglenozoa_Euglenophyta	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+eugEUTc_MMETSP0811-Transcript_42304_all_three_transcriptomes	Euglenozoa: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.61 > secretory pathway: 0.3)	amb
+eugEUTc_MMETSP0811-Transcript_65428	Euglenozoa: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.41 > cytoplasmic: 0.34)	amb
+eugEUTc_MMETSP0811_Gene.46164-Transcript_49934_Euglenozoa_Euglenophyta	Euglenozoa: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.52 > cytoplasmic: 0.29)	amb
+eugEUTn_Transcript_108707-m.115444_Euglenozoa_Euglenophyta	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > secretory pathway: 0.01)	MT
+eugEUTn_Transcript_18229-m.19913_Euglenozoa_Euglenophyta	Euglenozoa: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.49 > cytoplasmic: 0.34)	amb
+eugEUTn_Transcript_25526-m.28521_Euglenozoa_Euglenophyta	Euglenozoa: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.46 > cytoplasmic: 0.3)	amb
+eugEUTn_Transcript_32440-m.35975_Euglenozoa_Euglenophyta	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.96 > cytoplasmic: 0.02)	MT
+eugNEOBd_Transcript_37920-m.83643_Euglenozoa_Kinetoplastida	Euglenozoa: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+eugPHYTO_CCW64611_Euglenozoa_Kinetoplastida	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.96 > cytoplasmic: 0.02)	MT
+eugTRYPb_XP_822944_Euglenozoa_Kinetoplastida	Euglenozoa: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.01)	MT
+funASPEf_XP_749637_Fungi_Ascomycota	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.0)	MT
+funCRYPn_XP_012046575_Fungi_Basidiomycota	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.0)	MT
+funDEBAh_CAG85893_Fungi_Ascomycota	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.89 > cytoplasmic: 0.06)	MT
+funLACCb_XP_001876309_Fungi_Basidiomycota	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+funNEURc_EAA29895_Fungi_Ascomycota	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+funNEURc_EAA32850_Fungi_Ascomycota	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.96 > cytoplasmic: 0.02)	MT
+glauCYPTg_CAMPEP_0196657260_Glaucophyta	Glaucocystophyta: MITOCHONDRION_(mTP:0.721 > cTP:0.458)_//_OTHER_//_PLASTID_(chloroplast: 0.74 > mitochondrial: 0.18)	PT
+glauGLOEw_MMETSP0308_Transcript_23803-m.25228_Glaucocystophyta	Glaucocystophyta: MITOCHONDRION_(mTP:0.507 > cTP:0.111)_//_OTHER_//_PLASTID_(chloroplast: 0.7 > mitochondrial: 0.21)	PT
+glauGLOEw_MMETSP0308_Transcript_31619-m.32940_Glaucocystophyta	Glaucocystophyta: SIGNAL_(SP:0.408 > cTP:0.157)_//_OTHER_//_PLASTID_(chloroplast: 0.7 > mitochondrial: 0.23)	PT
+glauGLOEw_MMETSP1089_Transcript_16126-m.17102_Glaucocystophyta	Glaucocystophyta: MITOCHONDRION_(mTP:0.56 > cTP:0.317)_//_OTHER_//_PLASTID_(chloroplast: 0.95 > mitochondrial: 0.03)	PT
+grnBATHp_Bathy13g01840_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.924 > mTP:0.239)_//_OTHER_//_MITOCHONDRION_(mitochondrial: 0.52 > chloroplast: 0.44)	dual
+grnBATHp_Bathy15g01150_Chlorophyta_Mamiellophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.741 > cTP:0.616)_//_OTHER_//_PLASTID_(chloroplast: 0.74 > mitochondrial: 0.19)	dual
+grnBATHp_Bathy16g00610_Chlorophyta_Mamiellophyceae	Viridiplantae: OTHER_(other:0.774 > SP:0.185)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.44 > secretory pathway: 0.4)	CS
+grnCHLAl_MMETSP1391_Gene.44976-Transcript_26345_Chlorophyta_Chlorophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.485 > SP:0.184)_//_OTHER_//_SECRETORY_(secretory pathway: 0.95 > cytoplasmic: 0.04)	amb
+grnCHLAl_MMETSP1391_Gene.56058-Transcript_32956_Chlorophyta_Chlorophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.783 > cTP:0.386)_//_OTHER_//_PLASTID_(chloroplast: 0.66 > mitochondrial: 0.29)	dual
+grnCHLAl_MMETSP1391_Gene.56063-Transcript_32957_Chlorophyta_Chlorophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.914 > cTP:0.24)_//_OTHER_//_PLASTID_(chloroplast: 0.57 > mitochondrial: 0.35)	dual
+grnDUNAt_MMETSP1127_Gene.20982-Transcript_11921_Chlorophyta_Chlorophyceae	Viridiplantae: PLASTID_(cTP:0.394 > mTP:0.259)_//_OTHER_//_PLASTID_(chloroplast: 0.93 > mitochondrial: 0.03)	PT
+grnHELIs_AYPS01000004_Chlorophyta_Trebouxiophyceae	Viridiplantae: PLASTID_(cTP:0.433 > mTP:0.351)_//_OTHER_//_PLASTID_(chloroplast: 0.5 > mitochondrial: 0.42)	dual
+grnMICRZ_MMETSP1327_Transcript_11315-m.27692_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.828 > mTP:0.241)_//_OTHER_//_PLASTID_(chloroplast: 0.93 > mitochondrial: 0.05)	PT
+grnMICRZ_MMETSP1327_Transcript_11897-m.29280_Chlorophyta_Mamiellophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.762 > cTP:0.38)_//_OTHER_//_PLASTID_(chloroplast: 0.82 > mitochondrial: 0.13)	dual
+grnMICRZ_MMETSP1401_Transcript_1177-m.3975_Chlorophyta_Mamiellophyceae	Viridiplantae: OTHER_(other:0.884 > mTP:0.247)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.69 > secretory pathway: 0.11)	CS
+grnMICRZ_MMETSP1401_Transcript_5628-m.19028_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.768 > mTP:0.377)_//_OTHER_//_PLASTID_(chloroplast: 0.78 > mitochondrial: 0.2)	PT
+grnMICRZ_MMETSP1402_Transcript_2975-m.7207_Chlorophyta_Mamiellophyceae	Viridiplantae: OTHER_(other:0.898 > cTP:0.092)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.66 > chloroplast: 0.19)	CS
+grnMICRZ_MMETSP1403_Transcript_2776-m.8754_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.929 > mTP:0.089)_//_OTHER_//_PLASTID_(chloroplast: 0.92 > mitochondrial: 0.05)	PT
+grnMICRZ_MMETSP1404_Transcript_10006-m.29757_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.935 > mTP:0.135)_//_OTHER_//_PLASTID_(chloroplast: 0.93 > mitochondrial: 0.04)	PT
+grnMICpu_1152_wlab.210149.1_Chlorophyta_Mamelliophyceae	Viridiplantae: PLASTID_(cTP:0.928 > mTP:0.343)_//_OTHER_//_PLASTID_(chloroplast: 0.77 > mitochondrial: 0.17)	PT
+grnNEPHp_MMETSP0034_Transcript_11710-m.27171_Chlorophyta_Nephroselmidophyceae	Viridiplantae: PLASTID_(cTP:0.839 > mTP:0.479)_//_OTHER_//_PLASTID_(chloroplast: 0.89 > mitochondrial: 0.08)	PT
+grnNEPHp_MMETSP0034_Transcript_17419-m.40893_Chlorophyta_Nephroselmidophyceae	Viridiplantae: OTHER_(other:0.834 > mTP:0.154)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.74 > chloroplast: 0.15)	CS
+grnOSTRm_MMETSP0929_Transcript_1824-m.4774_Chlorophyta_Mamiellophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.922 > other:0.072)_//_OTHER_//_PLASTID_(chloroplast: 0.84 > mitochondrial: 0.11)	dual
+grnOSTRm_MMETSP0930_Transcript_7556-m.11460_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.637 > mTP:0.458)_//_OTHER_//_PLASTID_(chloroplast: 0.73 > mitochondrial: 0.2)	PT
+grnOSTRm_MMETSP0938_Gene.12006-Transcript_5069_Chlorophyta_Mamiellophyceae	Viridiplantae: PLASTID_(cTP:0.909 > mTP:0.282)_//_OTHER_//_PLASTID_(chloroplast: 0.79 > mitochondrial: 0.17)	PT
+grnPICCL_MMETSP1330_Transcript_10560-m.20564_Chlorophyta_Trebouxiophyceae	Viridiplantae: OTHER_(other:0.89 > mTP:0.185)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.77 > chloroplast: 0.11)	PT
+grnPICCL_MMETSP1330_Transcript_1454-m.3364_Chlorophyta_Trebouxiophyceae	Viridiplantae: PLASTID_(cTP:0.701 > mTP:0.42)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.38 > chloroplast: 0.29)	dual
+grnPICCY_MMETSP0807_Transcript_6085-m.26752_Chlorophyta_prasinophyte_CL_VII	Viridiplantae: MITOCHONDRION_(mTP:0.79 > other:0.136)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.54 > chloroplast: 0.25)	MT
+grnPICCY_MMETSP0807_Transcript_7364-m.32407_Chlorophyta_prasinophyte_CL_VII	Viridiplantae: MITOCHONDRION_(mTP:0.738 > cTP:0.544)_//_OTHER_//_PLASTID_(chloroplast: 0.72 > mitochondrial: 0.23)	dual
+grnPOLYZ_MMETSP0052_Gene.39612-Transcript_31591_Chlorophyta_Chlorophyceae	Viridiplantae: PLASTID_(cTP:0.886 > other:0.162)_//_OTHER_//_PLASTID_(chloroplast: 0.44 > cytoplasmic: 0.29)	PT
+grnPRASc_MMETSP0941_Gene.14464-Transcript_5625_Chlorophyta_Prasinococcales	Viridiplantae: PLASTID_(cTP:0.926 > other:0.147)_//_OTHER_//_PLASTID_(chloroplast: 0.8 > mitochondrial: 0.11)	PT
+grnPRASc_MMETSP0941_Gene.22985-Transcript_8803_Chlorophyta_Prasinococcales	Viridiplantae: PLASTID_(cTP:0.572 > mTP:0.527)_//_OTHER_//_PLASTID_(chloroplast: 0.88 > mitochondrial: 0.07)	PT
+grnPYRpZ_MMETSP0059_Transcript_16086-m.20792_Chlorophyta_Pyramimonadales	Viridiplantae: MITOCHONDRION_(mTP:0.743 > cTP:0.596)_//_OTHER_//_PLASTID_(chloroplast: 0.62 > mitochondrial: 0.33)	dual
+grnPYRpZ_MMETSP0059_Transcript_39038-m.48989_Chlorophyta_Pyramimonadales	Viridiplantae: OTHER_(other:0.319 > cTP:0.303)_//_OTHER_//_PLASTID_(chloroplast: 0.61 > mitochondrial: 0.27)	dual
+grnPYRpZ_MMETSP0059_Transcript_46982-m.58381_Chlorophyta_Pyramimonadales	Viridiplantae: MITOCHONDRION_(mTP:0.409 > other:0.4)_//_OTHER_//_PLASTID_(chloroplast: 0.81 > mitochondrial: 0.1)	PT
+grnPYRpa_CAMPEP_0191493274_Chlorophyta_Pyramimonadales	Viridiplantae: MITOCHONDRION_(mTP:0.782 > cTP:0.143)_//_OTHER_//_PLASTID_(chloroplast: 0.82 > mitochondrial: 0.1)	PT
+grnTETRa_MMETSP0804_Transcript_10985-m.21022_Chlorophyta_Chlorodendrophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.421 > other:0.246)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.69 > chloroplast: 0.14)	amb
+grnTETRa_MMETSP0804_Transcript_139-m.361_Chlorophyta_Chlorodendrophyceae	Viridiplantae: PLASTID_(cTP:0.914 > mTP:0.396)_//_OTHER_//_PLASTID_(chloroplast: 0.57 > mitochondrial: 0.33)	PT
+grnTETRa_MMETSP0804_Transcript_21450-m.40177_Chlorophyta_Chlorodendrophyceae	Viridiplantae: PLASTID_(cTP:0.772 > other:0.179)_//_OTHER_//_PLASTID_(chloroplast: 0.81 > cytoplasmic: 0.08)	PT
+grnTETRs_MMETSP0817_Transcript_34096-m.62233_Chlorophyta_Chlorodendrophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.743 > cTP:0.034)_//_OTHER_//_PLASTID_(chloroplast: 0.63 > cytoplasmic: 0.16)	dual
+grnTETRs_MMETSP0818_Transcript_32546-m.58179_Chlorophyta_Chlorodendrophyceae	Viridiplantae: MITOCHONDRION_(mTP:0.757 > other:0.148)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.6 > chloroplast: 0.25)	dual
+grnVOLVc_XP_002946776_Chlorophyta_Chlamydomonadales	Viridiplantae: MITOCHONDRION_(mTP:0.93 > other:0.101)_//_OTHER_//_MITOCHONDRION_(mitochondrial: 0.48 > chloroplast: 0.47)	MT
+grnVOLVc_XP_002950383_Chlorophyta_Chlamydomonadales	Viridiplantae: MITOCHONDRION_(mTP:0.881 > cTP:0.24)_//_OTHER_//_PLASTID_(chloroplast: 0.63 > mitochondrial: 0.28)	MT
+grnVOLVc_XP_002955181_Chlorophyta_Chlamydomonadales	Viridiplantae: MITOCHONDRION_(mTP:0.565 > other:0.206)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.57 > chloroplast: 0.22)	amb
+hapCALCl_MMETSP1334_Transcript_45626-m.70558_Haptophyta_Coccolithales	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.6 > cytoplasmic: 0.2)	PT
+hapCALCl_MMETSP1334_Transcript_56272-m.85108_Haptophyta_Coccolithales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.95 > secretory pathway: 0.02)	MT
+hapCALCl_MMETSP1334_Transcript_60163-m.90726_Haptophyta_Coccolithales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.91 > cytoplasmic: 0.04)	MT
+hapEXANg_MMETSP1464_Transcript_11313-m.28316_Haptophyta_Pavlovales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > secretory pathway: 0.02)	MT
+hapEXANg_MMETSP1464_Transcript_19562-m.48089_Haptophyta_Pavlovales	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.83 > mitochondrial: 0.12)	PT
+hapIMANT_MMETSP1474_Transcript_20743-m.25332_Haptophyta_Prymnesiales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.57 > secretory pathway: 0.32)	MT
+hapIMANT_MMETSP1474_Transcript_22891-m.27965_Haptophyta_Prymnesiales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.91 > secretory pathway: 0.06)	MT
+hapIMANT_MMETSP1474_Transcript_8088-m.9699_Haptophyta_Prymnesiales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.9 > secretory pathway: 0.06)	MT
+hapISOCHg_MMETSP0595_Transcript_18076-m.36226_Haptophyta_Isochrysidales	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.98 > mitochondrial: 0.01)	PT
+hapISOCHg_MMETSP0595_Transcript_6849-m.13855_Haptophyta_Isochrysidales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.94 > secretory pathway: 0.04)	MT
+hapPHEOC_MMETSP1444_Gene.46352-Transcript_29576_Haptophyta_Phaeocystales	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.96 > mitochondrial: 0.02)	PT
+hapPLEUc_MMETSP1136_Transcript_54162-m.76831_Haptophyta_Coccolithales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.95 > secretory pathway: 0.02)	MT
+hapPLEUc_MMETSP1138_Gene.30303-Transcript_22371_Haptophyta_Coccolithales	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.61 > nuclear: 0.14)	PT
+hapPLEUc_MMETSP1138_Gene.41476-Transcript_30704_Haptophyta_Coccolithales	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.69 > cytoplasmic: 0.19)	PT
+hapPRYMp_MMETSP0815_Transcript_11868-m.19954_Haptophyta_Prymnesiales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+hapSCYPH_MMETSP1333_Transcript_10377-m.10960_Haptophyta_Coccosphaerales	Haptophyta: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.92 > secretory pathway: 0.05)	MT
+haptEMILh_XP_005787845_Haptophyta	Haptophyta: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > mitochondrial: 0.01)	PT
+haptEMILh_XP_005788017_Haptophyta	Haptophyta: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.61 > cytoplasmic: 0.16)	amb
+haptPRYMp_CAMPEP_0191232478_Haptophyta	Haptophyta: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.46 > cytoplasmic: 0.34)	PT
+kytAMBOt_ERM96920_Viridiplantae_Streptophyta	Viridiplantae: PLASTID_(cTP:0.897 > SP:0.198)_//_OTHER_//_MITOCHONDRION_(mitochondrial: 0.4 > chloroplast: 0.3)	PT
+kytARABt_Q56X52_Viridiplantae_Streptophyta	Viridiplantae: PLASTID_(cTP:0.965 > mTP:0.35)_//_OTHER_//_PLASTID_(chloroplast: 0.67 > mitochondrial: 0.28)	PT
+kytGLYCm_GLYMA09G01130_Viridiplantae_Streptophyta	Viridiplantae: PLASTID_(cTP:0.851 > mTP:0.121)_//_OTHER_//_PLASTID_(chloroplast: 0.6 > mitochondrial: 0.36)	PT
+kytORYZs_NP_001053758_Viridiplantae_Streptophyta	Viridiplantae: MITOCHONDRION_(mTP:0.562 > cTP:0.124)_//_OTHER_//_PLASTID_(chloroplast: 0.5 > mitochondrial: 0.43)	dual
+kytORYZs_NP_001054199_Viridiplantae_Streptophyta	Viridiplantae: PLASTID_(cTP:0.971 > mTP:0.054)_//_OTHER_//_PLASTID_(chloroplast: 0.72 > mitochondrial: 0.21)	PT
+kytPHYSp_XP_001766430_Viridiplantae_Streptophyta	Viridiplantae: OTHER_(other:0.558 > mTP:0.383)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.77 > chloroplast: 0.09)	CS
+kytPHYSp_XP_001774094_Viridiplantae_Streptophyta	Viridiplantae: OTHER_(other:0.633 > mTP:0.334)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.78 > chloroplast: 0.09)	CS
+kytPHYSp_XP_001777033_Viridiplantae_Streptophyta	Viridiplantae: MITOCHONDRION_(mTP:0.509 > other:0.378)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.75 > mitochondrial: 0.11)	amb
+kytSELAm_XP_002973024_Viridiplantae_Streptophyta	Viridiplantae: OTHER_(other:0.893 > mTP:0.187)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.75 > chloroplast: 0.13)	CS
+kytSELAm_XP_002980057_Viridiplantae_Streptophyta	Viridiplantae: OTHER_(other:0.497 > mTP:0.413)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.71 > mitochondrial: 0.12)	amb
+kytSELAm_XP_002984380_Viridiplantae_Streptophyta	Viridiplantae: MITOCHONDRION_(mTP:0.829 > SP:0.085)_//_OTHER_//_MITOCHONDRION_(mitochondrial: 0.59 > chloroplast: 0.37)	MT
+kytSOlyc_Solyc08g075540.2.1_Viridiplantae_Streptophyta	Viridiplantae: MITOCHONDRION_(mTP:0.828 > other:0.189)_//_OTHER_//_PLASTID_(chloroplast: 0.75 > cytoplasmic: 0.11)	dual
+kytSOlyc_Solyc11g011990.1.1_Viridiplantae_Streptophyta	Viridiplantae: PLASTID_(cTP:0.97 > mTP:0.031)_//_OTHER_//_PLASTID_(chloroplast: 0.86 > mitochondrial: 0.08)	PT
+metLOTTg_LotgiP175466_Metazoa_Mollusca	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.61 > secretory pathway: 0.24)	amb
+metNEMAv_EDO43866_Metazoa_Cnidaria	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.5 > cytoplasmic: 0.28)	amb
+opiMONbr_XP_001743500_Opisthokonta	Opisthokonta: OTHER_//_MITOCHONDRION_(mitochondrial: 0.68 > cytoplasmic: 0.2)	amb
+opiSALPr_EGD72857_Opisthokonta_basal	Opisthokonta: MITOCHONDRION_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+redCHONc_XP_005712073_Rhodophyta	Rhodophyta: SIGNAL_(SP:0.823 > cTP:0.049)_//_SIGNAL_//_SECRETORY_(secretory pathway: 0.94 > cytoplasmic: 0.05)	SP
+redCHONc_XP_005712075_Rhodophyta	Rhodophyta: PLASTID_(cTP:0.881 > other:0.342)_//_OTHER_//_PLASTID_(chloroplast: 0.62 > nuclear: 0.17)	PT
+redCOMPS_MMETSP0312_Transcript_6098-m.7534_Rhodophyta_Compsopogonophyceae	Rhodophyta: OTHER_(other:0.58 > mTP:0.31)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.51 > chloroplast: 0.25)	CS
+redCYANm_XP_005536397_Rhodophyta	Rhodophyta: OTHER_(other:0.479 > mTP:0.311)_//_OTHER_//_PLASTID_(chloroplast: 0.88 > mitochondrial: 0.05)	PT
+redCYANm_XP_005536398_Rhodophyta	Rhodophyta: PLASTID_(cTP:0.72 > mTP:0.496)_//_OTHER_//_MITOCHONDRION_(mitochondrial: 0.49 > chloroplast: 0.47)	dual
+redGALDs_XP_005704943_Rhodophyta	Rhodophyta: MITOCHONDRION_(mTP:0.311 > cTP:0.238)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.63 > chloroplast: 0.15)	amb
+redMADAe_MMETSP1450_Gene.74747-Transcript_43690_Rhodophyta_Compsopogonophyceae	Rhodophyta: PLASTID_(cTP:0.642 > SP:0.217)_//_OTHER_//_PLASTID_(chloroplast: 0.9 > mitochondrial: 0.05)	PT
+redPORae_MMETSP0313_Transcript_6895-m.8178_Rhodophyta_Bangiophyceae	Rhodophyta: PLASTID_(cTP:0.561 > SP:0.136)_//_OTHER_//_PLASTID_(chloroplast: 0.61 > cytoplasmic: 0.21)	PT
+redRHOSO_MMETSP0011_Transcript_28788-m.76336_Rhodophyta_Stylonematophyceae	Rhodophyta: SIGNAL_(SP:0.594 > other:0.49)_//_OTHER_//_CYTOSOL_(cytoplasmic: 0.77 > chloroplast: 0.09)	amb
+rhiAMMOs_CAMPEP_0197026146_Rhizaria_Foraminifera	SAR-Rhizaria: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.61 > nuclear: 0.26)	CS
+rhiROSAL_MMETSP0190_Transcript_27859-m.16324_Rhizaria_Foraminifera	SAR-Rhizaria: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.55 > nuclear: 0.28)	CS
+rhiSORIT_MMETSP0191_Transcript_19486-m.16010_Rhizaria_Foraminifera	SAR-Rhizaria: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.61 > secretory pathway: 0.23)	CS
+rhiSORIT_MMETSP0191_Transcript_35903-m.29160_Rhizaria_Foraminifera	SAR-Rhizaria: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.71 > cytoplasmic: 0.18)	MT
+strAPHAi_ETW05820_Stramenopila_Oomycetes	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.63 > cytoplasmic: 0.25)	amb
+strAPHAi_ETW05821_Stramenopila_Oomycetes	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+strAUREa_MMETSP0915_Gene.26744-Transcript_11301_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > mitochondrial: 0.01)	PT
+strAUREE_EGB11874_Stramenopila_Pelagophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_NUCLEUS_(nuclear: 0.9 > cytoplasmic: 0.06)	CS
+strAUREl_MMETSP0891_Transcript_1238-m.1293_Stramenopila_Pelagophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.82 > cytoplasmic: 0.1)	MT
+strAUREl_MMETSP0891_Transcript_17888-m.19126_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.98 > nuclear: 0.01)	PT
+strAUREl_MMETSP0891_Transcript_3608-m.3895_Stramenopila_Pelagophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.39 > mitochondrial: 0.33)	amb
+strBICOS_MMETSP0115_Transcript_25649-m.65011_Stramenopila_Bicosoecida	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > cytoplasmic: 0.01)	MT
+strBOLIp_MMETSP1319_Transcript_25648-m.36154_Stramenopila_Bolidophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.99 > mitochondrial: 0.01)	PT
+strCAFca_CAMPEP_0196780868	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > secretory pathway: 0.01)	MT
+strCAFro_CAMPEP_0117709052	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.91 > secretory pathway: 0.05)	MT
+strCHATs_MMETSP0948_Transcript_25090-m.22083_Stramenopila_Raphidophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.98 > cytoplasmic: 0.01)	PT
+strCHRRH_MMETSP1164_Gene.10196-Transcript_3483_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.44 > secretory pathway: 0.41)	amb
+strCHRRH_MMETSP1164_Gene.54200-Transcript_17475_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.86 > cytoplasmic: 0.08)	PT
+strCHRRH_MMETSP1164_Gene.67680-Transcript_22210_Stramenopila_Pelagophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.04)	MT
+strCHRRH_MMETSP1166_Transcript_14370-m.34794_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.95 > mitochondrial: 0.03)	PT
+strCHRRH_MMETSP1166_Transcript_26709-m.64124_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.55 > mitochondrial: 0.26)	PT
+strCYLIN_MMETSP0017_Transcript_42931-m.70592_Stramenopila_Bacillariophyta	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.9 > secretory pathway: 0.05)	MT
+strDETON_MMETSP1058_Transcript_9695-m.14644_Stramenopila_Bacillariophyta	SAR-Stramenopila: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.94 > cytoplasmic: 0.03)	PT
+strDINOB_MMETSP0019_Transcript_20540-m.20891_Stramenopila_Chrysophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.97 > cytoplasmic: 0.01)	PT
+strDINOB_MMETSP0019_Transcript_32125-m.32722_Stramenopila_Chrysophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.52 > cytoplasmic: 0.29)	PT
+strDINOB_MMETSP0812_Transcript_11676-m.11236_Stramenopila_Chrysophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.75 > secretory pathway: 0.13)	MT
+strDINOB_MMETSP0812_Transcript_12031-m.11564_Stramenopila_Chrysophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.35 > nuclear: 0.26)	CS
+strDINOB_MMETSP0812_Transcript_14276-m.13669_Stramenopila_Chrysophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.77 > cytoplasmic: 0.13)	PT
+strDITYL_MMETSP1012_Transcript_43663-m.43865_Stramenopila_Bacillariophyta	SAR-Stramenopila: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.96 > mitochondrial: 0.02)	PT
+strDITYL_MMETSP1063_Transcript_24856-m.24860_Stramenopila_Bacillariophyta	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.43 > cytoplasmic: 0.26)	MT
+strECTsi_ES0003G01770_Stramenopila_Phaeophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.43 > cytoplasmic: 0.31)	amb
+strECTsi_ES0071G00400_Stramenopila_Phaeophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.81 > nuclear: 0.07)	MT
+strEXTUs_MMETSP0696_Transcript_12962-m.19076_Stramenopila_Bacillariophyta	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.99 > mitochondrial: 0.01)	PT
+strEXTUs_MMETSP0696_Transcript_21791-m.32352_Stramenopila_Bacillariophyta	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.99 > cytoplasmic: 0.01)	PT
+strEXTUs_MMETSP0696_Transcript_6533-m.9691_Stramenopila_Bacillariophyta	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.9 > secretory pathway: 0.06)	MT
+strFRAGk_MMETSP0736_Transcript_17779-m.12676_Stramenopila_Bacillariophyta	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.64 > cytoplasmic: 0.23)	amb
+strFRAGk_MMETSP0906_Transcript_17950-m.12564_Stramenopila_Bacillariophyta	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.57 > cytoplasmic: 0.31)	amb
+strMALLO_MMETSP1167_Transcript_18747-m.13573_Stramenopila_Synurophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.74 > cytoplasmic: 0.15)	PT
+strMALLO_MMETSP1167_Transcript_22682-m.16453_Stramenopila_Synurophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.83 > cytoplasmic: 0.07)	MT
+strNANNg_EWM22362_Stramenopila_Eustigmatophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.91 > mitochondrial: 0.06)	PT
+strNANNg_EWM30635_Stramenopila_Eustigmatophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > secretory pathway: 0.01)	MT
+strNITZs_MMETSP0014_Gene.50872-Transcript_31532_Stramenopila_Bacillariophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.98 > nuclear: 0.01)	PT
+strOCHRO_MMETSP0004_Transcript_21512-m.24816_Stramenopila_Chrysophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.98 > cytoplasmic: 0.01)	PT
+strOCHRO_MMETSP0005_Transcript_20231-m.23951_Stramenopila_Chrysophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.84 > secretory pathway: 0.1)	MT
+strOCHRO_MMETSP1105_Transcript_1682-m.1291_Stramenopila_Chrysophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.78 > secretory pathway: 0.13)	MT
+strOCHRO_MMETSP1105_Transcript_1684-m.1295_Stramenopila_Chrysophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.38 > nuclear: 0.3)	amb
+strOCHRO_MMETSP1105_Transcript_20589-m.16365_Stramenopila_Chrysophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > nuclear: 0.01)	PT
+strOCHRO_MMETSP1105_Transcript_5758-m.4574_Stramenopila_Chrysophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > cytoplasmic: 0.01)	PT
+strODONa_MMETSP0015_Gene.123905-Transcript_59410_Stramenopila_Bacillariophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.49 > secretory pathway: 0.3)	CS
+strODONa_MMETSP0015_Gene.43329-Transcript_21236_Stramenopila_Bacillariophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.45 > mitochondrial: 0.24)	amb
+strODONa_MMETSP0015_Gene.50480-Transcript_24676_Stramenopila_Bacillariophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.77 > mitochondrial: 0.17)	amb
+strPARAb_MMETSP1103_Transcript_25458-m.26575_Stramenopila_Chrysophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.04)	MT
+strPELAG_MMETSP0889_Transcript_12193-m.26265_Stramenopila_Pelagophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.44 > mitochondrial: 0.44)	PT
+strPHEOM_MMETSP1163_Transcript_20141-m.43994_Stramenopila_Pinguiophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.57 > cytoplasmic: 0.28)	PT
+strPHEOM_MMETSP1163_Transcript_26738-m.60542_Stramenopila_Pinguiophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.93 > secretory pathway: 0.05)	MT
+strPHYpa_ETI30743_Stramenopila_Oomycetes	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.96 > cytoplasmic: 0.02)	MT
+strPINGU_MMETSP1160_Transcript_16622-m.46097_Stramenopila_Pinguiophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.95 > secretory pathway: 0.03)	MT
+strPINGU_MMETSP1160_Transcript_2078-m.6733_Stramenopila_Pinguiophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.86 > mitochondrial: 0.09)	PT
+strPTERd_MMETSP0102_Transcript_2833-m.2786_Stramenopila_Dictyochophyceae	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.79 > secretory pathway: 0.12)	MT
+strPYTHv_EPrPV00000021946_Stramenopila_Oomycetes	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.97 > cytoplasmic: 0.01)	MT
+strRHIZC_MMETSP1173_Gene.35700-Transcript_17933_Stramenopila_Dictyochophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.65 > secretory pathway: 0.26)	amb
+strRHIZC_MMETSP1173_Gene.61882-Transcript_31308_Stramenopila_Dictyochophyceae	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_CYTOSOL_(cytoplasmic: 0.44 > mitochondrial: 0.26)	CS
+strSAPRd_EQC27140_Stramenopila_Oomycetes	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.85 > secretory pathway: 0.12)	MT
+strSAPRd_EQC27148_Stramenopila_Oomycetes	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.99 > secretory pathway: 0.01)	MT
+strSTAUR_MMETSP1361_Transcript_22641-m.27626_Stramenopila_Bacillariophyta	SAR-Stramenopila: OTHER_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.52 > cytoplasmic: 0.33)	amb
+strSTAUR_MMETSP1361_Transcript_28121-m.34129_Stramenopila_Bacillariophyta	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.88 > secretory pathway: 0.05)	MT
+strSYNCR_MMETSP1452_Transcript_20205-m.50322_Stramenopila_Synchromophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.98 > cytoplasmic: 0.01)	MT
+strSYNCR_MMETSP1452_Transcript_4052-m.10048_Stramenopila_Synchromophyceae	SAR-Stramenopila: SIGNAL_//_NON-PLASTID_//_SECRETORY_(secretory pathway: 0.88 > cytoplasmic: 0.07)	PT
+strTHAps_Thaps3a_24800_Stramenopila_Bacillariophyta_COS	SAR-Stramenopila: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.99 > mitochondrial: 0.01)	PT
+strTHAps_Thaps3a_25462_Stramenopila_Bacillariophyta_COS	SAR-Stramenopila: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.97 > nuclear: 0.01)	PT
+strTHAps_Thaps3a_25673_Stramenopila_Bacillariophyta_COS	SAR-Stramenopila: MITOCHONDRION_//_NON-PLASTID_//_MITOCHONDRION_(mitochondrial: 0.74 > secretory pathway: 0.15)	MT
+strTHNEn_MMETSP0156_Transcript_13882-m.14595_Stramenopila_Bacillariophyta	SAR-Stramenopila: SIGNAL_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > cytoplasmic: 0.01)	PT
+strTHNEn_MMETSP0156_Transcript_5034-m.5178_Stramenopila_Bacillariophyta	SAR-Stramenopila: PLASTID_//_PLASTID, HIGH_//_SECRETORY_(secretory pathway: 0.98 > nuclear: 0.01)	PT
+strVAUCl_MMETSP0946_Transcript_14210-m.13258_Stramenopila_Xanthophyceae	SAR-Stramenopila: SIGNAL_//_PLASTID, LOW_//_SECRETORY_(secretory pathway: 0.99 > cytoplasmic: 0.01)	PT

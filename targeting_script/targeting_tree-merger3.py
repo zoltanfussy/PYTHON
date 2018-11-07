@@ -14,23 +14,26 @@ from Bio import SeqIO
 ###########################
 
 homedir = "/Users/zoliq/ownCloud/"
-#homedir = "/Volumes/zoliq data/ownCloud"
-wd = homedir + "genomes/phatr/phatr mitoglyco/huge alignments/PASTA alignments nonconverging/goods trimmed/final trees/"
+#homedir = "/Volumes/zoliq data/ownCloud/"
+#wd = homedir + "genomes/phatr/phatr mitoglyco/huge alignments/PASTA alignments nonconverging/goods trimmed/final trees/"
+wd = homedir + "genomes/euglena longa/trees/MTOX/RESULT"
 os.chdir(wd)
 
 #### Collect Input ####
 #######################
 
 parser = argparse.ArgumentParser(description='How to use argparse')
-parser.add_argument('-p', '--prefix', help='Prediction files prefix', default='seq_eukaryotes')
+parser.add_argument('-p', '--prefix', help='Prediction files prefix', default='mtox')
 parser.add_argument('-t', '--treefile', help='Treefile', default='none')
 parser.add_argument('-a', '--accessions', help='Accession rename key file', default='none')
+parser.add_argument('-d', '--directory', help='Working directory', default='.')
 
 args = parser.parse_args()
 
 prefix = args.prefix
 treefile = args.treefile
 accessions = args.accessions
+os.chdir(args.directory)
 #ONLY FOR TEST PURPOSES:
 #accessions = "leaf_renaming.txt"
 
@@ -340,9 +343,14 @@ for leaf in leaveslist:
 
 #UNCOMMENT THIS PART TO PREPARE A TAXA-REPLACEMENT FILE
 leavesfromfasta = set()
-inFasta = SeqIO.parse("allseq.fasta", 'fasta')
-
+"""
+inFasta = SeqIO.parse(prefix + ".fasta", 'fasta')
+badaas = ("JOBUXZ")
 for seq in inFasta:
+	#define sequence starting with Met, get rid of ambiguous aminoacids
+	first_Met = str(seq.seq).find('M')
+	modifseq = str(seq.seq)[first_Met:]
+	modifseq = ''.join(c for c in modifseq if c not in badaas)
 	seqname = seq.name
 	tag = seqname.split("_")[0]
 	if tag in taxacodes:
@@ -350,16 +358,16 @@ for seq in inFasta:
 		hightaxon = high_taxon_assignment_d.get(genus, "unassigned")
 		fullseqname = seqname.replace(tag, taxacodes[tag]) + "@" + hightaxon
 		taxa[seqname] = fullseqname
-		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"] and seq.seq.startswith("M"):
-			print(">{}\n{}\n".format(fullseqname, seq.seq))
+		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"]: # and seq.seq.startswith("M")
+			print(">{}\n{}\n".format(fullseqname, modifseq))
 
 	elif seqname not in leavesfrompreds:
 		leavesfromfasta.add(seqname)
 		genus = seqname.split("_")[0]
 		hightaxon = high_taxon_assignment_d.get(genus, "unassigned")
-		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"] and seq.seq.startswith("M"):
-			print(">{}@{}\n{}\n".format(seqname, hightaxon, seq.seq))
-
+		if hightaxon.split("_")[0] not in ["Bacteria", "Archaea"]: # and seq.seq.startswith("M")
+			print(">{}\n{}\n".format(seqname, modifseq))
+"""
 
 leaveslist += list(leavesfromfasta)
 for leaf in leaveslist:

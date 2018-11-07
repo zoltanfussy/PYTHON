@@ -4,8 +4,8 @@ import argparse
 from Bio import SeqIO
 
 #set working directory
-#homedir = "/Users/zoliq/ownCloud/"
-homedir = "/Volumes/zoliq data/ownCloud/"
+homedir = "/Users/zoliq/ownCloud/"
+#homedir = "/Volumes/zoliq data/ownCloud/"
 wd = homedir + "genomes/euglena longa/trees/MTOX"
 os.chdir(wd)
 
@@ -18,9 +18,10 @@ parser = argparse.ArgumentParser(description='How to use argparse')
 parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be trimmed', required=True)
 parser.add_argument('-t', '--tree', help='Treefile for trimming', required=True)
 parser.add_argument('-c', '--colour', help='Branch colour filter', default='all')
+parser.add_argument('-d', '--directory', help='Change working directory', default='.')
 
 args = parser.parse_args()
-
+os.chdir(args.directory)
 
 if args.infile.split(".")[-1] in ("fasta", "fas", "fst"):
 	indataset = SeqIO.parse(args.infile, 'fasta')

@@ -37,8 +37,15 @@ def nodeshape_size(actual):
 #################
 t = Tree("testtree_sup.tre", format=0) #format flexible with support values
 t.ladderize(direction=1)
-find_supported(t, support=0.85) #find non-terminal nodes with high support
 
+#select scale 0-1.0 or 0-100 for support values
+supportscache = t.get_cached_content(store_attr="support")
+supportslist = [x.support for x in supportscache]
+if max(supportslist) == 1:
+    minsupport = 0.85
+else:
+    minsupport = 85
+find_supported(t, support=minsupport) #find non-terminal nodes with high support
 
 EnvDataFile = csv.reader(open("leaves_data.txt"), delimiter="\t", skipinitialspace=True)
 
@@ -85,11 +92,10 @@ ts.min_leaf_separation = 1
 #ts.show_branch_length = True
 ts.show_branch_support = True
 ts.scale =  200 # 100 pixels per branch length unit
-ts.branch_vertical_margin = 8 # 10 pixels between adjacent branches
+ts.branch_vertical_margin = 10 # 10 pixels between adjacent branches
 ts.title.add_face(TextFace("Diatom Tree", fsize=20), column=0)
 circular_style = TreeStyle()
 circular_style.mode = "c" # draw tree in circular mode
-circular_style.show_branch_support = True
 circular_style.scale = 100
 circular_style.arc_start = -90 # 0 degrees = 3 o'clock
 circular_style.arc_span = 330
@@ -132,8 +138,3 @@ plt.show()
 #ts.legend.add_face(fig, column=0) #does not work
 #t.show(tree_style=ts)
 t.render("mytree_c.png", w=300, units="mm", tree_style=circular_style)
-t.render("mytree.png", w=300, units="mm", tree_style=ts)
-
-
-
-

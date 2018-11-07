@@ -1,69 +1,19 @@
-Merismopedia
-Dolosigranulum
-Lactobacillus
-Alicyclobacillus
-Brockia
-Thermicanus
-Guillardia
-Cryptomonas
-Rhodomonas
-Pyramimonas
-Bathycoccus
-Micromonas
-Physcomitrella
-Arabidopsis
-Oryza sativa
-Thermocrinis
-Alphaproteobacteria
-Oceanibacterium
-Rhizobiales
-Oceanibaculum
-Rhodospirillum
-
-Thermocrinis albus WP 012991798.1
-Alphaproteobacteria bacterium 43-37 OJV45053.1
-Oceanibacterium hippocampi WP 085882896.1
-Rhizobiales bacterium PLX34328.1
-Oceanibaculum indicum WP 008945170.1
-Rhodospirillum centenum WP 012565944.1
-
-Dolosigranulum pigrum WP 004635029.1
-Lactobacillus reuteri AWD62981.1
-Alicyclobacillus pomorum WP 026964693.1
-Brockia lithotrophica PTQ51238.1
-Thermicanus aegyptius WP 005583493.1
-
-Guillardia theta CAMPEP 0113794430
-Cryptomonas paramecium CAMPEP 0113678620
-Rhodomonas salina CAMPEP 0172124164
-Pyramimonas parkeae CAMPEP 0191502158
-Bathycoccus prasinos Bathy01g06580
-Micromonas pusilla XP 003059847.1
-Physcomitrella patens XP 001774887.1
-Arabidopsis thaliana NP 680212.1 AT5G23535 mito
-Oryza sativa Japonica NP 001065703.1
-
-Physcomitrella patens XP 001783328.1
-Arabidopsis thaliana AT5G54600.1 plastid
-Oryza sativa Japonica NP 001058387.1
-Selaginella moellendorffii XP 002964375.1
-Lotharella amoebiformis CAMPEP 0118620546
-Bigelowiella natans CAMPEP 0169565396
-Lotharella sp. CCMP622 CAMPEP 0190155170
-Coccomyxa subellipsoidea XP 005648373.1
-Chlamydomonas reinhardtii XP 001698149.1
-Dunaliella tertiolecta CAMPEP 0187381838
-Pyramimonas amylifera CAMPEP 0196570846
-Pyramimonas parkeae CAMPEP 0191502396
-Ostreococcus tauri XP 003081884.1
-Bathycoccus prasinos Bathy13g02740
-Micromonas pusilla XP 003061709.1
-
-Synechococcus WP 012306679.1
-Crocosphaera watsonii WP 007306415.1
-Merismopedia glauca WP 106290586.1
-Microcystis aeruginosa WP 012267965.1
-Thermosynechococcus elongatus WP 011055947.1
-Nostoc sp. NIES-4103 WP 096558125.1
-Lyngbya confervoides WP 039727911.1
-Phormidium tenue WP 073609624.1
+Acinetobacter
+Apostichopus
+Capitella
+Caulerpa
+Crassostrea
+Exaiptasia
+Gammaproteobacteria
+Gonium
+Hephaestia
+Klebsormidium
+Lingula
+Marinospirillum
+Mizuhopecten
+Phenylobacterium
+Phenylobacterium
+Ramazzottius
+Raphidocelis
+Rheinheimera
+Thioalkalivibrio
