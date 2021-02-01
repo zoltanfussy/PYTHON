@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('./Trinity_Sterlet_mat,oos_WTA.fa', 'fasta')
-output = open('./Trinity_Sterlet_mat,oos_WTA_6frameAA.fa', 'w')
+infile = SeqIO.parse('./Trinity.fasta', 'fasta')
+output = open('./Trinity_stingray_6frameAA.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

@@ -1,0 +1,55 @@
+#!/bin/bash
+#PBS -N interproscan_general_small_sets
+#PBS -q default
+#PBS -l select=1:ncpus=10:mem=50gb:scratch_local=50gb
+#PBS -l walltime=4:00:00
+#PBS -m ae
+#PBS -j oe
+# hashes explained: -N job name, -q queue, -l select resources, -l walltime, -m ae, -j oe mail will be send at the end of the job
+
+# get name of the machine where the job is run
+cat $PBS_NODEFILE
+
+# set home directory
+DATADIR="/mnt/storage-brno3-cerit/nfs4/home/fussyz01/rdobeli"
+
+#SCRATCH-related statements
+if [ ! -d "$SCRATCHDIR" ] ; then echo "Scratch directory is not created!" 1>&2; exit 1; fi
+echo $SCRATCHDIR
+trap 'clean_scratch' TERM EXIT
+
+# add modules
+module add interproscan-5.20-59.0
+module add python27-modules-intel
+
+# nemusim kopirovat data na scratchdir, ve scratchi se jen generujou tempfiles
+cd $DATADIR
+#python translation_paja_noasterisk.py
+
+# run interproscan
+# interproscan hates "*", so avoid it in your protein datafiles; it does not hate "X" though, so it can be used instead the stop codon
+# make sure you split your datafile into ~50000 seq/split fasta
+#split -l 100000 ryba_filtfasta_6frameAA.fasta split
+#mkdir interpro
+for i in *.fasta; do
+	j="${i%.*}"
+	python interproscan-astremove.py $i $j-safe.fasta
+	interproscan.sh -dp -f GFF3 -T $SCRATCHDIR -i $DATADIR/$j-safe.fasta -b $i -appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther -goterms --pathways --iprlookup
+	python interproscan-gff2geneious_server.py $i.gff3
+done
+
+# output (-f) can be TSV, XML, GFF3, JSON
+# -T sets temporary directory instead of /temp to $SCRATCHDIR (available disk space in /temp is limited). To use this parameter you must request a scratch in job's requirements. 
+# -i is path to fasta file that should be loaded
+# Number of used processors (workers) is set in the file interproscan.properties to 8, so with one master you should request for 9-10 CPUs.
+# -dp Disables use of the precalculated match lookup service.  All match calculations will be run locally.
+# -b is the output prefix, 
+# -d output directory, must be present before IPS starts... MUTUALLY EXCLUSIVE WITH -b and -o!!!
+# -appl narrows down the searched databases; SignalP_EUK,Phobius,TMHMM do not seem to work by default - maybe modules need to be added?
+# possibilies: [CDD-3.14,PIRSF-3.01,Pfam-30.0,SFLD-1,PRINTS-42.0,ProSiteProfiles-20.119,PANTHER-10.0,Coils-2.2.1,Hamap-201605.11,ProSitePatterns-20.119,SUPERFAMILY-1.75,ProDom-2006.1,SMART-7.1,TIGRFAM-15.0,Gene3D-3.5.0]
+# -goterms adds GO terms to the search
+# --pathways adds a corresponding pathway annotation 
+
+
+#cp -R $SCRATCHDIR/* $DATADIR || export CLEAN_SCRATCH=false
+

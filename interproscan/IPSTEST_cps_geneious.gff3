@@ -1,0 +1,67 @@
+##gff-version 3
+##feature-ontology http://song.cvs.sourceforge.net/viewvc/song/ontology/sofa.obo?revision=1.269
+##sequence-region Cvel_10392.t1 1 1608
+Cvel_10392.t1	IPSparser	PANTHER	1075	1608	0.0	.	.	Name=PTHR11405;status=T
+Cvel_10392.t1	IPSparser	ProSitePatterns	563	577	.	.	.	Name=Carbamoyl-phosphate synthase subdomain signature 1.;Ontology_term="GO:0005524";status=T;Dbxref="InterPro:IPR005479"
+Cvel_10392.t1	IPSparser	ProSitePatterns	1358	1365	.	.	.	Name=Carbamoyl-phosphate synthase subdomain signature 2.;Ontology_term="GO:0005524";status=T;Dbxref="InterPro:IPR005479"
+Cvel_10392.t1	IPSparser	PRINTS	246	260	9.0E-37	.	.	Name=Carbamoyl-phosphate synthase protein GATase domain signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	207	221	9.0E-37	.	.	Name=Carbamoyl-phosphate synthase protein GATase domain signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	277	293	9.0E-37	.	.	Name=Carbamoyl-phosphate synthase protein GATase domain signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	294	311	9.0E-37	.	.	Name=Carbamoyl-phosphate synthase protein GATase domain signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	319	330	9.0E-37	.	.	Name=Carbamoyl-phosphate synthase protein GATase domain signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	362	375	2.2E-5	.	.	Name=Anthranilate synthase component II signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	249	258	2.2E-5	.	.	Name=Anthranilate synthase component II signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	277	288	2.2E-5	.	.	Name=Anthranilate synthase component II signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	567	579	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	775	793	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	693	722	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	418	432	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	636	653	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	447	457	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	601	620	5.1E-66	.	.	Name=Carbamoyl-phosphate synthase protein CPSase domain signature;Ontology_term="GO:0006807";status=T;Dbxref="InterPro:IPR005483","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	ProSitePatterns	1229	1243	.	.	.	Name=Carbamoyl-phosphate synthase subdomain signature 1.;Ontology_term="GO:0005524";status=T;Dbxref="InterPro:IPR005479"
+Cvel_10392.t1	IPSparser	ProSiteProfiles	1198	1389	38.697	.	.	Name=ATP-grasp fold profile.;Ontology_term="GO:0005524","GO:0046872";status=T;Dbxref="InterPro:IPR011761"
+Cvel_10392.t1	IPSparser	PANTHER	14	949	0.0	.	.	Name=PTHR11405:SF5;status=T
+Cvel_10392.t1	IPSparser	PANTHER	1075	1608	0.0	.	.	Name=PTHR11405:SF5;status=T
+Cvel_10392.t1	IPSparser	Pfam	209	385	1.5E-44	.	.	Name=Glutamine amidotransferase class-I;status=T;Dbxref="InterPro:IPR017926"
+Cvel_10392.t1	IPSparser	ProSiteProfiles	204	393	26.122	.	.	Name=Glutamine amidotransferase type 1 domain profile.;status=T;Dbxref="InterPro:IPR017926"
+Cvel_10392.t1	IPSparser	PANTHER	14	949	0.0	.	.	Name=PTHR11405;status=T
+Cvel_10392.t1	IPSparser	Hamap	14	391	38.866	.	.	Name=Carbamoyl-phosphate synthase small chain [carA].;Ontology_term="GO:0004088","GO:0006207","GO:0006541";status=T;Dbxref="InterPro:IPR006274","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	PRINTS	362	375	3.4E-10	.	.	Name=Glutamine amidotransferase superfamily signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	277	288	3.4E-10	.	.	Name=Glutamine amidotransferase superfamily signature;status=T
+Cvel_10392.t1	IPSparser	PRINTS	249	258	3.4E-10	.	.	Name=Glutamine amidotransferase superfamily signature;status=T
+Cvel_10392.t1	IPSparser	Pfam	820	942	3.9E-35	.	.	Name=Carbamoyl-phosphate synthetase large chain, oligomerisation domain;status=T;Dbxref="InterPro:IPR005480","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+Cvel_10392.t1	IPSparser	Pfam	527	728	5.2E-80	.	.	Name=Carbamoyl-phosphate synthase L chain, ATP binding domain;Ontology_term="GO:0005524";status=T;Dbxref="InterPro:IPR005479"
+Cvel_10392.t1	IPSparser	Pfam	1193	1392	2.3E-25	.	.	Name=Carbamoyl-phosphate synthase L chain, ATP binding domain;Ontology_term="GO:0005524";status=T;Dbxref="InterPro:IPR005479"
+Cvel_10392.t1	IPSparser	Pfam	1476	1567	4.2E-17	.	.	Name=MGS-like domain;status=T;Dbxref="InterPro:IPR011607"
+Cvel_10392.t1	IPSparser	ProSiteProfiles	532	724	40.796	.	.	Name=ATP-grasp fold profile.;Ontology_term="GO:0005524","GO:0046872";status=T;Dbxref="InterPro:IPR011761"
+Cvel_10392.t1	IPSparser	Pfam	16	152	2.4E-47	.	.	Name=Carbamoyl-phosphate synthase small chain, CPSase domain;status=T;Dbxref="InterPro:IPR002474","KEGG:00240+6.3.5.5","KEGG:00250+6.3.5.5","MetaCyc:PWY-5154","MetaCyc:PWY-5686","MetaCyc:PWY-7400"
+##FASTA
+>Cvel_10392.t1
+MSDVLIEDKQELTVPAQLVLLDGTTFDGFSFGHPHSTAGEVVFNTGMVGYPESLTDPSYC
+GQILCLTYPLVGNYGVPNADKDAFGLPKNFEGERIHPKGLLTADYSLVSSHYKAVRSLSQ
+WLKDEGVAGITGIDTRALTKHIREHGSILGKILIGDDIKKKDSIPLYNPNVENLMPQVSR
+KEPSVYCTPSELVNKPGYLKAPEQITIVAVDCGMKYNIIRHFVYNLPHNIKLKVVPWDYP
+FGDEEFDGLFLSNGPGDPTYCEATIKNIQKVMARGKPIFGICLGNQLMALAAGAKTFKMK
+YGNRGMNQPVIDCRTTKCYITPQNHGYAVDPDSLPAGWMQFFVNANDKSNEGIVHQKFPW
+FSVQFHPESAGGPTDTSFLFYDFLRAVHDPRLIPVTTVPIQFPQTQTKVLVLGSGGLSIG
+QAGEFDYSGSQCIKALKEANVYSVLINPNIATVQTSEGLADKVYFLPVNAYFVEQVIAKE
+RPDGIFCTFGGQTALNCGCVLQNTGIFEKYGVRVLGTPISAIEQTEDRDVFAQELKKIGA
+KCAPSFPALNVEEVVDAANKLGYPVLVRAAFALGGLGSGFASDEKQLRKLAEEAFQHSHQ
+VLVDKSLKGWKEVEYEVVRDDRDNCITVCNMENFDPLGVHTGDSIVIAPSQTLSNEEYFM
+LRETAVKVIRHFGIVGECNIQYALDPNSKDFVIVEVNARLSRSSALASKATGYPLAYVAA
+KLGLGQDLVSIRNAVTRSTTACFEPSLDYLVAKIPRWDLTKFESVDPRMGSAMKSVGEVM
+AIGRTFEEVMQKALRMVDESVQGFESGKFSSKGPEEVDQELQVPTPMRIYAIARAFELGY
+SIEQIHKLSRVDLWFLGKLRNVFLNVQKLGKTELTNIDPLWMRQLKKQGFSDSKIAMSLK
+SAVRSGAVRTLRQSYGITPVVKQIDTLAAEFPATTNYLYMTYQGSEHDVEALSLLTSRNP
+AHLGERFRTPRPSIEGGDYSPAGVRSPPSYDRQGSNQLVGRACGLGSGFTEAAGQPMHRI
+PSNAALFNHVGGGGLIKVPSNPSLHPHSAANGASPRANGLPAVSERDAMAYRVAEPAQKT
+VLVLGCGCYRIGSSVEFDWSCMSCVKTLRNLGHKAIVVNCNPETVSTDFDESDRLYFDEL
+SLERVLDIWEFEQPFGAVVSMGGQTPNNLALRLQTNRVKILGTSVDSIDMAEDRHKFSAL
+CDKLSIDQPAWSAFSNFETAKEFCDRVEFPVLVRPSYVLSGAAMRVVSEPSELNEFLQKA
+AVVSKEHPVVISKYIENAKEVEMDAVAHDGEIVNYAISEHVENAGVHSGDATLILPAQKL
+YVETIRRVKKTAQKLARALRISGPFNIQFMCKHNDVKVIECNLRASRTFPFISKTFNTNF
+IELAIRIMIGAPFRPASIHLVDLDFVGVKAPMFSFSRLKGADPVLGVEMRSTGEVACFGT
+NKFDAFLKAMLATSMKKLPKEAIMVTIGPLPAKIEFLPYARLLTSLGYTIYATDGTFQFL
+ESHGLTDKHLQKVFKPLETKEPNARTMISEKKVELVINVPDSMESKALTDGYHIRRTAID
+CGVPLVTDMKLASLLVDSLIRKDYREKKQNRPFFEILAWDEYTGRTGL

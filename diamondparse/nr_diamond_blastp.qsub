@@ -1,0 +1,22 @@
+#!/bin/sh
+#PBS -N Diamond_nr_blastp
+#PBS -q default
+#PBS -l select=1:ncpus=8:mem=50gb:scratch_local=100gb
+#PBS -l walltime=6:00:00
+#PBS -m ae
+#PBS -j oe
+cat $PBS_NODEFILE
+
+DATADIR="/mnt/storage-brno3-cerit/nfs4/home/fussyz01/DMND"
+#add modules
+module add diamond-0.8.29
+module add python36-modules-gcc
+
+cd $DATADIR
+#cp $DATADIR/refseq_ryby.dmnd $RESDIR/compared_annotations.fasta $SCRATCHDIR || exit 1
+#cd $SCRATCHDIR
+
+#diamond getseq --db nr.dmnd > nr.fasta
+#./diamond makedb --in nr.fasta -d nr2
+./diamond blastp -p 8 -d nr2.dmnd -q diamondquery.fasta -o diamond.out -f 6 qseqid sseqid stitle evalue bitscore full_sseq --sensitive --max-target-seqs 10 --evalue 1e-5
+python diamondparse.py --pool True

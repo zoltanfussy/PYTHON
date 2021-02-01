@@ -68,6 +68,15 @@ monstr_dic = {}
 ###########################################################################
 #        read in seq names to extract nt/aa models of interest:           #
 ###########################################################################
+if os.path.isdir("/Users/morpholino/OwnCloud/"):
+	home = "/Users/morpholino/OwnCloud/"
+elif os.path.isdir("/Volumes/zoliq data/OwnCloud/"):
+	home = "/Volumes/zoliq data/OwnCloud/"
+else:
+	print("Please set a homedir")
+defdir = "progs/PYTHON-DATA/monstr-table-filler/"
+os.chdir(home + defdir)
+
 inproteins = SeqIO.parse(args.infile, 'fasta')
 names = []
 outproteins = open('outprot-' + args.infile, 'w')
@@ -90,7 +99,7 @@ for sequence in inproteins:
 
 outproteins.close()
 
-intranscripts = SeqIO.parse("el_merged.fasta", 'fasta')
+intranscripts = SeqIO.parse(home + "genomes/euglena longa/ZORFome2/el_merged.fasta", 'fasta')
 mySL = coding_dna = Seq(args.SL, IUPAC.ambiguous_dna)
 revSL = mySL.reverse_complement()
 

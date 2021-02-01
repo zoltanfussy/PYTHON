@@ -9,11 +9,20 @@ print("Query file name (-q) is optional, default is query.ko.txt")
 
 import argparse
 import os
-import urllib
+import urllib.request
 from Bio import SeqIO
 #import pandas as pd
 #import pickle
 from bioservices.kegg import KEGG
+
+if os.path.isdir("/Users/morpholino/OwnCloud/"):
+	home = "/Users/morpholino/OwnCloud/"
+elif os.path.isdir("/Volumes/zoliq data/OwnCloud/"):
+	home = "/Volumes/zoliq data/OwnCloud/"
+else:
+	print("Please set a homedir")
+wd = home + "progs/PYTHON-DATA/KEGGscript/"
+os.chdir(wd)
 
 parser = argparse.ArgumentParser(description='How to use argparse')
 parser.add_argument('-e', '--EClist', help='EC list to download', default='eclist.txt')
@@ -28,7 +37,7 @@ fasta = args.fasta
 queryKO = args.queryKO
 pathway = args.pathway
 
-print("EC list file: %s; sequences will be extracted from: %s" %(eclist, fasta))
+print("======\nECQUERY INPUT PARAMETERS:\nEC list file: {};\n sequences will be extracted from: {}".format(eclist, fasta))
 
 # UNCOMMENT TO DOWNLOAD THE CURRENT LIST OF KEGG ENZYMES FROM THE DATABASE
 # MIGHT HELP WHEN GETTING KEY ERRORS OF THE EC FILE
@@ -39,15 +48,11 @@ urllib.request.urlretrieve(url, fileName)
 print("Current list of enzymes downloaded.")
 """
 #first, dictionaries of ECs and their ortholog groups is made
-#ortholog groups are called from ec_d, definitions from ECdef_d
-#retrieve up to date list visiting: http://rest.kegg.jp/list/ko
-infile = open('ENZYMES.txt')
-lines = infile.read()
-infile.close()
-
+print("ECQUERY: Reading ENZYMES file...")
+with open('ENZYMES.txt') as f:
+	lines = f.read()
 
 ENZYMES = lines.split('\n')[:-1]
-
 
 KO_dic = {}
 EC2KO_dic = {}
@@ -84,7 +89,12 @@ if args.pathway != 'none':
 	kegg = KEGG()
 	pathway = kegg.get(args.pathway)
 	dict_data = kegg.parse(pathway)
+	if dict_data == 404:
+		print("WARNING: BAD PATHWAY SUBMITTED TO KEGG!")
+	elif dict_data == None:
+		print("WARNING: ERROR CONNECTING TO KEGG SERVER!")
 	#print(dict_data)
+	print("ECQUERY: PROCESSING PATHWAY/MODULE")
 	try:
 		for key in dict_data['ORTHOLOGY'].keys():
 			print("adding ortholog {} to eclist".format(key))
@@ -122,6 +132,7 @@ if args.pathway != 'none':
 	output.close()
 
 #here query.ko.txt is opened and for each orthology group respective contigs are saved to kos_d
+print("ECQUERY: OPENING KAAS ANNOTATIONS (query.ko file)")
 infile = open(queryKO)
 inquery = infile.read()
 infile.close()
@@ -138,22 +149,24 @@ for item in kos:
 			kos_d[ko]=[seqname]
 	else:
 		pass
-print("queryKO file analyzed")
+print("ECQUERY: query.ko PARSED TO DICTIONARY")
 
 #fasta file is written and contigs are saved to seq_d
+print("ECQUERY: PARSING FASTA TO DICTIONARY...")
 seq_d = {}
 infasta = SeqIO.parse(fasta, 'fasta')
 for seq in infasta:
 	seq_d[seq.name] = seq.seq
+print("ECQUERY: SUCCESS!")
 
+print("ECQUERY: PARSING BAIT KO IDENTIFIERS...")
+with open(eclist) as f:
+	ECs = f.read().split()
 
-infile = open(eclist)
-ECs = infile.read().split()
-infile.close()
 kostoprint = set() #this was changed from list to set() so that KOs do not repeat
 for item in ECs:
 	if item.startswith("K"):
-		kostoprint.append(item)
+		kostoprint.add(item)
 	else:
 		try:
 			kostoprint |= set(EC2KO_dic[item])
@@ -161,8 +174,11 @@ for item in ECs:
 			#in case of sets, use union: kostoprint |= set(EC2KO_dic[item])
 		except KeyError:
 			print(item + "not in list of ECs")
-#print(kostoprint)
+kolist = list(kostoprint)
+kolist.sort()
+print("KOs TO RETRIEVE: {}".format(", ".join(kolist)))
 
+print("ECQUERY: WRITING OUTPUT...")
 out = open('outfile.fasta', 'w')
 
 foundnames = []
@@ -198,7 +214,7 @@ for ortholog in kostoget:
 
 out.close()
 
-print("now dereplicating...")
+print("ECQUERY: NOW DEREPLICATING SEQUENCES...")
 
 output1 = open('outfile_dedupl_desc.fasta', 'w')
 output2 = open('outfile_dupl_names.fasta', 'w')
@@ -206,15 +222,16 @@ output2 = open('outfile_dupl_names.fasta', 'w')
 multiplications = {}
 seq_dict = {}
 for sequence in SeqIO.parse('outfile.fasta', 'fasta'):
-	if sequence.seq in multiplications:
-		multiplications[sequence.seq].append(sequence.name)
+	seq = str(sequence.seq)
+	if seq in multiplications:
+		multiplications[seq].append(sequence.name)
 	else:
-		multiplications[sequence.seq] = [sequence.name]
-	if sequence.seq not in seq_dict:
+		multiplications[seq] = [sequence.name]
+	if seq not in seq_dict:
 		#rename full header only with name (acc, till the first space)
-		# seq_dict[sequence.seq] = sequence.name 
+		# seq_dict[seq] = sequence.name 
 		#keep full header			
-		seq_dict[sequence.seq] = sequence.description
+		seq_dict[seq] = sequence.description
 
 for key, value in seq_dict.items():
 	output1.write('>{}\n{}\n'.format(value, key))
@@ -226,4 +243,5 @@ for key, value in multiplications.items():
 output1.close()
 output2.close()
 
-print("dereplicated hits written to outfile_dedupl_desc.fasta")
+print("ECQUERY: DEREPLICATED HITS WRITTEN TO: outfile_dedupl_desc.fasta")
+print("ECQUERY: SUCCESS! ALL PROCESSES FINISHED.")

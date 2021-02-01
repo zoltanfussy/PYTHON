@@ -9,8 +9,8 @@ from Bio.Blast import NCBIXML
 ##############  PARAMETERS  ################
 ############################################
 
-owncloudpath = "/Users/zoliq/ownCloud/progs/PYTHON"
-#owncloudpath = "/Volumes/zoliq data/ownCloud/progs/PYTHON"
+owncloudpath = "/Users/morpholino/OwnCloud/progs/PYTHON-DATA"
+#owncloudpath = "/Volumes/zoliq data/ownCloud/progs/PYTHON-DATA"
 dbfasta = SeqIO.parse(owncloudpath + '/seq-extend-BLASTXML/Chromera_velia_MMETSP0290-trans_NCBI-Woehle.fasta', 'fasta')
 queryfasta = SeqIO.parse(owncloudpath + '/seq-extend-BLASTXML/chromera_all.fasta', 'fasta')
 nt_out = open(owncloudpath + '/seq-extend-BLASTXML/chromera_all-elong_nt_mmetsp-ncbi.txt', 'w')

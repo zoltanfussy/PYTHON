@@ -1,16 +1,116 @@
 #!/usr/bin/python3
-from Bio import Entrez
-from Bio import SeqIO
+import os
+import re
+from Bio import Entrez,SeqIO
+from ete3 import NCBITaxa
+#http://etetoolkit.org/docs/2.3/tutorial/tutorial_ncbitaxonomy.html
+ncbi = NCBITaxa()
 
-Entrez.email = 'zahonova.kristina@gmail.com'
+Entrez.email = 'zoltan.fussy@gmail.com'
+#Entrez.api_key = ''
 
-ids = ['OUW02604.1', 'WP_103115413.1', 'WP_072286234.1', 'PCJ30813.1', 'PLX98017.1', 'WP_040100267.1', 'WP_027713754.1', 'PLX81497.1', 'OGP12844.1', 'KHD88611.1', 'WP_041284178.1', 'PLX90457.1', 'EAT16571.1', 'OFZ28829.1', 'OGP53255.1', 'WP_066728839.1', 'OEU72843.1', 'PLY00240.1', 'WP_072283796.1', 'WP_007144699.1', 'WP_020677041.1', 'WP_025306854.1', 'OGP29560.1', 'PLX83847.1', 'PHR80994.1', 'WP_012469098.1', 'WP_092345249.1', 'OGP16057.1', 'WP_081112186.1', 'WP_080559019.1', 'OGW13555.1', 'ADE39886.1', 'PKN12876.1', 'ASD65587.1', 'WP_008871586.1', 'WP_092061831.1', 'OGQ54731.1', 'OGP12626.1', 'SHE86924.1', 'OFW82827.1', 'OPX20824.1', 'PIE36056.1', 'WP_028572509.1', 'WP_015772900.1', 'WP_027369646.1', 'OGW50057.1', 'WP_012113847.1', 'WP_012645774.1', 'WP_015468787.1', 'WP_028466214.1', 'PIU53932.1', 'KPJ59398.1', 'OGP99799.1', 'OUV98846.1', 'OGL47029.1', 'WP_066133694.1', 'WP_046022686.1', 'WP_088616068.1', 'PJB78158.1', 'WP_029916418.1', 'PCJ87251.1', 'SBW08975.1', 'WP_041442153.1', 'OEU80562.1', 'PLX42892.1', 'WP_092641776.1', 'OLB21214.1', 'WP_043815129.1', 'OLE52076.1', 'WP_015751292.1', 'WP_020720355.1', 'WP_022948420.1', 'PIQ95860.1', 'WP_073627950.1', 'OFZ19526.1', 'PIT99647.1', 'WP_010300114.1', 'GBE52447.1', 'OYV52005.1', 'WP_026873259.1', 'WP_027191564.1', 'WP_015897571.1', 'OLC35386.1', 'WP_025897365.1', 'PIU49881.1', 'WP_093394286.1', 'WP_011391366.1', 'KPJ94816.1', 'KPJ57498.1', 'PCI25239.1', 'WP_028989072.1', 'OUR63995.1', 'WP_011683792.1', 'OGP52275.1', 'WP_029894546.1', 'OUU97870.1', 'GBE14826.1', 'OJV14139.1', 'OUV92666.1', 'OUR80471.1', 'OYX74394.1', 'WP_031496622.1', 'WP_034339630.1', 'WP_004271485.1', 'WP_007811818.1', 'WP_038466082.1', 'OUU50417.1', 'WP_014811773.1', 'OGG94779.1', 'WP_008519027.1', 'WP_012173234.1', 'WP_020876612.1', 'OIP39807.1', 'OGW86484.1', 'WP_025860247.1', 'WP_077807010.1', 'WP_029604999.1', 'OEU55121.1', 'WP_007677406.1', 'WP_028587040.1', 'WP_086554320.1', 'WP_027354185.1', 'ABM28579.1', 'WP_010604247.1', 'OUW37296.1', 'OUT41072.1', 'GAK43705.1', 'SME87795.1', 'WP_018691261.1', 'WP_048854151.1', 'ACL06885.1', 'WP_101253379.1', 'OGQ35915.1', 'WP_068283433.1', 'WP_086463820.1', 'WP_094407791.1', 'OGP07651.1', 'WP_059023062.1', 'WP_092497272.1', 'OUV32219.1', 'OGP82298.1', 'OQW47817.1', 'WP_086638121.1', 'OUU28838.1', 'WP_029351755.1', 'OGP61971.1', 'WP_035351198.1', 'WP_025826598.1', 'WP_055038527.1', 'WP_069305687.1', 'WP_045216263.1', 'OQX22758.1', 'WP_014132460.1', 'OZA92439.1', 'WP_067551007.1', 'OIO34336.1', 'WP_010697298.1', 'OGW80570.1', 'WP_086646302.1', 'OGP89739.1', 'GAK61032.1', 'WP_013219598.1', 'WP_084641697.1', 'PKK83419.1', 'WP_075770649.1', 'OGW72274.1', 'PLX25410.1', 'OUX97380.1', 'OUW28623.1', 'OYU47985.1', 'WP_043551267.1', 'WP_044346356.1', 'WP_009539421.1', 'WP_074215777.1', 'WP_068463033.1', 'WP_019402629.1', 'WP_002682892.1', 'WP_003623786.1', 'WP_042787093.1', 'WP_020880742.1', 'KFG69637.1', 'WP_072387477.1', 'WP_089410998.1', 'WP_055459502.1', 'WP_046477132.1', 'PIR16444.1', 'WP_028895907.1', 'WP_042088457.1', 'WP_097280552.1', 'KUO68064.1', 'WP_048834993.1', 'WP_029012235.1', 'OGP77515.1', 'WP_035377060.1', 'OJW51268.1', 'PIW26024.1', 'ABB38927.1', 'PIR21495.1', 'WP_027192851.1', 'SFV72465.1', 'SDE96289.1', 'OFV79995.1', 'WP_029077265.1', 'WP_048844340.1', 'CEJ16222.1', 'KPJ75929.1', 'OGW15955.1', 'WP_086612949.1', 'WP_048878350.1', 'OGP75833.1', 'WP_068013168.1', 'WP_008495072.1', 'KUK51229.1', 'WP_068148190.1', 'WP_019645084.1', 'WP_013168580.1', 'SDC91200.1', 'OKO75993.1', 'OGW37284.1', 'OUS16861.1', 'WP_014283257.1', 'OGG99630.1', 'GBE46973.1', 'OJY41059.1', 'WP_085881845.1', 'EHH67735.1', 'PIE83672.1', 'KPL18409.1', 'WP_014150367.1', 'WP_085787058.1', 'WP_027188761.1', 'WP_012567946.1', 'WP_018125076.1', 'WP_012224423.1', 'CCQ10658.1', 'WP_010548220.1', 'WP_096351809.1', 'OUU55498.1', 'WP_029040972.1', 'OUT90411.1', 'WP_039194969.1', 'OLD57464.1', 'OGQ45230.1', 'EQB62733.1', 'PIQ85535.1', 'WP_003609229.1', 'OUT77415.1', 'OGC81906.1', 'PLX51965.1', 'OGP17755.1']
+if os.path.isdir("/Users/morpholino/OwnCloud/"):
+	home = "/Users/morpholino/OwnCloud/"
+elif os.path.isdir("/Volumes/zoliq data/OwnCloud/"):
+	home = "/Volumes/zoliq data/OwnCloud/"
+else:
+	print("Please set a homedir")
 
-with open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nr90_names.txt', 'w') as out:
-	for prot_id in ids:
-		print(prot_id)
-		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
-		prot_record = SeqIO.read(prot, 'genbank')
-		tax = str(prot_record.annotations['taxonomy'][::-1]).replace('\'', '')
-		orgn = prot_record.annotations['organism']
-		out.write('{}\t{}__{}\n'.format(prot_id, orgn, tax))
+#wd = "VoboraLab/data/publikace/140929 euglena/Volume3"
+#wd = "AndyLab/Phaeocystis/annotation/metE"
+#wd = "AndyLab/mTOR"
+wd = "HamplLab/retortamonas/mito_protein_queries"
+#wd = "DolezalLab/SecY/"
+os.chdir(home + wd)
+
+#will need these regexes
+taxonpattern = r'\[(.+)\]'
+genbankpattern = r'[A-Z]{1,3}(_)?\d+(\.\d)?'
+badchars = ("|@+,:;()'")
+
+#collect files
+fastas = [x for x in os.listdir(".") if x.endswith("_out.fasta")] #NOTE: default output suffix of the diamondparse script
+fastas.sort()
+
+#main
+for file in fastas:
+	print("=============\n\n\nNow parsing file", file)
+	fasta = SeqIO.parse(file, "fasta")
+	with open(file.replace("_out.fasta", ".faa"), 'w') as out: #"_v1.fasta"
+		for f in fasta:
+			fname = f.name.strip()
+			fdesc = f.description
+			prot_idregex = re.search(genbankpattern, fname) #prot_idregex = without group(0)
+			taxonregex = re.search(taxonpattern, fdesc)
+			#this is for cases where taxon pattern is in the description
+			if prot_idregex and taxonregex:
+				prot_id = prot_idregex.group(0)
+				taxon = "_".join(taxonregex.group(1).split()[:2])
+				desc = f'{taxon}_{prot_id} {fdesc.replace(fname, "").split(" [")[0]}'
+				seq = f.seq
+			
+			#this is for cases that have only gi|xxx|gb|yyyy| 
+			elif fname.startswith("gi|"):
+				gid = fname.split("|")[1]
+				#print("GenBank ID found, yay!")
+				print("Fetching data", gid)
+				try:
+					prot = Entrez.efetch(db='protein', id=gid, rettype='fasta', retmode='text')
+					prot_record = SeqIO.read(prot, 'fasta')
+					desc = prot_record.description
+					taxon = re.search(taxonpattern, desc).group(1)
+					if taxon:
+						taxon = "_".join(taxon.split()[:2])
+						desc = f'{taxon}_{desc.split(" [")[0]}'
+					seq = prot_record.seq
+					print("success", desc, seq[:20], "...")
+				except:
+					#bad request
+					print("Bad request")
+					desc = fdesc #fname
+					seq = f.seq
+
+			#this is for cases when XP_xxxx type AC is in seqname
+			elif prot_idregex:
+				prot_id = prot_idregex.group(0)
+				#print("GenBank ID found, yay!", prot_id)
+			#https://www.ncbi.nlm.nih.gov/books/NBK25499/table/chapter4.T._valid_values_of__retmode_and/?report=objectonly
+				if fname.startswith(prot_id):
+					print("Fetching data", prot_id)
+					try:
+						prot = Entrez.efetch(db='protein', id=prot_id, rettype='fasta', retmode='text')
+						prot_record = SeqIO.read(prot, 'fasta')
+						desc = prot_record.description
+						taxon = re.search(taxonpattern, desc).group(1)
+						if taxon:
+							taxon = "_".join(taxon.split()[:2])
+							desc = f'{taxon}_{desc.split(" [")[0]}'
+						seq = prot_record.seq
+						print("success", desc, seq[:20], "...")
+					except:
+						#bad request
+						print("Bad request")
+						desc = f.name
+						seq = f.seq
+				else:
+					desc = f.description
+					seq = f.seq
+			else:
+				desc = f.description
+				seq = f.seq
+			out.write(f">{desc}\n{seq}\n")
+			#out.write('{}\t{}__{}\n'.format(prot_id, orgn, tax))
+
+
+quit("\n\nFinished processing, yay!")
+#this is rich format:
+for prot_id in ids:
+	#print(prot_id)
+	prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
+	prot_record = SeqIO.read(prot, 'genbank')
+	print(prot_record)
+	#tax = str(prot_record.annotations['taxonomy'][::-1]).replace('\'', '')
+	orgn = prot_record.annotations['organism']
+	name2taxid = ncbi.get_name_translator(orgn)
+	print(prot_id, orgn, name2taxid)
+	#out.write('{}\t{}__{}\n'.format(prot_id, orgn, tax))
