@@ -1,7 +1,18 @@
-import os
-import re
-import argparse
+import os,re,argparse
 from Bio import SeqIO
+
+def clear_tag(nodename):
+	partpattern = r'_([\.\d]+)%aligned'
+	try:
+		taghit = re.search(partpattern, nodename)
+		tag = taghit.group()
+		perc = taghit.group(1)
+		nodename = nodename.replace(tag, "")
+	except:
+		perc = 101
+		tag = ""
+		#print(f"No pattern in {nodename}")
+	return nodename
 
 #set working directory
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
@@ -239,6 +250,8 @@ for line in treelines:
 	if line != ';':
 		line = line.replace("'", "")
 		line = line.replace("\t", "").replace(" ","_").replace("|","_")#.replace("@","_")
+		if "%aligned" in line:
+			line = clear_tag(line)
 		#line = line.split("@")[0]
 		#linecolour = line + colour
 		#print(linecolour)

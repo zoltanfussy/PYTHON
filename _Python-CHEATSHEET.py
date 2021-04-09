@@ -1,6 +1,10 @@
+type(some_object)
 if isinstance(function, str): #determine if instance is string/list/set/whatever
+#The difference between type() and isinstance() is that isinstance() returns True even for instances of subclasses that inherit the class specified in the second argument.
+#i.e., isinstance will be true for both isinstance(True, bool) and isinstance(True, int), since boolean values are subclass of int
 print(os.path.isdir("/home/el"))
 print(os.path.exists("/home/el/myfile.txt"))
+path, file = os.path.split(filepath)
 
 #non-ascii character error:
 import io
@@ -313,7 +317,7 @@ for f in tqdm(files, desc="progress"):
 with open(queryfile) as f:
 	seqcount = f.read().count(">")
 print("Sequence reading progress: {:.1f}%".format(100*(c / seqcount)))
-
+ {:4.1f} #different notation - four characters altogether with the single decimal place
 
 locals() #local variables?
 dir(any_object) #print the structure of an object
@@ -389,14 +393,16 @@ def query_yes_no(question, default="yes"):
 							 "(or 'y' or 'n').\n")
 
 
+#######################
+####   FUNCTIONS   ####
+#######################
+
 
 #read only the first lines, without use of the counter
 def read_ten(file_like_object):
     for line_number in range(10):
         x = file_like_object.readline()
         print(f"{line_number} = {x.strip()}")
-
-
 
 ###################
 from Bio import Entrez,SeqIO

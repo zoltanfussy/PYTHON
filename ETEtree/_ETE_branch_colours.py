@@ -44,7 +44,8 @@ def tag_replace(string):
 ### DATA READ ###
 #################
 
-filename = "concat_slowsites2_0.8_newick"
+filename = "hapto_slow0.9_newick"
+prunefile = "hapto_slow0.9_skip.txt"
 
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
     home = "/Users/morpholino/OwnCloud/"
@@ -193,7 +194,7 @@ for node in t.traverse():
 #color and abundance are new features
 #pruned.sort()
 print("all terminal branches:", len(pruned))
-with open("concat_slowsites2_skip.txt") as f:
+with open(prunefile) as f:
     skipnodes = f.read().split("\n")
     skipnodes = [x.split("[&!")[0] for x in skipnodes]
     print("To be pruned:\n{}\n{}\n".format(len(skipnodes), "\n".join(skipnodes)))

@@ -157,6 +157,7 @@ for file in files:
 	nt_result = open(file.replace(filetype, "fna"), "a")
 	with open(file) as f:
 		for l in f:
+			writedna = False
 			line = l.strip().split("\t")
 			if line[-1] == "protein_id":
 				continue
@@ -178,11 +179,14 @@ for file in files:
 				if accession in accessionset:
 					continue
 				aa_accession, sequence = get_aa_from_gene(accession)
-				accessionset.add(accession)
-				protset.add(accession)
-				print("{}\t{}\t{}\t{}\trecorded".format(line[0], line[1], line[2], accession))
-				processed.write("{}\t{}\t{}\t{}\t{}\n".format(line[0], line[1], line[2], accession, aa_accession))
-				aa_result.write(">{} query={}:{}-{}\n{}\n".format(aa_accession, line[0], line[1], line[2], sequence))
+				if aa_accession == "":
+					writedna = True
+				else:
+					accessionset.add(accession)
+					protset.add(accession)
+					print("{}\t{}\t{}\t{}\trecorded".format(line[0], line[1], line[2], accession))
+					processed.write("{}\t{}\t{}\t{}\t{}\n".format(line[0], line[1], line[2], accession, aa_accession))
+					aa_result.write(">{} query={}:{}-{}\n{}\n".format(aa_accession, line[0], line[1], line[2], sequence))
 			elif line[15].startswith("XM"):
 				accession = line[15] #will be 15
 				if accession in accessionset:
@@ -194,6 +198,9 @@ for file in files:
 				processed.write("{}\t{}\t{}\t{}\n".format(line[0], line[1], line[2], accession, aa_accession))
 				aa_result.write(">{} query={}:{}-{}\n{}\n".format(aa_accession, line[0], line[1], line[2], sequence))
 			else:
+				writedna = True
+
+			if writedna == True:
 				start, end = int(line[1]), int(line[2])
 				if query in accessionset:
 					continue

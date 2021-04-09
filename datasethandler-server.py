@@ -18,27 +18,31 @@ print("usage: python datasethandler-new.py [-i infile.fasta/batch -a pasta -t iq
 #########################
 
 def find_iqtree_version():
-	versionpattern = r'version (\w+)'
+	versionpattern = r'version ([.\w]+)'
 	command = os.popen("iqtree -h").read()
 	command = command.split("\n")[0]
 	version = re.search(versionpattern, command)
 	if version:
 		iqversion = version.group(1)
 		print("IQTREE version:", iqversion)
+		iqversion = iqversion[0]
 	else:
 		iqversion = "1"
 	return iqversion
 
 def find_iqtree_model(filename):
-	modelpattern = r'Best-fit model: (\w+)'
-	command = os.popen("grep 'Best-fit model:' {}".format(filename)).read()
+	#modelpattern = r'Best-fit model: ([+\w]+)'
+	modelpattern = r'Model of substitution: ([*+\w]+)'
+	#command = os.popen("grep 'Best-fit model:' {}".format(filename)).read()
+	command = os.popen("grep 'Model of substitution:' {}".format(filename)).read()
 	command = command.split("\n")[0]
 	model = re.search(modelpattern, command)
 	if model:
 		iqmodel = model.group(1)
-		print("IQTREE model:", iqmodel)
+		#print("IQTREE model:", iqmodel)
 	else:
 		iqmodel = "N/D"
+		print("failed to extract model from", filename, command)
 	return iqmodel
 
 def delbadchars(string):
@@ -146,12 +150,7 @@ else:
 		print("PHYLOHANDLER: changing to specified directory:", wd)
 		os.chdir(wd)
 
-#this generation counter must be improved or skipped:
-#for generation in range(1,15):
-#	if os.path.isdir("TREE" + str(generation)) == False:
-#		outdir = "TREE" + str(generation)
-#		break
-outdir = "pasta"
+#outdir = "pasta"
 if os.path.isdir("temp") == False:
 	os.mkdir("./temp")
 if os.path.isdir("RESULT") == False:
@@ -212,7 +211,7 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "chryHETak": "Heterosigma akashiwo CCMP3107", "chryOCHRO": "Ochromonas sp. CCMP1393", 
 "chryVAUCH": "Vaucheria litorea CCMP2940", 
 "cilCLIMv": "Climacostomum virens", "cilICHTm": "Ichthyophthirius multifiliis","cilMESOD": "Mesodinium pulex", 
-"cilLITOp": "Litonotus pictus","cilOXYTt": "Oxytricha trifallax",
+"cilLITOp": "Litonotus pictus","cilOXYTt": "Oxytricha trifallax", "cilFABRs": "Fabrea salina",
 "cilPARAt": "Paramecium tetraurelia", "cilPLATm": "Platyophrya macrostoma", "cilPROTa": "Protocruzia adherens", 
 "cilPSEUp": "Pseudocohnilembus persalinus", "cilSTENc": "Stentor coeruleus", "cilTETRt": "Tetrahymena thermophila", 
 "crypCHROO": "Chroomonas cf. mesostigmatica", "crypCRYpa": "Cryptomonas paramecium", "crypCRYsp": "Cryptophyceae sp. CCMP2293",
@@ -239,13 +238,13 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "eugLEPTp": "Leptomonas pyrrhocoris", "eugLEPTs": "Leptomonas seymouri",
 "eugNEOBd": "Neobodo designis", "eugPARco": "Paratrypanosoma confusum", "eugPHYTO": "Phytomonas sp em1", 
 "eugTRYPb": "Trypanosoma brucei", 
-"excADUpa": "Aduncisulcus paluster Carplike_NY0171", "excBLATn": "Blattamonas nauphoetae", "excCARPm": "Carpediemonas membranifera", 
+"excADUpa": "Aduncisulcus paluster", "excBLATn": "Blattamonas nauphoetae", "excCARPm": "Carpediemonas membranifera", 
 "excCHIca": "Chilomastix caulleri", "excCHIcu": "Chilomastix cuspidata", "excDYSNb": "Dysnectes brevis", 
 "excERGcy": "Ergobibamus cyprinoides", "excGIARi": "Giardia intestinalis P15", "excHISTm": "Histomonas meleagridis", 
 "excIOTAs": "Iotanema sp.", "excKIPFb": "Kipferlia bialata", "excMONOe": "Monocercomonoides exilis", "excNAEgr": "Naegleria gruberi", 
 "excPERco": "Percolomonas cosmopolitus ATCC50343", "excPTRIp": "Paratrimastix pyriformis", 
 "excSPIRs": "Spironucleus salmonicida ATCC50377", "excTREPs": "Trepomonas sp. PC1", "excTRIMm": "Trimastix marina", 
-"extTTRIf": "Tritrichomonas foetus",
+"excTTRIf": "Tritrichomonas foetus",
 "firmBACIa": "Bacillus anthracis", "firmLISTm": "Listeria monocytogenes", "firmSTAPa": "Staphyllococcus aureus", 
 "funASPEf": "Aspergillus fumigatus", "funCRYPn": "Cryptococcus neoformans", "funDEBAh": "Debaryomyces hansenii cbs767", 
 "funLACCb": "Laccaria bicolor", "funNEURc": "Neurospora crassa", "funPUCCg": "Puccinia graminis", 
@@ -431,7 +430,7 @@ for file in infilelist:
 		os.system(command)
 
 	#copy and rename PASTA alignment to current directory and issue trimal
-	if args.aligner in ["run_pasta.py", "mafft"]:
+	if args.aligner in ["run_pasta.py", "mafft", "prank"]:
 		if args.trimmer == "trimal":
 			if args.trimmerparams == "":
 				command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -automated1".format(filename) #-gappyout / -automated1 / -gt 0.3
@@ -457,11 +456,14 @@ for file in infilelist:
 	elif args.aligner == "mafft":
 		print("PHYLOHANDLER: Issuing trimmer:\n{}".format(command))
 		os.system(command)
+	elif "prank" in args.aligner:
+		print("PHYLOHANDLER: Issuing trimmer:\n{}".format(command))
+		os.system(command)
 	elif args.aligner == "-":
 		#assume aligned!
 		pass
 
-	#check alignment length!
+	#check alignment length! if too short, re-trim with less stringently
 	if args.aligner != "-":
 		length = AlignIO.read("trim-{0}.aln".format(filename), "fasta").get_alignment_length()
 		if length < 20:
@@ -614,20 +616,26 @@ for file in infilelist:
 			errors = True
 			error.write("file:{}\tcould not find assign software for tree inference\n".format(file))
 			print("PHYLOHANDLER: ERROR assigning software for tree inference!")
-	if "-m " in args.treeparams:
+	if "-m " in treeparams:
 		if args.no_guide:
-			model = find_iqtree_model("final-{0}_iqtree.log".format(filename))
+			model = find_iqtree_model("trimfilt-{0}.fasta.iqtree".format(filename))
 		else:
-			model = find_iqtree_model("guide-{0}_iqtree.log".format(filename))
+			model = find_iqtree_model("guide-{0}.iqtree".format(filename))
 			model += ">PMSF"
 	elif args.treeparams == "":
+		#these are defaults
 		if args.no_guide:
 			model = "LG+F+G"
 		else:
 			model = "LG>PMSF"
 	else: 
-		model = "N/D" #this should not happen
-	print("PHYLOHANDLER:", model)
+		#print("Model not set by --treeparams '{}'".format(treeparams))
+		if args.no_guide:
+			model = "LG+F+G"
+		else:
+			model = "LG>PMSF"
+		#model = "N/D"
+	print("PHYLOHANDLER: Model used", model)
 	print("PHYLOHANDLER: Tree inference finished, post-processing result files...")
 	#rename branches for presentation purposes:
 	try:
