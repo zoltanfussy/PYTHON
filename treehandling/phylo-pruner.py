@@ -1,7 +1,18 @@
-import os
-import re
-import argparse
+import os,re,argparse
 from Bio import SeqIO
+
+def clear_tag(nodename):
+	partpattern = r'_([\.\d]+)%aligned'
+	try:
+		taghit = re.search(partpattern, nodename)
+		tag = taghit.group()
+		perc = taghit.group(1)
+		nodename = nodename.replace(tag, "")
+	except:
+		perc = 101
+		tag = ""
+		#print(f"No pattern in {nodename}")
+	return nodename
 
 #set working directory
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
@@ -34,6 +45,11 @@ if args.directory == ".":
 	os.chdir(wd)
 else:
 	os.chdir(args.directory)
+
+if args.prefix == "-":
+	prefix = "_"
+else:
+	prefix = args.prefix
 
 print(args.fastain)
 if args.fastain.split(".")[-1] in ("fasta", "fas", "fst", "fa", "faa"):
@@ -99,7 +115,7 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "eugLEPTp": "Leptomonas pyrrhocoris", "eugLEPTs": "Leptomonas seymouri",
 "eugNEOBd": "Neobodo designis", "eugPARco": "Paratrypanosoma confusum", "eugPHYTO": "Phytomonas sp em1", 
 "eugTRYPb": "Trypanosoma brucei", 
-"excADUpa": "Aduncisulcus paluster Carplike_NY0171", "excBLATn": "Blattamonas nauphoetae", "excCARPm": "Carpediemonas membranifera", 
+"excADUpa": "Aduncisulcus paluster", "excBLATn": "Blattamonas nauphoetae", "excCARPm": "Carpediemonas membranifera", 
 "excCHIca": "Chilomastix caulleri", "excCHIcu": "Chilomastix cuspidata", "excDYSNb": "Dysnectes brevis", 
 "excERGcy": "Ergobibamus cyprinoides", "excGIARi": "Giardia intestinalis P15", "excHISTm": "Histomonas meleagridis", 
 "excIOTAs": "Iotanema sp.", "excKIPFb": "Kipferlia bialata", "excMONOe": "Monocercomonoides exilis", "excNAEgr": "Naegleria gruberi", 
@@ -234,6 +250,8 @@ for line in treelines:
 	if line != ';':
 		line = line.replace("'", "")
 		line = line.replace("\t", "").replace(" ","_").replace("|","_")#.replace("@","_")
+		if "%aligned" in line:
+			line = clear_tag(line)
 		#line = line.split("@")[0]
 		#linecolour = line + colour
 		#print(linecolour)
