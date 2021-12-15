@@ -1,2 +1,0 @@
-Streptophyta:	brown
-Bacilli:	cyan
