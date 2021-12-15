@@ -52,7 +52,9 @@ else:
 	prefix = args.prefix
 
 print(args.fastain)
-if args.fastain.split(".")[-1] in ("fasta", "fas", "fst", "fa", "faa"):
+if args.fastain.startswith(prefix):
+	quit("Target file already present? Quitting...\n{}".format(70*"-"))
+if args.fastain.split(".")[-1] in ("fasta", "fas", "fst", "fa", "faa", "ali"):
 	indataset = SeqIO.parse(args.fastain, 'fasta')
 elif args.fastain.split(".")[-1] in ("phy", "phylip"):
 	indataset = SeqIO.parse(args.fastain, 'phylip')
@@ -210,7 +212,9 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "strTHTRX": "Thalassiothrix antarctica", "strVAUCl": "Vaucheria litorea"}
 
 
-basecolours = {'blue': '0000ff', 'brown': '996633', 'cyan': '00ffff', 'green': '00ff00', 'magenta': 'ff00ff', 'orange': 'ff8000', 'purple': '800080', 'red': 'ff0000' , 'yellow': 'ffff00', 'white': 'ffffff'}
+basecolours = {'blue': '0000ff', 'brown': '996633', 'cyan': '00ffff', 'green': '00ff00', 
+			   'magenta': 'ff00ff', 'orange': 'ff8000', 'ocean': '004080', 'purple': '800080', 'red': 'ff0000' , 
+			   'teal': '008080', 'yellow': 'ffff00', 'white': 'ffffff'}
 black = ['-16777216', '000000']
 if filtercolour in basecolours:
 	filtercolour = basecolours[filtercolour]
@@ -221,7 +225,7 @@ else:
 
 #load fasta
 seq_d = {}
-badchars = ("|#=+,:;()'[]/@") #also []/@
+badchars = ("|#=,:;()'[]/") #also []/@+
 for sequence in indataset:
 	shortname = sequence.description.replace(" ","_")
 	newname = []
@@ -284,6 +288,7 @@ for line in treelines:
 		break
 
 errorfile = open("_key_errors.txt", "a")
+errorfile.write("{}\n".format(args.tree))
 print("done loading taxa")
 if not args.no_omitted:
 	print("omitted taxa listed in omitted-{}".format(args.fastain))
@@ -319,10 +324,12 @@ with open('{}{}'.format(prefix, args.fastain), 'w') as out:
 				print("!!!!!KEY ERROR for filtered", taxon)
 				errorfile.write("filtered:\t{}\n".format(taxon))
 
+errorfile.close()
+
 print("WRITING DONE, \n\t{} taxa kept in {}{},".format(keptc, prefix, args.fastain))
 if not args.no_omitted:
 	print("\t{} taxa omitted in omitted-{}".format(skippedc, args.fastain))
 else:
 	print("\t{} taxa omitted".format(skippedc))
 print("Filtering finished!")
-print("\n--------------------------------------------------------------------------")
+print("\n{}".format(70*"-"))

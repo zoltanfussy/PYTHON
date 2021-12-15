@@ -35,6 +35,31 @@ from scipy.stats import iqr
 interquartile_range = iqr(dataset) #or stats.iqr(dataset)
 
 from matplotlib import pyplot as plt
+def plot_hist(dataset, prefix, minimum=0, maximum=1000):
+    """plots a histogram from any array of numbers
+
+    Input:      A data array
+                File prefix
+                Minimum and maximum for data filtering
+
+    Returns:    An interactive plot and a pdf file
+    """
+    data_average = np.average(dataset)
+    plt.figure(figsize=(15,5)) #define dimensions first!
+    #plt.hist(dataset, range=(minimum, maximum), alpha = 0.75, bins=100,  edgecolor='black')
+    plt.hist(np.clip(dataset, minimum, 1.01*maximum), alpha = 0.75, bins=100,  edgecolor='black')
+    #alpha >> transparency
+    #if more histograms need be plotted, just repeat plt.hist with another data
+    plt.title("Data length distribution")
+    plt.axvline(data_average, color='r', linestyle='solid', linewidth=2, label="Mean") #add vertical line
+    #plt.set_xlim(minimum, maximum)
+    #dotted and dashed lines ale alternatives
+    plt.xlabel("Length")
+    plt.ylabel("Count")
+
+    plt.savefig("{}.pdf".format(prefix))
+    plt.show()
+
 # Use plt.hist() below
 plt.figure(figsize=(15,5)) #define dimensions first!
 plt.hist(author_ages, range=(10, 80), alpha = 0.75, bins=14,  edgecolor='black') #tzn 10-15,15-20,20-25,...

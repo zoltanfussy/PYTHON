@@ -11,6 +11,8 @@ for sequence in infile:
 	#multiplications[sequence.seq].append(sequence.name)
 	if sequence.seq not in seq_dict:
 		seqname = sequence.name
+		if "tr|" in seqname:
+			seqname = seqname.replace('tr|', '')
 		if "sp|" in seqname:
 			seqname = seqname.replace('sp|', '')
 		taxcode = seqname.split('_')[1]

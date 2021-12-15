@@ -1,0 +1,299 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=197;
+	taxlabels
+	EP00001_Collodictyon_triciliatum_186869
+	EP00002_Diphylleia_rotans_6338
+	EP00004_Rigifila_ramosa_9901
+	EP00019_Armaparvus_languidus_5724
+	EP00026_Physarum_polycephalum_14979
+	EP00029_Vermamoeba_vermiformis_8293
+	EP00031_Thecamonas_trahens_4872
+	EP00033_Pygsuia_biforma_1631
+	EP00035_Acanthoeca_spectabilis_32331
+	EP00036_Acanthoeca_sp_10tr_12714
+	EP00036_Acanthoeca_sp_10tr_14676
+	EP00037_Helgoeca_nana_36737
+	EP00038_Savillea_parva_297
+	EP00039_Didymoeca_costata_24662
+	EP00057_Strongylocentrotus_purpuratus_5433
+	EP00058_Branchiostoma_floridae_26896
+	EP00059_Ciona_intestinalis_4022
+	EP00062_Callorhinchus_milii_15640
+	EP00062_Callorhinchus_milii_8115
+	EP00063_Salmo_salar_430
+	EP00063_Salmo_salar_5931
+	EP00067_Danio_rerio_13035
+	EP00067_Danio_rerio_13694
+	EP00068_Latimeria_chalumnae_15422
+	EP00068_Latimeria_chalumnae_2718
+	EP00071_Canis_lupus_52798
+	EP00071_Canis_lupus_57239
+	EP00072_Mus_musculus_21365
+	EP00072_Mus_musculus_24276
+	EP00074_Homo_sapiens_39897
+	EP00074_Homo_sapiens_42090
+	EP00076_Gallus_gallus_2485
+	EP00076_Gallus_gallus_49123
+	EP00078_Anolis_carolinensis_4901
+	EP00079_Xenopus_tropicalis_2081
+	EP00079_Xenopus_tropicalis_7903
+	EP00081_Caenorhabditis_elegans_16662
+	EP00085_Daphnia_pulex_12192
+	EP00086_Labidocera_madurae_22189[&!color=#7f7f7f]
+	EP00086_Labidocera_madurae_29167[&!color=#7f7f7f]
+	EP00087_Eurytemora_affinis_7846[&!color=#7f7f7f]
+	EP00088_Acartia_fossae_18182[&!color=#7f7f7f]
+	EP00088_Acartia_fossae_35122[&!color=#7f7f7f]
+	EP00088_Acartia_fossae_39843
+	EP00088_Acartia_fossae_55257[&!color=#7f7f7f]
+	EP00088_Acartia_fossae_63826[&!color=#7f7f7f]
+	EP00090_Calanus_glacialis_13812[&!color=#7f7f7f]
+	EP00090_Calanus_glacialis_31111
+	EP00090_Calanus_glacialis_3723[&!color=#7f7f7f]
+	EP00090_Calanus_glacialis_47445[&!color=#7f7f7f]
+	EP00093_Oithona_nana_10899[&!color=#7f7f7f]
+	EP00093_Oithona_nana_3169
+	EP00093_Oithona_nana_3934[&!color=#7f7f7f]
+	EP00094_Tigriopus_californicus_8695[&!color=#7f7f7f]
+	EP00099_Drosophila_melanogaster_17197
+	EP00099_Drosophila_melanogaster_1933
+	EP00101_Apis_mellifera_21883
+	EP00104_Lingula_anatina_17168
+	EP00106_Octopus_bimaculoides_7449
+	EP00107_Lottia_gigantea_7030
+	EP00110_Nematostella_vectensis_6005
+	EP00111_Clytia_hemisphaerica_2426
+	EP00112_Aurelia_sp_Birch-Aquarium-sp1_16695
+	EP00114_Trichoplax_sp_H2_10372
+	EP00116_Pleurobrachia_bachei_12338
+	EP00117_Sycon_ciliatum_17442
+	EP00118_Oscarella_pearsei_2099
+	EP00119_Amphimedon_queenslandica_1441
+	EP00120_Capsaspora_owczarzaki_285
+	EP00123_Amoebidium_parasiticum_1536
+	EP00125_Sphaeroforma_arctica_7208
+	EP00126_Sphaerothecum_destruens_3453
+	EP00128_Syssomonas_multiformis_18442
+	EP00164_Ancoracysta_twista_1888
+	EP00167_Galdieria_sulphuraria_6315[&!color=#cc0000]
+	EP00168_Porphyra_purpurea_14489[&!color=#cc0000]
+	EP00169_Porphyra_umbilicalis_6401[&!color=#cc0000]
+	EP00170_Pyropia_yezoensis_5944[&!color=#cc0000]
+	EP00176_Chondrus_crispus_2523[&!color=#cc0000]
+	EP00177_Eucheuma_denticulatum_3447[&!color=#cc0000]
+	EP00179_Madagascaria_erythrocladioides_4800
+	EP00184_Porphyridium_aerugineum_2556[&!color=#cc0000]
+	EP00185_Porphyridium_purpureum_3771[&!color=#cc0000]
+	EP00188_Purpureofilum_apyrenoidigerum_5801[&!color=#cc0000]
+	EP00189_Rhodosorus_marinus_10130[&!color=#cc0000]
+	EP00189_Rhodosorus_marinus_4206[&!color=#cc0000]
+	EP00190_Stylonematophyceae_sp_CCMP1999_7552[&!color=#cc0000]
+	EP00195_Chlamydomonas_chlamydogama_6970[&!color=#008000]
+	EP00198_Chlamydomonas_reinhardtii_2319[&!color=#008000]
+	EP00202_Volvox_carteri_3303[&!color=#008000]
+	EP00204_Picochlorum_oklahomense_1741[&!color=#008000]
+	EP00206_Coccomyxa_subellipsoidea_3228[&!color=#008000]
+	EP00207_Helicosporidium_sp_ATCC50920_1884[&!color=#008000]
+	EP00232_Nephroselmis_pyriformis_22821[&!color=#008000]
+	EP00235_Prasinoderma_singulare_1679[&!color=#008000]
+	EP00240_Pyramimonas_obovata_12666[&!color=#008000]
+	EP00241_Pyramimonas_parkeae_12328[&!color=#008000]
+	EP00242_Pyramimonas_sp_CCMP2087_15582[&!color=#008000]
+	EP00271_Cylindrocystis_brebissonii_16415[&!color=#008000]
+	EP00274_Cyanoptyche_gloeocystis_2287
+	EP00274_Cyanoptyche_gloeocystis_6510
+	EP00280_Hanusia_phi_11667[&!color=#800040]
+	EP00281_Chroomonas_sp_CCMP1168_24975[&!color=#7f7f7f]
+	EP00281_Chroomonas_sp_CCMP1168_7372[&!color=#800040]
+	EP00282_Hemiselmis_andersenii_16742[&!color=#800040]
+	EP00284_Hemiselmis_tepida_11162[&!color=#800040]
+	EP00284_Hemiselmis_tepida_9613[&!color=#7f7f7f]
+	EP00285_Hemiselmis_virescens_16561[&!color=#800040]
+	EP00285_Hemiselmis_virescens_5076[&!color=#800040]
+	EP00288_Rhodomonas_lens_12901[&!color=#800080]
+	EP00290_Baffinella_sp_CCMP2293_11539[&!color=#800040]
+	EP00290_Baffinella_sp_CCMP2293_45779[&!color=#7f7f7f]
+	EP00295_Goniomonas_pacifica_44331[&!color=#999999]
+	EP00297_Palpitomonas_bilix_12048
+	EP00302_Diacronema_sp_CCMP2436_13013[&!color=#800080]
+	EP00303_Exanthemachrysis_gayraliae_12862[&!color=#804000]
+	EP00303_Exanthemachrysis_gayraliae_753[&!color=#800080]
+	EP00305_Diacronema_lutheri_13574[&!color=#800080]
+	EP00309_Chrysotila_carterae_30484
+	EP00393_Amoebophrya_sp_ex-Akashiwo-sanguinea_100587[&!color=#808000]
+	EP00401_Gymnodinium_catenatum_8851[&!color=#808000]
+	EP00403_Amphidinium_massartii_31635[&!color=#808000]
+	EP00406_Dinophysis_acuminata_4880[&!color=#808000]
+	EP00407_Lingulodinium_polyedra_47899[&!color=#808000]
+	EP00407_Lingulodinium_polyedra_81505[&!color=#808000]
+	EP00410_Alexandrium_tamarense_83367[&!color=#808000]
+	EP00419_Tripos_fusus_48544[&!color=#808000]
+	EP00420_Gonyaulax_spinifera_19088[&!color=#808000]
+	EP00425_Heterocapsa_triquetra_36568[&!color=#999999]
+	EP00428_Durinskia_baltica_24103[&!color=#808000]
+	EP00429_Kryptoperidinium_foliaceum_106777[&!color=#808000]
+	EP00439_Symbiodinium_sp_Y106_75700[&!color=#808000]
+	EP00440_Ansanella_granifera_72485[&!color=#808000]
+	EP00443_Scrippsiella_trochoidea_98759[&!color=#808000]
+	EP00445_Apocalathium_hangoei_4011[&!color=#808000]
+	EP00445_Apocalathium_hangoei_82788[&!color=#999999]
+	EP00450_Noctiluca_scintillans_9488[&!color=#808000]
+	EP00462_Mataza_sp_D1_12652[&!color=#804000]
+	EP00466_Bigelowiella_natans_7016
+	EP00475_Leptophrys_vorax_44188
+	EP00512_Aurantiochytrium_limacinum_12526[&!color=#999999]
+	EP00512_Aurantiochytrium_limacinum_1317
+	EP00513_Hondaea_fermentalgiana_3588[&!color=#999999]
+	EP00513_Hondaea_fermentalgiana_5199
+	EP00514_Thraustochytrium_sp_LLF1b_2463
+	EP00515_Schizochytrium_aggregatum_5716
+	EP00517_Thraustochytrida_sp_NY07348D_10196[&!color=#999999]
+	EP00529_Nitzschia_sp_RCC80_23568[&!color=#804000]
+	EP00536_Pseudo-nitzschia_multiseries_12221[&!color=#804000]
+	EP00542_Grammatophora_oceanica_13112[&!color=#804000]
+	EP00547_Thalassionema_nitzschioides_16134[&!color=#804000]
+	EP00572_Skeletonema_dohrnii_3318[&!color=#804000]
+	EP00579_Thalassiosira_antarctica_21822[&!color=#804000]
+	EP00581_Thalassiosira_minuscula_10832[&!color=#804000]
+	EP00585_Thalassiosira_rotula_11203[&!color=#804000]
+	EP00585_Thalassiosira_rotula_11360[&!color=#804000]
+	EP00588_Corethron_pennatum_12368[&!color=#804000]
+	EP00592_Proboscia_alata_11341[&!color=#804000]
+	EP00598_Pedospumella_elongata_2933[&!color=#804000]
+	EP00600_Ochromonadales_sp_CCMP1393_16928[&!color=#804000]
+	EP00601_Ochromonadales_sp_CCMP2298_25841[&!color=#804000]
+	EP00607_Mallomonas_sp_CCMP3275_6031[&!color=#7f7f7f]
+	EP00608_Synchroma_pusillum_624[&!color=#804000]
+	EP00613_Pedinella_sp_CCMP2098_6005[&!color=#804000]
+	EP00613_Pedinella_sp_CCMP2098_73404[&!color=#804000]
+	EP00614_Pseudopedinella_elastica_28036[&!color=#804000]
+	EP00614_Pseudopedinella_elastica_29759[&!color=#7f7f7f]
+	EP00616_Rhizochromulina_sp_CCMP1243_18826[&!color=#804000]
+	EP00638_Chattonella_subsalsa_12309[&!color=#804000]
+	EP00638_Chattonella_subsalsa_12386[&!color=#804000]
+	EP00639_Heterosigma_akashiwo_28783[&!color=#804000]
+	EP00639_Heterosigma_akashiwo_8509[&!color=#804000]
+	EP00640_Fibrocapsa_japonica_1747[&!color=#804000]
+	EP00686_Naegleria_gruberi_12448
+	EP00694_Reclinomonas_americana_4953
+	EP00694_Reclinomonas_americana_5268
+	EP00698_Gefionella_okellyi_4731
+	EP00700_Malawimonas_jakobiformis_3555
+	EP00705_Trichomonas_vaginalis_29231
+	EP00706_Tritrichomonas_foetus_10369
+	EP00706_Tritrichomonas_foetus_3610
+	EP00731_Ephydatia_muelleri_18093
+	EP00735_Rhodelphis_limneticus_11269
+	EP00736_Rhodelphis_marinus_9378
+	EP00737_Agarophyton_chilense_620[&!color=#cc0000]
+	EP00741_Cyanophora_paradoxa_23563
+	EP00743_Colponemidia_sp_Colp-15_10089
+	EP00743_Colponemidia_sp_Colp-15_5388
+	EP00752_Nemacystus_decipiens_1933[&!color=#804000]
+	EP00761_Pharyngomonas_kirbyi_11607
+	EP00765_Carpediemonas_membranifera_1451
+	EP00771_Trimastix_marina_2232
+	EP00771_Trimastix_marina_935
+	'PaPyr804.2'
+	'Spirochaeta_sp._MAI24531.1'[&!color=#999999]
+	'archaeon_RYH05293.1'[&!color=#7f7f7f]
+	'archaeon_RYY75192.1'[&!color=#804000]
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] (EP00001_Collodictyon_triciliatum_186869:0.343659,EP00002_Diphylleia_rotans_6338:0.522869,(EP00004_Rigifila_ramosa_9901:0.982114,(((((((((EP00019_Armaparvus_languidus_5724:0.884869,EP00179_Madagascaria_erythrocladioides_4800:0.68089)[&label=91]:0.316968,(EP00031_Thecamonas_trahens_4872:0.724793,EP00309_Chrysotila_carterae_30484:0.804329)[&label=71]:0.052261)[&label=87]:0.260972,((((EP00280_Hanusia_phi_11667:0.21251,EP00290_Baffinella_sp_CCMP2293_11539:0.346245)[&label=100]:0.200029,(EP00281_Chroomonas_sp_CCMP1168_7372:0.170818,(EP00284_Hemiselmis_tepida_11162:0.095988,EP00285_Hemiselmis_virescens_16561:0.067951)[&label=100]:0.197887)[&label=100]:0.278634)[&label=100]:0.157427,(EP00282_Hemiselmis_andersenii_16742:0.186476,EP00285_Hemiselmis_virescens_5076:0.114299)[&label=100]:0.318557)[&label=100]:0.340311,(((EP00281_Chroomonas_sp_CCMP1168_24975:0.172845,EP00284_Hemiselmis_tepida_9613:0.246701)[&label=100]:0.195238,EP00290_Baffinella_sp_CCMP2293_45779:0.329559)[&label=100]:0.622409,((EP00607_Mallomonas_sp_CCMP3275_6031:0.476842,'archaeon_RYH05293.1':0.534068)[&label=100]:0.165317,EP00614_Pseudopedinella_elastica_29759:0.477831)[&label=99]:0.20257)[&label=100]:0.294723)[&label=100]:0.111539)[&label=88]:0.205486,EP00475_Leptophrys_vorax_44188:1.595365)[&label=100]:0.193714,((EP00771_Trimastix_marina_2232:1.128126,'PaPyr804.2':0.952294)[&label=100]:0.224274,EP00771_Trimastix_marina_935:0.85957)[&label=100]:0.748198)[&label=85]:0.077284,((((EP00033_Pygsuia_biforma_1631:1.466261,((((((((((EP00057_Strongylocentrotus_purpuratus_5433:0.513349,(EP00081_Caenorhabditis_elegans_16662:0.365289,(((EP00085_Daphnia_pulex_12192:0.201641,(((EP00088_Acartia_fossae_39843:0.132729,EP00090_Calanus_glacialis_31111:0.093273)[&label=100]:0.075384,EP00093_Oithona_nana_3169:0.304789)[&label=100]:0.077409,(EP00099_Drosophila_melanogaster_17197:0.12315,EP00101_Apis_mellifera_21883:0.071856)[&label=100]:0.075374)[&label=99]:0.034711)[&label=100]:0.048827,((((EP00086_Labidocera_madurae_22189:0.05063,EP00088_Acartia_fossae_18182:0.184726)[&label=100]:0.094197,EP00090_Calanus_glacialis_13812:0.086436)[&label=100]:0.269577,EP00093_Oithona_nana_3934:0.496497)[&label=100]:0.168385,(((EP00086_Labidocera_madurae_29167:0.14253,EP00088_Acartia_fossae_35122:0.206851)[&label=99]:0.025912,EP00090_Calanus_glacialis_3723:0.199992)[&label=100]:0.196732,EP00093_Oithona_nana_10899:0.421053)[&label=100]:0.458788)[&label=100]:0.315656)[&label=73]:0.070615,(EP00104_Lingula_anatina_17168:0.254847,(EP00106_Octopus_bimaculoides_7449:0.194819,EP00107_Lottia_gigantea_7030:0.284487)[&label=93]:0.036196)[&label=96]:0.040517)[&label=65]:0.051667)[&label=82]:0.164902)[&label=69]:0.032695,(EP00058_Branchiostoma_floridae_26896:0.571512,EP00059_Ciona_intestinalis_4022:1.30188)[&label=64]:0.049592)[&label=55]:0.00188,(((EP00087_Eurytemora_affinis_7846:0.199249,(EP00088_Acartia_fossae_55257:0.191666,EP00088_Acartia_fossae_63826:0.418145)[&label=98]:0.065588)[&label=100]:0.214678,EP00094_Tigriopus_californicus_8695:0.451911)[&label=40]:0.120871,EP00090_Calanus_glacialis_47445:0.351701)[&label=100]:1.090893)[&label=62]:0.095839,((EP00062_Callorhinchus_milii_15640:0.072874,((EP00063_Salmo_salar_430:0.089453,EP00067_Danio_rerio_13694:0.023245)[&label=100]:0.069248,((EP00068_Latimeria_chalumnae_2718:0.071498,(((EP00071_Canis_lupus_57239:0.008774,EP00074_Homo_sapiens_42090:0.010152)[&label=97]:0.00677,EP00072_Mus_musculus_24276:0.037429)[&label=100]:0.072913,EP00076_Gallus_gallus_2485:0.089798)[&label=98]:0.046773)[&label=89]:0.018714,EP00079_Xenopus_tropicalis_7903:0.142913)[&label=97]:0.025571)[&label=98]:0.071599)[&label=100]:0.235505,(EP00062_Callorhinchus_milii_8115:0.21434,(((((EP00063_Salmo_salar_5931:0.076743,EP00067_Danio_rerio_13035:0.200091)[&label=100]:0.076869,EP00068_Latimeria_chalumnae_15422:0.300046)[&label=99]:0.096307,EP00079_Xenopus_tropicalis_2081:0.175909)[&label=65]:0.051138,((EP00071_Canis_lupus_52798:0.053725,(EP00072_Mus_musculus_21365:0.206906,EP00074_Homo_sapiens_39897:0.043766)[&label=56]:0.022863)[&label=100]:0.265613,EP00078_Anolis_carolinensis_4901:0.156173)[&label=99]:0.032247)[&label=65]:0.029702,EP00076_Gallus_gallus_49123:0.1028)[&label=100]:0.143822)[&label=99]:0.10239)[&label=100]:0.352229)[&label=66]:0.165028,(EP00099_Drosophila_melanogaster_1933:1.124538,EP00110_Nematostella_vectensis_6005:1.033696)[&label=54]:0.052102)[&label=50]:0.0735,(EP00111_Clytia_hemisphaerica_2426:0.404567,EP00112_Aurelia_sp_Birch-Aquarium-sp1_16695:0.56188)[&label=100]:0.414998)[&label=68]:0.080995,((EP00116_Pleurobrachia_bachei_12338:0.85695,(EP00119_Amphimedon_queenslandica_1441:0.663913,EP00731_Ephydatia_muelleri_18093:0.517228)[&label=100]:0.33566)[&label=96]:0.285668,(EP00117_Sycon_ciliatum_17442:0.844535,EP00118_Oscarella_pearsei_2099:0.565753)[&label=100]:0.158015)[&label=86]:0.10055)[&label=64]:0.181762,EP00128_Syssomonas_multiformis_18442:1.462385)[&label=22]:0.003834,EP00114_Trichoplax_sp_H2_10372:1.194895)[&label=85]:0.211545,(EP00120_Capsaspora_owczarzaki_285:0.900979,((EP00123_Amoebidium_parasiticum_1536:0.774186,EP00125_Sphaeroforma_arctica_7208:0.82955)[&label=100]:0.521093,EP00126_Sphaerothecum_destruens_3453:1.199736)[&label=94]:0.12607)[&label=94]:0.189108)[&label=95]:0.162027)[&label=96]:0.143944,(EP00686_Naegleria_gruberi_12448:1.810469,(EP00735_Rhodelphis_limneticus_11269:0.691674,EP00736_Rhodelphis_marinus_9378:0.920587)[&label=100]:0.644828)[&label=78]:0.192591)[&label=84]:0.137414,(((((((EP00288_Rhodomonas_lens_12901:1.195454,(EP00407_Lingulodinium_polyedra_47899:0.232153,EP00420_Gonyaulax_spinifera_19088:2.0E-6)[&label=100]:1.149574)[&label=55]:0.163152,((EP00598_Pedospumella_elongata_2933:0.562266,(EP00600_Ochromonadales_sp_CCMP1393_16928:0.500249,EP00601_Ochromonadales_sp_CCMP2298_25841:0.319579)[&label=100]:0.190573)[&label=100]:0.196959,'archaeon_RYY75192.1':1.336904)[&label=98]:0.075241)[&label=55]:0.144643,(EP00303_Exanthemachrysis_gayraliae_12862:0.693891,(EP00462_Mataza_sp_D1_12652:0.913098,(EP00613_Pedinella_sp_CCMP2098_73404:0.414078,EP00616_Rhizochromulina_sp_CCMP1243_18826:0.573182)[&label=100]:0.34767)[&label=95]:0.227198)[&label=85]:0.135524)[&label=20]:2.0E-6,(((EP00572_Skeletonema_dohrnii_3318:0.09287,(EP00579_Thalassiosira_antarctica_21822:0.041614,EP00585_Thalassiosira_rotula_11360:0.088353)[&label=100]:0.092449)[&label=100]:0.34055,EP00588_Corethron_pennatum_12368:0.303281)[&label=100]:0.671714,EP00608_Synchroma_pusillum_624:0.851442)[&label=63]:0.112039)[&label=48]:0.130797,(((EP00638_Chattonella_subsalsa_12309:0.793838,(EP00638_Chattonella_subsalsa_12386:0.220538,EP00639_Heterosigma_akashiwo_28783:0.311018)[&label=100]:0.346979)[&label=73]:0.099236,(EP00639_Heterosigma_akashiwo_8509:0.585488,EP00640_Fibrocapsa_japonica_1747:0.699614)[&label=85]:0.267313)[&label=84]:0.058896,EP00752_Nemacystus_decipiens_1933:0.753426)[&label=90]:0.055513)[&label=56]:0.28807,EP00466_Bigelowiella_natans_7016:1.510314)[&label=82]:0.010887,EP00761_Pharyngomonas_kirbyi_11607:1.614381)[&label=62]:0.247358)[&label=67]:0.09835,(((((((EP00035_Acanthoeca_spectabilis_32331:0.198272,EP00036_Acanthoeca_sp_10tr_12714:0.30165)[&label=81]:0.069201,EP00037_Helgoeca_nana_36737:0.11575)[&label=100]:0.570307,((EP00512_Aurantiochytrium_limacinum_1317:0.19534,EP00513_Hondaea_fermentalgiana_5199:0.148226)[&label=100]:0.156749,(EP00514_Thraustochytrium_sp_LLF1b_2463:0.470069,EP00515_Schizochytrium_aggregatum_5716:0.252808)[&label=94]:0.091583)[&label=98]:0.266223)[&label=99]:0.204019,(EP00613_Pedinella_sp_CCMP2098_6005:0.303677,EP00614_Pseudopedinella_elastica_28036:0.241408)[&label=100]:0.808384)[&label=98]:0.218253,((((EP00036_Acanthoeca_sp_10tr_14676:0.495578,EP00038_Savillea_parva_297:0.254873)[&label=100]:0.537973,EP00039_Didymoeca_costata_24662:0.758213)[&label=96]:0.103489,(((EP00393_Amoebophrya_sp_ex-Akashiwo-sanguinea_100587:0.306088,(((EP00401_Gymnodinium_catenatum_8851:0.333248,(EP00439_Symbiodinium_sp_Y106_75700:0.743573,EP00440_Ansanella_granifera_72485:0.21214)[&label=100]:0.194837)[&label=100]:0.060623,EP00403_Amphidinium_massartii_31635:0.801166)[&label=96]:0.136653,(EP00406_Dinophysis_acuminata_4880:0.414566,(EP00419_Tripos_fusus_48544:0.466803,((EP00428_Durinskia_baltica_24103:0.332723,EP00429_Kryptoperidinium_foliaceum_106777:0.212232)[&label=100]:0.144364,(EP00443_Scrippsiella_trochoidea_98759:0.196763,EP00445_Apocalathium_hangoei_4011:0.274152)[&label=99]:0.094154)[&label=100]:0.117087)[&label=96]:0.037198)[&label=46]:0.054042)[&label=43]:0.0371)[&label=95]:0.075463,(EP00407_Lingulodinium_polyedra_81505:0.262439,EP00410_Alexandrium_tamarense_83367:0.590401)[&label=95]:0.10799)[&label=89]:0.055374,EP00450_Noctiluca_scintillans_9488:0.734106)[&label=100]:0.828337)[&label=98]:0.139535,((EP00302_Diacronema_sp_CCMP2436_13013:0.326267,EP00305_Diacronema_lutheri_13574:0.28351)[&label=99]:0.2795,EP00303_Exanthemachrysis_gayraliae_753:0.544498)[&label=100]:1.175615)[&label=49]:0.221237)[&label=49]:0.076039,(((EP00529_Nitzschia_sp_RCC80_23568:0.334746,(EP00536_Pseudo-nitzschia_multiseries_12221:0.22117,EP00581_Thalassiosira_minuscula_10832:0.235694)[&label=100]:0.075215)[&label=94]:0.122192,((EP00542_Grammatophora_oceanica_13112:0.27316,EP00592_Proboscia_alata_11341:0.315296)[&label=80]:0.020816,EP00585_Thalassiosira_rotula_11203:0.477738)[&label=80]:0.026731)[&label=93]:0.146154,EP00547_Thalassionema_nitzschioides_16134:0.323224)[&label=100]:0.939935)[&label=100]:0.361745,EP00164_Ancoracysta_twista_1888:0.976572)[&label=98]:0.159627)[&label=65]:0.114122)[&label=52]:0.030372,((((EP00167_Galdieria_sulphuraria_6315:0.97376,(((((EP00168_Porphyra_purpurea_14489:0.039053,EP00169_Porphyra_umbilicalis_6401:0.020291)[&label=100]:0.090602,EP00170_Pyropia_yezoensis_5944:0.062981)[&label=100]:0.262996,(EP00176_Chondrus_crispus_2523:0.150794,(EP00177_Eucheuma_denticulatum_3447:0.175649,EP00737_Agarophyton_chilense_620:0.341574)[&label=100]:0.079398)[&label=100]:0.27336)[&label=99]:0.134342,(EP00184_Porphyridium_aerugineum_2556:0.62496,EP00185_Porphyridium_purpureum_3771:0.610708)[&label=100]:0.700806)[&label=99]:0.107397,((EP00188_Purpureofilum_apyrenoidigerum_5801:0.055499,EP00190_Stylonematophyceae_sp_CCMP1999_7552:0.066737)[&label=100]:0.223035,(EP00189_Rhodosorus_marinus_10130:0.039399,EP00189_Rhodosorus_marinus_4206:0.06574)[&label=100]:0.330559)[&label=100]:0.545083)[&label=100]:0.182748)[&label=97]:0.045534,EP00297_Palpitomonas_bilix_12048:0.86872)[&label=100]:0.355172,((EP00694_Reclinomonas_americana_5268:0.470013,EP00698_Gefionella_okellyi_4731:1.013519)[&label=100]:0.300941,EP00700_Malawimonas_jakobiformis_3555:1.004168)[&label=99]:0.573517)[&label=66]:0.113502,((((((((EP00195_Chlamydomonas_chlamydogama_6970:0.364829,(EP00198_Chlamydomonas_reinhardtii_2319:0.16026,EP00202_Volvox_carteri_3303:0.132218)[&label=100]:0.214884)[&label=100]:0.345205,EP00206_Coccomyxa_subellipsoidea_3228:0.423065)[&label=65]:0.097916,EP00232_Nephroselmis_pyriformis_22821:0.720958)[&label=80]:0.169185,(EP00204_Picochlorum_oklahomense_1741:1.023859,EP00207_Helicosporidium_sp_ATCC50920_1884:0.922786)[&label=78]:0.152295)[&label=99]:0.212744,EP00235_Prasinoderma_singulare_1679:0.703426)[&label=47]:0.108509,EP00271_Cylindrocystis_brebissonii_16415:0.635315)[&label=47]:0.096255,((EP00240_Pyramimonas_obovata_12666:0.456773,EP00242_Pyramimonas_sp_CCMP2087_15582:0.383571)[&label=100]:0.358726,EP00241_Pyramimonas_parkeae_12328:0.616486)[&label=99]:0.224002)[&label=100]:0.562127,(EP00274_Cyanoptyche_gloeocystis_6510:0.7455,EP00741_Cyanophora_paradoxa_23563:0.629884)[&label=97]:0.514242)[&label=48]:0.065391)[&label=57]:0.043867)[&label=52]:0.065865,(((EP00026_Physarum_polycephalum_14979:1.649693,EP00029_Vermamoeba_vermiformis_8293:1.118191)[&label=62]:0.234181,EP00274_Cyanoptyche_gloeocystis_2287:1.704009)[&label=40]:0.121965,EP00765_Carpediemonas_membranifera_1451:1.907112)[&label=68]:0.098108)[&label=56]:0.078959,(((((EP00295_Goniomonas_pacifica_44331:1.090167,((EP00425_Heterocapsa_triquetra_36568:0.157951,EP00445_Apocalathium_hangoei_82788:0.29587)[&label=100]:0.206334,((EP00512_Aurantiochytrium_limacinum_12526:0.224209,EP00513_Hondaea_fermentalgiana_3588:0.105701)[&label=100]:0.195836,EP00517_Thraustochytrida_sp_NY07348D_10196:0.369089)[&label=100]:0.398848)[&label=100]:0.459163)[&label=99]:0.179713,'Spirochaeta_sp._MAI24531.1':1.323822)[&label=100]:0.769507,((EP00705_Trichomonas_vaginalis_29231:1.234043,EP00706_Tritrichomonas_foetus_10369:1.073418)[&label=100]:0.526195,EP00706_Tritrichomonas_foetus_3610:1.410316)[&label=99]:0.283837)[&label=95]:0.295675,(EP00743_Colponemidia_sp_Colp-15_10089:1.048799,EP00743_Colponemidia_sp_Colp-15_5388:1.088594)[&label=99]:0.309186)[&label=76]:0.04694,EP00694_Reclinomonas_americana_4953:1.63068)[&label=75]:0.111035)[&label=92]:0.43999)[&label=100]:0.693782);
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#ffffff;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchColorGradient=false;
+	set appearance.branchLineWidth=1.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#000000;
+	set appearance.hilightingGradient=false;
+	set appearance.selectionColour=#2d3680;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName=".AppleSystemUIFont";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=495;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute="label";
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="Node ages";
+	set nodeLabels.fontName=".AppleSystemUIFont";
+	set nodeLabels.fontSize=8;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=false;
+	set nodeLabels.significantDigits=4;
+	set nodeShapeExternal.colourAttribute="User selection";
+	set nodeShapeExternal.isShown=false;
+	set nodeShapeExternal.minSize=10.0;
+	set nodeShapeExternal.scaleType=Width;
+	set nodeShapeExternal.shapeType=Circle;
+	set nodeShapeExternal.size=4.0;
+	set nodeShapeExternal.sizeAttribute="Fixed";
+	set nodeShapeInternal.colourAttribute="User selection";
+	set nodeShapeInternal.isShown=false;
+	set nodeShapeInternal.minSize=10.0;
+	set nodeShapeInternal.scaleType=Width;
+	set nodeShapeInternal.shapeType=Circle;
+	set nodeShapeInternal.size=4.0;
+	set nodeShapeInternal.sizeAttribute="Fixed";
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.minorTicks=0.5;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName=".AppleSystemUIFont";
+	set tipLabels.fontSize=14;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=true;
+	set trees.orderType="increasing";
+	set trees.rooting=true;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

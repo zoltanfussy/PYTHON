@@ -52,7 +52,9 @@ else:
 	prefix = args.prefix
 
 print(args.fastain)
-if args.fastain.split(".")[-1] in ("fasta", "fas", "fst", "fa", "faa"):
+if args.fastain.startswith(prefix):
+	quit("Target file already present? Quitting...\n{}".format(70*"-"))
+if args.fastain.split(".")[-1] in ("fasta", "fas", "fst", "fa", "faa", "ali"):
 	indataset = SeqIO.parse(args.fastain, 'fasta')
 elif args.fastain.split(".")[-1] in ("phy", "phylip"):
 	indataset = SeqIO.parse(args.fastain, 'phylip')

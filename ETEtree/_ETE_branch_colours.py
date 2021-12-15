@@ -45,7 +45,7 @@ def tag_replace(string):
 #################
 
 filename = "hapto_slow0.9_newick"
-prunefile = "hapto_slow0.9_skip.txt"
+prunefile = "hapto_slow0.9_skip_cafe.txt"
 
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
     home = "/Users/morpholino/OwnCloud/"

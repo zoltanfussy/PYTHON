@@ -27,7 +27,7 @@ with open("references_NCBI_automatic.tsv", "w") as result:
 		try:
 			journalfull = paper['JT']
 			journalshort = paper['TA']
-			impactfactor = "[IF2018={}]".format(impacts[journalfull.upper()])
+			impactfactor = "[IF2019={}]".format(impacts[journalfull.upper()])
 		except KeyError:
 			print("!! unsuccessful paper import bc not in journal: ", title)
 			impactfactor = ""

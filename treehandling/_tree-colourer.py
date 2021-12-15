@@ -10,7 +10,16 @@ outfile = sys.argv[1]
 intree = open(sys.argv[1]).read()
 motifs = open(sys.argv[2]).read().split()
 
-basecolours_d = {'blue': '[&!color=#0000ff]', 'brown': '[&!color=#996633]', 'cyan': '[&!color=#00ffff]', 'green': '[&!color=#00ff00]', 'magenta': '[&!color=#ff00ff]', 'orange': '[&!color=#ff8000]', 'purple': '[&!color=#800080]', 'red': '[&!color=#ff0000]' , 'yellow': '[&!color=#ffff00] '}
+basecolours_d = {'blue': '[&!color=#0000ff]', 
+				 'brown': '[&!color=#996633]', 
+				 'cyan': '[&!color=#00ffff]', 
+				 'green': '[&!color=#00ff00]', 
+				 'magenta': '[&!color=#ff00ff]', 
+				 'orange': '[&!color=#ff8000]', 
+				 'purple': '[&!color=#800080]', 
+				 'red': '[&!color=#ff0000]' , 
+				 'yellow': '[&!color=#ffff00] '}
+				 
 basecolours_l = list(basecolours_d.keys())
 print(basecolours_l)
 #colourcodes_l = ['[&!color=#0000ff]', '[&!color=#996633]', '[&!color=#00ffff]', '[&!color=#00ff00]', '[&!color=#ff00ff]', '[&!color=#ff8000]', '[&!color=#800080]', '[&!color=#ff0000]' , '[&!color=#ffff00]']

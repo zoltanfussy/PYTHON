@@ -123,15 +123,19 @@ import argparse
 #to parse arguments listed in the command after the script
 parser = argparse.ArgumentParser(description='How to use argparse')
 parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be trimmed', required=True)
-parser.add_argument('-t', '--tree', help='Treefile for trimming', required=True)
-parser.add_argument('-c', '--colour', help='Branch colours', default='all')
-parser.add_argument('-n', '--num_seqs', help='maximum number of hits to recover', default='10')
+parser.add_argument('-o', '--outfile', help='Output filename', default="")
 parser.add_argument('-b', '--bootstrap', help='Boostrap calculation', action='store_true') # to only look for presence/absence of this argument
+group = parser.add_mutually_exclusive_group()
+group.add_argument('-f', '--filter', help='Filtering list', default='')
+group.add_argument('-t', '--trim', help='Perform trim', action='store_true')
 
 
 args = parser.parse_args()
 
 infile = args.infile
+if args.outfile == "":
+	suffix = infile.split(".")[-1]
+	outfile = infile.replace(suffix, "renamed.fasta")
 num_seqs = args.num_seqs
 
 ##################################
@@ -494,3 +498,17 @@ def decor(string):
 		print("===============")
 	return wrap
 
+def find_alignment_format(suffix):
+	accepted = ["fasta", "phylip", "clustal", "emboss", "nexus", "stockholm"]
+	if suffix in accepted:
+		return suffix
+	elif suffix in ["fasta", "fna", "faa", "fas", "fa"]:
+		return "fasta"
+	elif suffix in ["ali", "aln"]:
+		return "fasta" #probably
+	elif suffix in ["phylip", "phy"]:
+		return "phylip-relaxed"
+	elif suffix in ["nexus", "nex"]:
+		return "nexus"
+	else:
+		quit("unrecognized MSA format")
