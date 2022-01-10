@@ -60,13 +60,22 @@ def main():
 			'C': '2', 'H': '2', 'W': '2', 'Y': '2', 
 			'D': '3', 'E': '3', 'K': '3', 'Q': '3', 'R': '3', 
 			'F': '4', 'I': '4', 'L': '4', 'M': '4', 'V': '4',
-			'-': '-', 'J': '-', 'X': '-'}
+			'-': '-', 'J': '-', 'U': '-', 'O': '-','X': '-'}
+	recodelett = {'A': 'A', 'G': 'A', 'N': 'A', 'P': 'A', 'S': 'A', 'T': 'A', 
+			'C': 'C', 'H': 'C', 'W': 'C', 'Y': 'C', 
+			'D': 'D', 'E': 'D', 'K': 'D', 'Q': 'D', 'R': 'D', 
+			'F': 'F', 'I': 'F', 'L': 'F', 'M': 'F', 'V': 'F',
+			'-': '-', 'J': '-', 'U': '-', 'O': '-','X': '-'}
+
 	parser = argparse.ArgumentParser(description='How to use argparse')
 	group = parser.add_mutually_exclusive_group()
 	group.add_argument('-f', '--fasta', help='Fasta input', default='')
 	group.add_argument('-a', '--alignment', help='Alignment input', default='')
+	parser.add_argument('-l', '--letters', help='Use letters rather than numbers', action='store_true')
 
 	args = parser.parse_args()
+	if args.letters:
+		recode = recodelett
 	if args.fasta != "":
 		suffix = args.fasta.split(".")[-1]
 		_recode_fasta(args.fasta, suffix)

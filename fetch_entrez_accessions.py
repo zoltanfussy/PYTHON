@@ -7,7 +7,8 @@ from ete3 import NCBITaxa
 ncbi = NCBITaxa()
 
 Entrez.email = 'zoltan.fussy@gmail.com'
-#Entrez.api_key = ''
+#Entrez.api_key = os.environ["API_KEY"]
+#print(os.environ)
 
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
 	home = "/Users/morpholino/OwnCloud/"
