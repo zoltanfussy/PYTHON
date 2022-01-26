@@ -1,0 +1,33 @@
+- FastQC: https://github.com/kikinocka/ngs/blob/master/bash_scripts/fastqc_leshy.sh
+
+- BBduk: https://github.com/kikinocka/ngs/blob/master/bash_scripts/bbduk_leshy.sh
+
+- FastQC
+
+- Trinity: https://github.com/kikinocka/ngs/blob/master/bash_scripts/trinity_leshy.sh
+
+- BLAST against NT db: https://github.com/kikinocka/ngs/blob/master/bash_scripts/blast_for_filtering_leshy.sh
+	- eval=1e-02
+
+- NT filtration: https://github.com/kikinocka/ngs/blob/master/bash_scripts/NT_filt.sh
+	- coverage='50'
+	- identity='75'
+
+- TransDecoder long ORFs: https://github.com/kikinocka/ngs/blob/master/bash_scripts/transdecoder_longORFs_veles.sh
+
+- Diamond against NR db: https://github.com/kikinocka/ngs/blob/master/bash_scripts/diamond_leshy.sh
+	- eval=1e-05
+
+- NR filtration: https://github.com/kikinocka/ngs/blob/master/bash_scripts/NR_filt.sh
+	- coverage='50' #default: 50
+	- identity='70'
+
+- BUSCO in "transcriptome" and "proteins" modes: https://github.com/kikinocka/ngs/blob/master/bash_scripts/metacentrum/busco_pbs.sh
+
+
+
+Beta-barrels:
+- find motif: https://github.com/kikinocka/ngs/blob/master/py_scripts/motif_search.py
+- blast found proteins agains NCBI nr using DIAMOND
+	- eval=1e-3
+- find description of proteins: https://github.com/kikinocka/ngs/blob/master/py_scripts/find_defline.py

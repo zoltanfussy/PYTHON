@@ -1,0 +1,137 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# images
+*.jpg
+*.jpeg
+*.png
+*.svg
+
+# data
+abstracts*.txt
+gitignore.txt
+pandas_NOTEBOOK.ipynb
+*.fasta
+*.fastq
+*/*.fasta
+*/*treefile
+cache/
+ETEtree/*pdf
+python_courses_tests/
+treehandling/
+ProtFam_Dist_Codes.csv
+taxdump.tar.gz
+
+#remove from tracking after addition:
+#for i in ETEtree/*treefile; do git rm --cached $i; done
+
+#larger than 15Mb, the ones below have actually been removed already but...
+# sed will get rid of starting ./, and awk will remove all duplicate lines ignoring empty ones by checking the number of fields present in a line (NF) - this is useful if your .gitignore is organized in sections separated by empty lines.
+#find . -size +15M | sed 's|^\./||g' | cat >> .gitignore; awk '!NF || !seen[$0]++' .gitignore
+OstraPy/Day5/size_sorted_contigs_over_2kb.fa
+seq-extend-BLASTXML/CryptoDB-36_CveliaCCMP2878_Genome.fasta
+seq-extend-BLASTXML/Vitrella_brassicaformis_MMETSP1451-proteins.fasta
+seq-extend-BLASTXML/chromera_refs_blast_mmetsp-ncbi.xml
+monstr-table-filler/el_merged.fasta
