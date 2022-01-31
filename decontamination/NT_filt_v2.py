@@ -167,29 +167,33 @@ args = parser.parse_args()
 
 filetype = "blast"
 transcriptome = "trinity"
-if args.infile == "batch":
-	files = [x for x in os.listdir(".") if x.endswith(filetype)]
-else:
-	files = args.infile.split(",")
-print("to analyze:", ", ".join(files))
 
-if args.work_dir != ".":
-	os.chdir(args.work_dir)
-
-qthr = float(args.qcov_threshold)
-pthr = float(args.pident_threshold)
-
-goodgroups = set()
-goodgroupsrep = ""
-
-for orgn in args.good_groups:
-	if ncbi.get_name_translator([orgn]):
-		goodgroups.add(orgn)
+#always create error.log
+with open("errors.log", "at") as errorfile:
+	if args.infile == "batch":
+		files = [x for x in os.listdir(".") if x.endswith(filetype)]
 	else:
-		print("Unrecognized taxon: {}".format(orgn))
-		continue
-	if not goodgroupsrep:
-		goodgroupsrep = orgn
+		files = args.infile.split(",")
+	print("to analyze:", ", ".join(files))
+
+	if args.work_dir != ".":
+		os.chdir(args.work_dir)
+
+	qthr = float(args.qcov_threshold)
+	pthr = float(args.pident_threshold)
+
+	goodgroups = set()
+	goodgroupsrep = ""
+
+	for orgn in args.good_groups:
+		if ncbi.get_name_translator([orgn]):
+			goodgroups.add(orgn)
+		else:
+			print("Unrecognized taxon: {}".format(orgn))
+			errorfile.write("Unrecognized taxon: {}".format(orgn))
+			continue
+		if not goodgroupsrep:
+			goodgroupsrep = orgn
 
 ##############
 ###  MAIN  ###
