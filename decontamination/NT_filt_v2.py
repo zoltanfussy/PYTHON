@@ -168,7 +168,7 @@ parser.add_argument('-t', '--test_mode', help='Testing mode to allow checking tm
 args = parser.parse_args()
 
 filetype = "blast"
-transcriptome = "trinity"
+transcriptome = "Trinity"
 
 #always create error.log
 with open("errors.log", "at") as errorfile:
