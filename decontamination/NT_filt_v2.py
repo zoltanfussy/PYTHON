@@ -13,6 +13,21 @@ Entrez.email = 'zoltan.fussy@natur.cuni.cz'
 #update at times:
 #ncbi.update_taxonomy_database()
 
+def assembly_methods(blastline):
+	# Infer the assembler and protein predictor from blast input or faa file
+	seqname = blastline.split()[0].replace(">", "")
+	assembler = "NA"
+	if seqname.startswith("TRINITY"):
+		assembler = "trinity-new"
+	elif seqname.startswith("NODE"):
+		assembler = "spades"
+	elif re.match(r"c\d+_", seqname):
+		assembler = "trinity-old"
+	
+	print(assembler)
+	return assembler
+
+
 def force_taxid_prot(accession):
 	print("Requesting", accession)
 	if "|" in accession:
@@ -52,6 +67,7 @@ def force_taxid_prot(accession):
 
 	return taxid
 
+
 def force_taxid_nucl(accession):
 	#lower data traffic with docsum, sufficient for taxid retrieval
 	if "|" in accession:
@@ -68,6 +84,7 @@ def force_taxid_nucl(accession):
 	print("Organism retrieved:", taxid)
 
 	return taxid
+
 
 def force_taxid_gbnuc(accession):
 	if "|" in accession:
@@ -86,6 +103,7 @@ def force_taxid_gbnuc(accession):
 
 	return taxid
 
+
 def parse_sseqid(sseqid):
 	#if sseqid.startswith("gi|"):
 	if "|" in sseqid:
@@ -93,6 +111,7 @@ def parse_sseqid(sseqid):
 	else:
 		accession = sseqid
 	return accession
+
 
 def del_pX(nodename):
 	partpattern = r'p\d+'
@@ -107,11 +126,13 @@ def del_pX(nodename):
 		#print(f"No pattern in {nodename}")
 	return nodename
 
+
 def counter(c, freq):
 	c += 1
 	if c % freq == 0:
 		print(c)
 	return c
+
 
 #previously fetched from NCBI
 def _lookups():
@@ -145,354 +166,359 @@ def _lookups():
 		  2081491: [2759, 2608109, 2830, 73026, 418969, 70451, 2081491]}
 	return lookups
 
+
 ############################
 ###   PARSE PARAMETERS   ###
 ############################
+def main():
+	t = time.localtime()
+	current_time = time.strftime("%H:%M:%S", t)
+	print("starting {}".format(current_time))
+	#to parse arguments listed in the command after the script
+	parser = argparse.ArgumentParser(description='How to use argparse')
+	#dmnd blast input absolutely requires -outfmt 6 qseqid bitscore sseqid qcovhsp pident qlen length !
+	parser.add_argument('-i', '--infile', help='BLASTN outfile(s) to be taxified', required=True)
+	parser.add_argument('-d', '--work_dir', help='Working directory with the files', default=".")
+	#parser.add_argument('-a', '--skip_accession_pairing', help='Do not perform parsing prot.accession2taxid', action='store_true')
+	#input fasta names can be inferred from blast input
+	parser.add_argument('-nt', '--fasta_nt', help='Nucleotide fasta for parsing', default="")
+	parser.add_argument('-q', '--qcov_threshold', help='query coverage threshold', default=50)
+	parser.add_argument('-p', '--pident_threshold', help='percent identity threshold', default=75)
+	parser.add_argument('-g', '--good_groups', nargs='+', help='List of good taxonomic groups', default=["Amoebozoa"])
+	parser.add_argument('-t', '--test_mode', help='Testing mode to allow checking tmp files', action="store_true")
+	parser.add_argument('--assembler', help='Assembler for naming the outfile', default="trinity")
 
-t = time.localtime()
-current_time = time.strftime("%H:%M:%S", t)
-print("starting {}".format(current_time))
-#to parse arguments listed in the command after the script
-parser = argparse.ArgumentParser(description='How to use argparse')
-#dmnd blast input absolutely requires -outfmt 6 qseqid bitscore sseqid qcovhsp pident qlen length !
-parser.add_argument('-i', '--infile', help='BLASTN outfile(s) to be taxified', required=True)
-parser.add_argument('-d', '--work_dir', help='Working directory with the files', default=".")
-#parser.add_argument('-a', '--skip_accession_pairing', help='Do not perform parsing prot.accession2taxid', action='store_true')
-#input fasta names can be inferred from blast input
-parser.add_argument('-nt', '--fasta_nt', help='Nucleotide fasta for parsing', default="")
-parser.add_argument('-q', '--qcov_threshold', help='query coverage threshold', default=50)
-parser.add_argument('-p', '--pident_threshold', help='percent identity threshold', default=75)
-parser.add_argument('-g', '--good_groups', nargs='+', help='List of good taxonomic groups', default=["Amoebozoa"])
-parser.add_argument('-t', '--test_mode', help='Testing mode to allow checking tmp files', action="store_true")
+	args = parser.parse_args()
 
-args = parser.parse_args()
+	filetype = "blast"
+	transcriptome = "trinity"
 
-filetype = "blast"
-transcriptome = "trinity"
-
-#always create error.log
-with open("errors.log", "at") as errorfile:
-	if args.infile == "batch":
-		files = [x for x in os.listdir(".") if x.endswith(filetype)]
-	else:
-		files = args.infile.split(",")
-	print("to analyze:", ", ".join(files))
-
-	if args.work_dir != ".":
-		os.chdir(args.work_dir)
-
-	qthr = float(args.qcov_threshold)
-	pthr = float(args.pident_threshold)
-
-	goodgroups = set()
-	goodgroupsrep = ""
-
-	for orgn in args.good_groups:
-		if ncbi.get_name_translator([orgn]):
-			goodgroups.add(orgn)
+	#always create error.log
+	with open("errors.log", "at") as errorfile:
+		if args.infile == "batch":
+			files = [x for x in os.listdir(".") if x.endswith(filetype)]
 		else:
-			print("Unrecognized taxon: {}".format(orgn))
-			errorfile.write("Unrecognized taxon: {}".format(orgn))
-			continue
-		if not goodgroupsrep:
-			goodgroupsrep = orgn
+			files = args.infile.split(",")
+		print("to analyze:", ", ".join(files))
 
-##############
-###  MAIN  ###
-##############
-#quit("Use only for files for which fastas are present in folder")
+		if args.work_dir != ".":
+			os.chdir(args.work_dir)
 
-taxids = {}
-lookups = _lookups()
-try:
-	with open("subset.accession2taxid") as taxidfile:
-		print("reading accession2taxid...")
-		for l in taxidfile:
-			l = l.strip().split("\t")#.decode('utf8')
-			taxids[l[0]] = l[1]
-except:
-	print("accession2taxid file not found, skipping")
+		qthr = float(args.qcov_threshold)
+		pthr = float(args.pident_threshold)
 
-for i,filepath in enumerate(files):
-	path, file = os.path.split(filepath)
-	print("\n\n======\nAnalyzing", file)
-	# find nucleotide fasta for processing
-	if args.fasta_nt == "":
-		ntfasta = file.replace(filetype, "fasta")
-		if not os.path.exists(ntfasta):
-			print("Nucleotide fasta missing/unspecified, nt fasta output muted")
-			writent = False
-	else:
-		ntfasta = args.fasta_nt
-		writent = True
+		goodgroups = set()
+		goodgroupsrep = ""
 
-	dataset = file.split(".")[0]
-	if os.path.isdir("./tmp".format(dataset)) == False:
-		os.system("mkdir tmp".format(dataset))
-		print("tmp directory created")
-	if os.path.isdir("./contaminants".format(dataset)) == False:
-		os.system("mkdir contaminants".format(dataset))
-		print("contaminant directory created")
-	if os.path.isdir("./{}_NT".format(dataset)) == False:
-		os.system("mkdir {}_NT".format(dataset))
-		print("target directory created")
-	statfile = dataset + "_report.txt"
-	filt = "tmp/{}_filt.txt".format(dataset)
-	check = "tmp/{}_check.txt".format(dataset)
-	#use tmpblast file to retrieve taxids if the script crashes on NCBI requests
-	#cut -f 1,3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
-	tmpblast =  "tmp/{}.tmp".format(file)
-	keeptmpblastfile = False
-	cont_bact = list()
-	cont_fungal = list()
-	cont_animal = list()
-	cont_plant = list()
-	#cont_parabasalia = list()
-	cont_other = list()
-	species = set()
-	goodscafs = {}
-	outscafs = {}
-	scaf_d = {}
-	ranks = {}
-	#replacement = {"319938": "288004", "1317118": "1379903", "427920": "1983720"}
-	distribution = {goodgroupsrep: 0}
-	c = 0 #we need a process monitor
-	with open(file) as infile, \
-	open(tmpblast, "w") as outfile,\
-	open(check, "w") as checkfile,\
-	open(filt, "w") as filtfile:
-		checkfile.write("query\tqcovs\tpident\ttaxgroup\tlineage\n")
-		filtfile.write("query\tlineage\n")
-		table = infile.read().split("\n")
-		#print("{}".format(len(table)))
-		print("To be analyzed: {}".format(len(table)))
-		for line in table:
-			c += 1
-			if c % 10000 == 0:
-				print(c)
-			if len(line.split("\t")) != 1:
-				line = line.split("\t")
-				
-				#First create a dictionary item
-				if len(line) == 6:
-					#this is a blastn output, so additional columns can be used for filtering
-					score, qcovs, pident = float(line[2]), float(line[4]), float(line[5])
-				else:
-					print("Not enough columns")
-					continue
-				try:
-					query = line[0]
-					query_scaf = del_pX(query)
-					if query_scaf not in goodscafs:
-						goodscafs[query_scaf] = 0
-						outscafs[query_scaf] = 0
-					#hitid = line[3]
-				except IndexError:
-					#this should not happen, but testing what other errors might happen
-					continue
+		for orgn in args.good_groups:
+			if ncbi.get_name_translator([orgn]):
+				goodgroups.add(orgn)
+			else:
+				print("Unrecognized taxon: {}".format(orgn))
+				errorfile.write("Unrecognized taxon: {}".format(orgn))
+				continue
+			if not goodgroupsrep:
+				goodgroupsrep = orgn
 
-				if query not in scaf_d.keys():
-					scaf_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""]}
-				elif score > scaf_d[query]["score"]:
-					#keep the best scoring hit
-					scaf_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""]}
-				else:
-					continue
+	##############
+	###  MAIN  ###
+	##############
+	#quit("Use only for files for which fastas are present in folder")
 
-				#Second get taxid and lineage ranks
-				if qcovs < 20: #ignore queries not sufficiently covered
-					continue
-				accession = parse_sseqid(line[3])
-				taxid = line[1]
-				if taxid in ["N/A", "0"]:
-					taxid = force_taxid_nucl(accession)
-					lineage = ncbi.get_lineage(taxid)[2:]
-				elif taxid in lookups:
-					lineage = lookups[taxid]
-				else:
+	taxids = {}
+	lookups = _lookups()
+	try:
+		with open("subset.accession2taxid") as taxidfile:
+			print("reading accession2taxid...")
+			for l in taxidfile:
+				l = l.strip().split("\t")#.decode('utf8')
+				taxids[l[0]] = l[1]
+	except:
+		print("accession2taxid file not found, skipping")
+
+	for i,filepath in enumerate(files):
+		path, file = os.path.split(filepath)
+		print("\n\n======\nAnalyzing", file)
+		# find nucleotide fasta for processing
+		if args.fasta_nt == "":
+			ntfasta = file.replace(filetype, "fasta")
+			if not os.path.exists(ntfasta):
+				print("Nucleotide fasta missing/unspecified, nt fasta output muted")
+				writent = False
+		else:
+			ntfasta = args.fasta_nt
+			writent = True
+
+		dataset = file.split(".")[0]
+		if os.path.isdir("./tmp".format(dataset)) == False:
+			os.system("mkdir tmp".format(dataset))
+			print("tmp directory created")
+		if os.path.isdir("./contaminants".format(dataset)) == False:
+			os.system("mkdir contaminants".format(dataset))
+			print("contaminant directory created")
+		if os.path.isdir("./{}_NT".format(dataset)) == False:
+			os.system("mkdir {}_NT".format(dataset))
+			print("target directory created")
+		statfile = dataset + "_report.txt"
+		filt = "tmp/{}_filt.txt".format(dataset)
+		check = "tmp/{}_check.txt".format(dataset)
+		#use tmpblast file to retrieve taxids if the script crashes on NCBI requests
+		#cut -f 1,3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
+		tmpblast =  "tmp/{}.tmp".format(file)
+		keeptmpblastfile = False
+		cont_bact = list()
+		cont_fungal = list()
+		cont_animal = list()
+		cont_plant = list()
+		#cont_parabasalia = list()
+		cont_other = list()
+		species = set()
+		goodscafs = {}
+		outscafs = {}
+		scaf_d = {}
+		ranks = {}
+		#replacement = {"319938": "288004", "1317118": "1379903", "427920": "1983720"}
+		distribution = {goodgroupsrep: 0}
+		c = 0 #we need a process monitor
+		with open(file) as infile, \
+		open(tmpblast, "w") as outfile,\
+		open(check, "w") as checkfile,\
+		open(filt, "w") as filtfile:
+			checkfile.write("query\tqcovs\tpident\ttaxgroup\tlineage\n")
+			filtfile.write("query\tlineage\n")
+			table = infile.read().split("\n")
+			#print("{}".format(len(table)))
+			print("To be analyzed: {}".format(len(table)))
+			for line in table:
+				c += 1
+				if c % 10000 == 0:
+					print(c)
+				if len(line.split("\t")) != 1:
+					line = line.split("\t")
+					
+					#First create a dictionary item
+					if len(line) == 6:
+						#this is a blastn output, so additional columns can be used for filtering
+						score, qcovs, pident = float(line[2]), float(line[4]), float(line[5])
+					else:
+						print("Not enough columns")
+						continue
 					try:
-						if ";" in taxid:
-							print("Multiple taxids:", taxid)
-							taxid = taxid.split(";")[0]
-							#for x in taxid.split(";"):
-							#	print(ncbi.get_lineage(x)[2:])
-						lineage = ncbi.get_lineage(taxid)[2:]
-					except ValueError:
-						print(f"Invalid taxid, force checking: {line} {accession}")
+						query = line[0]
+						query_scaf = del_pX(query)
+						if query_scaf not in goodscafs:
+							goodscafs[query_scaf] = 0
+							outscafs[query_scaf] = 0
+						#hitid = line[3]
+					except IndexError:
+						#this should not happen, but testing what other errors might happen
+						continue
+
+					if query not in scaf_d.keys():
+						scaf_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""]}
+					elif score > scaf_d[query]["score"]:
+						#keep the best scoring hit
+						scaf_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""]}
+					else:
+						continue
+
+					#Second get taxid and lineage ranks
+					if qcovs < 20: #ignore queries not sufficiently covered
+						continue
+					accession = parse_sseqid(line[3])
+					taxid = line[1]
+					if taxid in ["N/A", "0"]:
 						taxid = force_taxid_nucl(accession)
 						lineage = ncbi.get_lineage(taxid)[2:]
-						lookups[taxid] = lineage
-				names = ncbi.get_taxid_translator(lineage)
-				rank = [names[taxid] for taxid in lineage]
+					elif taxid in lookups:
+						lineage = lookups[taxid]
+					else:
+						try:
+							if ";" in taxid:
+								print("Multiple taxids:", taxid)
+								taxid = taxid.split(";")[0]
+								#for x in taxid.split(";"):
+								#	print(ncbi.get_lineage(x)[2:])
+							lineage = ncbi.get_lineage(taxid)[2:]
+						except ValueError:
+							print(f"Invalid taxid, force checking: {line} {accession}")
+							taxid = force_taxid_nucl(accession)
+							lineage = ncbi.get_lineage(taxid)[2:]
+							lookups[taxid] = lineage
+					names = ncbi.get_taxid_translator(lineage)
+					rank = [names[taxid] for taxid in lineage]
 
-				outfile.write("{}\t{}\t{}\t{}\t{}\t{}\n".format(line[0], line[2], line[3], line[4], line[5], taxid))
-				
-				scaf_d[query]["taxid"] = taxid
-				scaf_d[query]["rank"] = rank
-				
-				#Third, prepare ranks to print and store distribution data
-				if query_scaf not in ranks:
-					ranks[query_scaf] = set()
-				if taxid not in species:
-					species.add(taxid)
-					#orgn = ncbi.get_taxid_translator([taxid])[int(taxid)]
-					#print("{}\t{}".format(orgn, "_".join(rank)))
-				if any(x in rank for x in goodgroups):
-					#print(rank)
-					orgn = ncbi.get_taxid_translator([taxid])[int(taxid)]
-					scaf_d[query]["rank"] = [goodgroupsrep]
-					ranks[query_scaf].add(orgn)
-					group = goodgroupsrep
-					distribution[goodgroupsrep] += 1
-				elif "Metazoa" in rank:
-					#Metazoan ranking is too detailed
-					try:
-						#print(rank[7])
-						group = "Opisthokonta_Metazoa_" + rank[7]
+					outfile.write("{}\t{}\t{}\t{}\t{}\t{}\n".format(line[0], line[2], line[3], line[4], line[5], taxid))
+					
+					scaf_d[query]["taxid"] = taxid
+					scaf_d[query]["rank"] = rank
+					
+					#Third, prepare ranks to print and store distribution data
+					if query_scaf not in ranks:
+						ranks[query_scaf] = set()
+					if taxid not in species:
+						species.add(taxid)
+						#orgn = ncbi.get_taxid_translator([taxid])[int(taxid)]
+						#print("{}\t{}".format(orgn, "_".join(rank)))
+					if any(x in rank for x in goodgroups):
+						#print(rank)
+						orgn = ncbi.get_taxid_translator([taxid])[int(taxid)]
+						scaf_d[query]["rank"] = [goodgroupsrep]
+						ranks[query_scaf].add(orgn)
+						group = goodgroupsrep
+						distribution[goodgroupsrep] += 1
+					elif "Metazoa" in rank:
+						#Metazoan ranking is too detailed
+						try:
+							#print(rank[7])
+							group = "Opisthokonta_Metazoa_" + rank[7]
+							if group not in distribution:
+								distribution[group] = 1
+							else:
+								distribution[group] += 1
+						except IndexError:
+							if not "Trichoplax" in rank:
+								print("out of range:" + "_".join(rank))
+						ranks[query_scaf].add(group)
+					else:
+						#print(rank)
+						group = "_".join(rank[1:3])
+						#print(group)
+						if group == "":
+							#no subgroups defined
+							try:
+								group = rank[0]
+							except IndexError:
+								group = "N/A"
 						if group not in distribution:
 							distribution[group] = 1
 						else:
 							distribution[group] += 1
+						ranks[query_scaf].add(group)
+					
+					#Write ranks to a report
+					passed = "!" if (qcovs > qthr and pident > qthr) else ""
+					try:
+						checkfile.write(f"{query}\t{passed}{qcovs}\t{pident}\t{rank[1]}\t{rank}\n")
 					except IndexError:
-						if not "Trichoplax" in rank:
-							print("out of range:" + "_".join(rank))
-					ranks[query_scaf].add(group)
-				else:
-					#print(rank)
-					group = "_".join(rank[1:3])
-					#print(group)
-					if group == "":
-						#no subgroups defined
-						try:
-							group = rank[0]
-						except IndexError:
-							group = "N/A"
-					if group not in distribution:
-						distribution[group] = 1
+						#this is most likely an unranked bacterium
+						#print("\tweird rank", rank)
+						checkfile.write(f"{query}\t{passed}{qcovs}\t{pident}\t{rank}\n")
+
+					#Write ranks of the filtered files - this does not work as all scafs are in goodscafs
+					if query_scaf in goodscafs:
+						filtfile.write(f"{query}\t{rank}\n")
+
+			#ANY FILTER CAN BE APPLIED			
+			for query in scaf_d:
+				query_scaf = del_pX(query)
+				item = scaf_d[query]
+				qcovs, pident, rank = item["qcovs"], item["pident"], item["rank"]
+				if qcovs > qthr and pident > pthr: #Sebastian's thresholds:
+					#Usually 80% identity and at least 50% coverage of the transcript by the hits. 
+					#LGT's don't have such a high identity towards any bacteria usually. 
+					#these are high-similarity hits, so sort the sequences as contaminants to subsets:
+					if "Bacteria" in rank:
+						cont_bact.append(query_scaf)
+						outscafs[query_scaf] += 1
+					elif "Fungi" in rank:
+						cont_fungal.append(query_scaf)
+						outscafs[query_scaf] += 1
+					elif "Metazoa" in rank:
+						cont_animal.append(query_scaf)
+						outscafs[query_scaf] += 1
+					elif "Streptophyta" in rank:
+						cont_plant.append(query_scaf)
+						outscafs[query_scaf] += 1
+					#elif "Parabasalia" in rank:
+					#	cont_parabasalia.append(query_scaf)
+					#	outscafs[query_scaf] += 1
+					elif goodgroupsrep in rank:
+						goodscafs[query_scaf] += 1
 					else:
-						distribution[group] += 1
-					ranks[query_scaf].add(group)
-				
-				#Write ranks to a report
-				passed = "!" if (qcovs > qthr and pident > qthr) else ""
-				try:
-					checkfile.write(f"{query}\t{passed}{qcovs}\t{pident}\t{rank[1]}\t{rank}\n")
-				except IndexError:
-					#this is most likely an unranked bacterium
-					#print("\tweird rank", rank)
-					checkfile.write(f"{query}\t{passed}{qcovs}\t{pident}\t{rank}\n")
-
-				#Write ranks of the filtered files - this does not work as all scafs are in goodscafs
-				if query_scaf in goodscafs:
-					filtfile.write(f"{query}\t{rank}\n")
-
-		#ANY FILTER CAN BE APPLIED			
-		for query in scaf_d:
-			query_scaf = del_pX(query)
-			item = scaf_d[query]
-			qcovs, pident, rank = item["qcovs"], item["pident"], item["rank"]
-			if qcovs > qthr and pident > pthr: #Sebastian's thresholds:
-				#Usually 80% identity and at least 50% coverage of the transcript by the hits. 
-				#LGT's don't have such a high identity towards any bacteria usually. 
-				#these are high-similarity hits, so sort the sequences as contaminants to subsets:
-				if "Bacteria" in rank:
-					cont_bact.append(query_scaf)
-					outscafs[query_scaf] += 1
-				elif "Fungi" in rank:
-					cont_fungal.append(query_scaf)
-					outscafs[query_scaf] += 1
-				elif "Metazoa" in rank:
-					cont_animal.append(query_scaf)
-					outscafs[query_scaf] += 1
-				elif "Streptophyta" in rank:
-					cont_plant.append(query_scaf)
-					outscafs[query_scaf] += 1
-				#elif "Parabasalia" in rank:
-				#	cont_parabasalia.append(query_scaf)
-				#	outscafs[query_scaf] += 1
-				elif goodgroupsrep in rank:
+						#modify this if organism of interest is in NT
+						#if seqID has been added to goodscafs, this will be ignored
+						cont_other.append(query_scaf)
+						outscafs[query_scaf] += 1
+						#print(rank)
+				elif any(x in rank for x in goodgroups):
 					goodscafs[query_scaf] += 1
 				else:
-					#modify this if organism of interest is in NT
-					#if seqID has been added to goodscafs, this will be ignored
-					cont_other.append(query_scaf)
-					outscafs[query_scaf] += 1
-					#print(rank)
-			elif any(x in rank for x in goodgroups):
-				goodscafs[query_scaf] += 1
-			else:
-				#this has no good hit in nt:
-				goodscafs[query_scaf] += 1
-				if "Bacteria" in rank:
-					#cont_bact.append(query_scaf)
-					outscafs[query_scaf] += 1
-	seqlen = 0
-	
-	if writent == True:
-		in_nucl = SeqIO.parse(ntfasta, "fasta")
-		out_nucl = open("{0}_NT/{0}.{1}.NTfilt.fasta".format(dataset, transcriptome), "w")
-		out_bact = open("contaminants/{0}_bact.fasta".format(dataset), "w")
-		out_fungal = open("contaminants/{0}_fungal.fasta".format(dataset), "w")
-		out_animal = open("contaminants/{0}_animal.fasta".format(dataset), "w")
-		out_plant = open("contaminants/{0}_plant.fasta".format(dataset), "w")
-		#out_para = open("contaminants/{0}_para.fasta".format(dataset), "w")
-		out_other = open("contaminants/{0}_other.fasta".format(dataset), "w") #assuming this organism is not in nr
-		for seq in in_nucl:
-			if goodscafs.get(seq.name, 0) > outscafs.get(seq.name, 0):
-				out_nucl.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-				seqlen += len(seq.seq)			
-				#out_para.write("{}:\t{}\t{}\n".format(seq.name, goodscafs.get(seq.name, 0), outscafs.get(seq.name, 0)))
-			#there might be a lot of low-coverage hits, but most are from bacteria
-			elif cont_bact.count(seq.name) > goodscafs.get(seq.name, 0):
-				out_bact.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-			#note that the following are only high-similarity, high-coverage hits
-			elif cont_fungal.count(seq.name) > goodscafs.get(seq.name, 0):
-				out_fungal.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-			elif cont_animal.count(seq.name) > goodscafs.get(seq.name, 0):
-				out_animal.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-			elif cont_plant.count(seq.name) > goodscafs.get(seq.name, 0):
-				out_plant.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-			#elif cont_parabasalia.count(seq.name) > goodscafs.get(seq.name, 0):
-			#	out_para.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-			elif cont_other.count(seq.name) > goodscafs.get(seq.name, 0):
-				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-			else:
-				#no nr blast hit:
-				out_nucl.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
-				seqlen += len(seq.seq)
-				#out_para.write("{}:\t{}\t{}\n".format(seq.name, goodscafs.get(seq.name, 0), outscafs.get(seq.name, 0)))
-		print("{} bases extracted".format(seqlen))
-		out_nucl.close()
-		out_bact.close()
-		out_fungal.close()
-		out_animal.close()
-		out_plant.close()
-		#out_para.close()
-		out_other.close()
-	
-	print("{} different species as hits".format(len(species)))
-	with open(statfile, "w") as result:
-		if seqlen != 0:
-			result.write("{} bases extracted\n".format(seqlen))
-		groups = list(distribution.keys())
-		groups.sort()
+					#this has no good hit in nt:
+					goodscafs[query_scaf] += 1
+					if "Bacteria" in rank:
+						#cont_bact.append(query_scaf)
+						outscafs[query_scaf] += 1
+		seqlen = 0
+		
+		if writent == True:
+			in_nucl = SeqIO.parse(ntfasta, "fasta")
+			out_nucl = open("{0}_NT/{0}.{1}.NTfilt.fasta".format(dataset, transcriptome), "w")
+			out_bact = open("contaminants/{0}_bact.fasta".format(dataset), "w")
+			out_fungal = open("contaminants/{0}_fungal.fasta".format(dataset), "w")
+			out_animal = open("contaminants/{0}_animal.fasta".format(dataset), "w")
+			out_plant = open("contaminants/{0}_plant.fasta".format(dataset), "w")
+			#out_para = open("contaminants/{0}_para.fasta".format(dataset), "w")
+			out_other = open("contaminants/{0}_other.fasta".format(dataset), "w") #assuming this organism is not in nr
+			for seq in in_nucl:
+				if goodscafs.get(seq.name, 0) > outscafs.get(seq.name, 0):
+					out_nucl.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+					seqlen += len(seq.seq)			
+					#out_para.write("{}:\t{}\t{}\n".format(seq.name, goodscafs.get(seq.name, 0), outscafs.get(seq.name, 0)))
+				#there might be a lot of low-coverage hits, but most are from bacteria
+				elif cont_bact.count(seq.name) > goodscafs.get(seq.name, 0):
+					out_bact.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+				#note that the following are only high-similarity, high-coverage hits
+				elif cont_fungal.count(seq.name) > goodscafs.get(seq.name, 0):
+					out_fungal.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+				elif cont_animal.count(seq.name) > goodscafs.get(seq.name, 0):
+					out_animal.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+				elif cont_plant.count(seq.name) > goodscafs.get(seq.name, 0):
+					out_plant.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+				#elif cont_parabasalia.count(seq.name) > goodscafs.get(seq.name, 0):
+				#	out_para.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+				elif cont_other.count(seq.name) > goodscafs.get(seq.name, 0):
+					out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+				else:
+					#no nr blast hit:
+					out_nucl.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
+					seqlen += len(seq.seq)
+					#out_para.write("{}:\t{}\t{}\n".format(seq.name, goodscafs.get(seq.name, 0), outscafs.get(seq.name, 0)))
+			print("{} bases extracted".format(seqlen))
+			out_nucl.close()
+			out_bact.close()
+			out_fungal.close()
+			out_animal.close()
+			out_plant.close()
+			#out_para.close()
+			out_other.close()
+		
+		print("{} different species as hits".format(len(species)))
+		with open(statfile, "w") as result:
+			if seqlen != 0:
+				result.write("{} bases extracted\n".format(seqlen))
+			groups = list(distribution.keys())
+			groups.sort()
 
-		g = goodgroupsrep
-		print("{}\tsequences of {}".format(distribution[g], g))
-		result.write("{}\tsequences of {}\n".format(distribution[g], g))
-		groups.remove(goodgroupsrep)
-
-		for g in groups:
+			g = goodgroupsrep
 			print("{}\tsequences of {}".format(distribution[g], g))
 			result.write("{}\tsequences of {}\n".format(distribution[g], g))
-	if not args.test_mode:
-		os.system("mv {} {}_NT/".format(file, dataset))
-		for tmpfile in [filt, check]:
-			os.system("rm {}".format(tmpfile))
-	if keeptmpblastfile == False:
-		os.system("rm {}".format(tmpblast))
-	print("now, run quast to analyze contaminants:")
-	print("quast {0}_NT/*fasta -o ~/quast/{0}_NT --threads 4".format(dataset))
+			groups.remove(goodgroupsrep)
 
-print("NCBI taxid lookups", lookups)
-print("finished sorting")
+			for g in groups:
+				print("{}\tsequences of {}".format(distribution[g], g))
+				result.write("{}\tsequences of {}\n".format(distribution[g], g))
+		if not args.test_mode:
+			os.system("mv {} {}_NT/".format(file, dataset))
+			for tmpfile in [filt, check]:
+				os.system("rm {}".format(tmpfile))
+		if keeptmpblastfile == False:
+			os.system("rm {}".format(tmpblast))
+		print("now, run quast to analyze contaminants:")
+		print("quast {0}_NT/*fasta -o ~/quast/{0}_NT --threads 4".format(dataset))
+
+	print("NCBI taxid lookups", lookups)
+	print("finished sorting")
+
+if __name__ == "__main__":
+	main()
