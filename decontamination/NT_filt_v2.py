@@ -191,7 +191,7 @@ def main():
 	args = parser.parse_args()
 
 	filetype = "blast"
-	transcriptome = "trinity"
+	transcriptome = args.assembler
 
 	#always create error.log
 	with open("errors.log", "at") as errorfile:
