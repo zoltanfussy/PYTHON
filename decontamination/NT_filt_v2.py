@@ -128,7 +128,7 @@ def del_pX(nodename):
 
 
 def counter(c, freq):
-	#not yet used
+	#employ for something
 	c += 1
 	if c % freq == 0:
 		print(c)
