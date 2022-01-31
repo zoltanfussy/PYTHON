@@ -1,0 +1,4 @@
+4200 bases extracted
+5	sequences of Amoebozoa
+5	sequences of Opisthokonta_Fungi
+5	sequences of Sar_Stramenopiles

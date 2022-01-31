@@ -34,8 +34,12 @@ data_quantiles = np.quantile(example_array, [0.2, 0.4, 0.6, 0.8]) #quintile valu
 from scipy.stats import iqr
 interquartile_range = iqr(dataset) #or stats.iqr(dataset)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 from matplotlib import pyplot as plt
-def plot_hist(dataset, prefix, minimum=0, maximum=1000):
+import numpy as np
+
+def plot_hist(dataset, prefix, minimum=0, maximum=100, cumulative=False,
+    title="", xlabel="Length", ylabel="Count"):
     """plots a histogram from any array of numbers
 
     Input:      A data array
@@ -47,18 +51,22 @@ def plot_hist(dataset, prefix, minimum=0, maximum=1000):
     data_average = np.average(dataset)
     plt.figure(figsize=(15,5)) #define dimensions first!
     #plt.hist(dataset, range=(minimum, maximum), alpha = 0.75, bins=100,  edgecolor='black')
-    plt.hist(np.clip(dataset, minimum, 1.01*maximum), alpha = 0.75, bins=100,  edgecolor='black')
+    plt.hist(np.clip(dataset, minimum, 1.01*maximum), bins=100, 
+                cumulative=cumulative,
+                alpha = 0.75, edgecolor='black')
     #alpha >> transparency
     #if more histograms need be plotted, just repeat plt.hist with another data
-    plt.title("Data length distribution")
+    plt.title(title)
     plt.axvline(data_average, color='r', linestyle='solid', linewidth=2, label="Mean") #add vertical line
     #plt.set_xlim(minimum, maximum)
     #dotted and dashed lines ale alternatives
-    plt.xlabel("Length")
-    plt.ylabel("Count")
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
 
     plt.savefig("{}.pdf".format(prefix))
-    plt.show()
+    plt.close()
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Use plt.hist() below
 plt.figure(figsize=(15,5)) #define dimensions first!

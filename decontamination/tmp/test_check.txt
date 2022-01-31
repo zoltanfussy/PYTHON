@@ -1,0 +1,15 @@
+TRINITY_fungal_80::TRINITY_fungal_80::TRINITY_fungal_80.p1	Opisthokonta
+TRINITY_fungal_70::TRINITY_fungal_70::TRINITY_fungal_70.p1	Opisthokonta
+TRINITY_fungal_60::TRINITY_fungal_60::TRINITY_fungal_60.p1	Opisthokonta
+TRINITY_fungal_50::TRINITY_fungal_50::TRINITY_fungal_50.p1	Opisthokonta
+TRINITY_fungal_40::TRINITY_fungal_40::TRINITY_fungal_40.p1	Opisthokonta
+TRINITY_amoeba_80::TRINITY_amoeba_80::TRINITY_amoeba_80.p1	Amoebozoa
+TRINITY_amoeba_70::TRINITY_amoeba_70::TRINITY_amoeba_70.p1	Amoebozoa
+TRINITY_amoeba_60::TRINITY_amoeba_60::TRINITY_amoeba_60.p1	Amoebozoa
+TRINITY_amoeba_50::TRINITY_amoeba_50::TRINITY_amoeba_50.p1	Amoebozoa
+TRINITY_amoeba_40::TRINITY_amoeba_40::TRINITY_amoeba_40.p1	Amoebozoa
+TRINITY_sar_80::TRINITY_sar_80::TRINITY_sar_80.p1	Sar
+TRINITY_sar_70::TRINITY_sar_70::TRINITY_sar_70.p1	Sar
+TRINITY_sar_60::TRINITY_sar_60::TRINITY_sar_60.p1	Sar
+TRINITY_sar_50::TRINITY_sar_50::TRINITY_sar_50.p1	Sar
+TRINITY_sar_40::TRINITY_sar_40::TRINITY_sar_40.p1	Sar

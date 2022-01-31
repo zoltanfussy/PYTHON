@@ -1,0 +1,206 @@
+>>>TRINITY_fungal_80<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 1.0
+TRINITY_fungal_80=>Bad h.c.
+
+>>>TRINITY_fungal_70<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 1.0
+TRINITY_fungal_70=>Good (rest)
+
+>>>TRINITY_fungal_60<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 1.0
+TRINITY_fungal_60=>Good (rest)
+
+>>>TRINITY_fungal_50<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 1.0
+TRINITY_fungal_50=>Good (rest)
+
+>>>TRINITY_fungal_40<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 1.0
+TRINITY_fungal_40=>Good (rest)
+
+>>>TRINITY_amoeba_80<<<
+High confidence:
+Amoebozoa 1.0
+TRINITY_amoeba_80=>Good h.c.
+
+>>>TRINITY_amoeba_70<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 1.0
+TRINITY_amoeba_70=>Good l.c.
+
+>>>TRINITY_amoeba_60<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 1.0
+TRINITY_amoeba_60=>Good l.c.
+
+>>>TRINITY_amoeba_50<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 1.0
+TRINITY_amoeba_50=>Good l.c.
+
+>>>TRINITY_amoeba_40<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 1.0
+TRINITY_amoeba_40=>Good l.c.
+
+>>>TRINITY_sar_80<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 1.0
+TRINITY_sar_80=>Bad h.c. mix
+
+>>>TRINITY_sar_70<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+TRINITY_sar_70=>Good (rest)
+
+>>>TRINITY_sar_60<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+TRINITY_sar_60=>Good (rest)
+
+>>>TRINITY_sar_50<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+TRINITY_sar_50=>Good (rest)
+
+>>>TRINITY_sar_40<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+TRINITY_sar_40=>Good (rest)
+
+>>>TRINITY_unknown<<<
+High confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+any bad 0.0
+Low confidence:
+Amoebozoa 0.0
+Bacteria 0.0
+Fungi 0.0
+Metazoa 0.0
+Streptophyta 0.0
+TRINITY_unknown=>Good (rest)
+

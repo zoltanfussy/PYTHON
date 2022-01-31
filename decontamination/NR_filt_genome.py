@@ -4,6 +4,7 @@ from ete3 import NCBITaxa
 #http://etetoolkit.org/docs/2.3/tutorial/tutorial_ncbitaxonomy.html
 ncbi = NCBITaxa()
 Entrez.email = 'zoltan.fussy@natur.cuni.cz'
+#Entrez.api_key = os.environ["API_KEY"]
 #update at times:
 #ncbi.update_taxonomy_database()
 
