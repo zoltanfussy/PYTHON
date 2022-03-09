@@ -235,6 +235,7 @@ def main():
 	#input fasta names can be inferred from blast input
 	parser.add_argument('-nt', '--fasta_nt', help='Nucleotide fasta for parsing', default="")
 	parser.add_argument('-aa', '--fasta_aa', help='Amino acid fasta for parsing', default="")
+	#parser.add_argument('-n', '--inverse_lookup', help='Inverse lookup', action="store_true") => something to work out - use good group as a bad group
 	parser.add_argument('-q', '--qcov_threshold', help='Query coverage threshold', default=50)
 	parser.add_argument('-p', '--pident_threshold', help='Percent identity threshold', default=75)
 	parser.add_argument('-s', '--scaffold_coverage_threshold', help='percent coverage of scaffold to consider as contamination', default=65)

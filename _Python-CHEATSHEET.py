@@ -206,9 +206,10 @@ def start():
 	for category, option in options.items():
 		for op, value in option.items():
 			pd.set_option(f"{category}.{op}", value)
+
 if __name__ == "__main__":
 	start()
-	del start
+	del start #delete params object after setting
 #>> save as pandas_tricks.py, then call by export PYTHONSTARTUP="pandas_tricks.py" in Terminal?
 
 #open a defined-size pandas dataframe with zeroes filled in:
@@ -470,7 +471,6 @@ def is_tool(name):
     from shutil import which
 
     return which(name) is not None
-
 
 def overlaps(moduleA, moduleB):
 	startA = moduleA[0]

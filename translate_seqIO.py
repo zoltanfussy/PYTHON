@@ -18,6 +18,7 @@ with open('error.fasta', 'a') as error, open('OM-RGC_viruses.faa', 'w') as outpu
 		for nucleotide in seq:
 			if nucleotide not in 'ATCGN':
 				ambiguous = True
+				break
 		if ambiguous == True:
 				error.write('>{}\n{}\n'.format(name, seq))
 		else:	
