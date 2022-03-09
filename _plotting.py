@@ -38,9 +38,10 @@ interquartile_range = iqr(dataset) #or stats.iqr(dataset)
 from matplotlib import pyplot as plt
 import numpy as np
 
-def plot_hist(dataset, prefix, minimum=0, maximum=100, cumulative=False,
+def plot_hist(prefix, *argv, minimum=0, maximum=100, cumulative=False,
     title="", xlabel="Length", ylabel="Count"):
-    """plots a histogram from any array of numbers
+    """plots a histogram from any array of numbers; can handle
+    multiple arrays
 
     Input:      A data array
                 File prefix
@@ -48,13 +49,13 @@ def plot_hist(dataset, prefix, minimum=0, maximum=100, cumulative=False,
 
     Returns:    An interactive plot and a pdf file
     """
-    data_average = np.average(dataset)
     plt.figure(figsize=(15,5)) #define dimensions first!
-    #plt.hist(dataset, range=(minimum, maximum), alpha = 0.75, bins=100,  edgecolor='black')
-    plt.hist(np.clip(dataset, minimum, 1.01*maximum), bins=100, 
-                cumulative=cumulative,
-                alpha = 0.75, edgecolor='black')
-    #alpha >> transparency
+    for dataset in argv:
+        data_average = np.average(dataset)
+        plt.hist(np.clip(dataset, minimum, 1.01*maximum), bins=100, 
+                    cumulative=cumulative,
+                    alpha = 0.75, edgecolor='black')
+                    #alpha >> transparency
     #if more histograms need be plotted, just repeat plt.hist with another data
     plt.title(title)
     plt.axvline(data_average, color='r', linestyle='solid', linewidth=2, label="Mean") #add vertical line

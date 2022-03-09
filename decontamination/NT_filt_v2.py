@@ -196,14 +196,14 @@ def main():
 
 	#always create error.log
 	with open("errors.log", "at") as errorfile:
+		if args.work_dir != ".":
+			os.chdir(args.work_dir)
+
 		if args.infile == "batch":
 			files = [x for x in os.listdir(".") if x.endswith(filetype)]
 		else:
 			files = args.infile.split(",")
 		print("to analyze:", ", ".join(files))
-
-		if args.work_dir != ".":
-			os.chdir(args.work_dir)
 
 		qthr = float(args.qcov_threshold)
 		pthr = float(args.pident_threshold)
@@ -281,7 +281,7 @@ def main():
 		#replacement = {"319938": "288004", "1317118": "1379903", "427920": "1983720"}
 		distribution = {goodgroupsrep: 0}
 		c = 0 #we need a process monitor
-		with open(file) as infile, \
+		with open(filepath) as infile, \
 		open(tmpblast, "w") as outfile,\
 		open(check, "w") as checkfile,\
 		open(filt, "w") as filtfile:

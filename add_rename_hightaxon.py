@@ -30,7 +30,17 @@ for infile in infileslist:
 				newname.append(c)
 			shortname = ''.join(newname)
 			hightaxon = shortname.split("_")[-1]
-			if hightaxon not in ["Acidobacteria", "Actinobacteria", "Alveolata", "Alphaproteobacteria", "Amoebozoa", "Apicomplexa", "Apusozoa", "Archaea", "Asgardgroup", "Bacteroidetes", "Chlamydiae", "Chlorarachniophyceae", "Chloroflexi", "Choanoflagellida", "Cryptophyta", "Cryptomonadales", "Cyanobacteria", "Deinococcus-Thermus", "Discosea", "Euryarchaeota", "Firmicutes", "Fungi", "Gemmatimonadetes", "Glaucocystophyta", "Gonyaulacales", "Gymnodiniales", "Haptophyceae", "Heterolobosea", "Ichthyosporea", "Mamiellophyceae", "Metazoa", "Mycetozoa", "Noctilucales", "Oxyrrhinales", "Peridiniales", "Planctomycetes", "Pyrenomonadales", "Rhizaria", "Rhodophyta", "Rhodothermaeota", "Spirochaetes", "Stramenopiles", "Synergistetes", "Thaumarchaeota", "Thermotogae", "Viridiplantae"]:
+			if hightaxon not in ["Acidobacteria", "Actinobacteria", "Alveolata", "Alphaproteobacteria", 
+								 "Amoebozoa", "Apicomplexa", "Apusozoa", "Archaea", "Asgardgroup", 
+								 "Bacteroidetes", "Chlamydiae", "Chlorarachniophyceae", "Chloroflexi", 
+								 "Choanoflagellida", "Cryptophyta", "Cryptomonadales", "Cyanobacteria", 
+								 "Deinococcus-Thermus", "Discosea", "Euryarchaeota", "Firmicutes", 
+								 "Fungi", "Gemmatimonadetes", "Glaucocystophyta", "Gonyaulacales", 
+								 "Gymnodiniales", "Haptophyceae", "Heterolobosea", "Ichthyosporea", 
+								 "Mamiellophyceae", "Metazoa", "Mycetozoa", "Noctilucales", "Oxyrrhinales", 
+								 "Peridiniales", "Planctomycetes", "Pyrenomonadales", "Rhizaria", 
+								 "Rhodophyta", "Rhodothermaeota", "Spirochaetes", "Stramenopiles", 
+								 "Synergistetes", "Thaumarchaeota", "Thermotogae", "Viridiplantae"]:
 			# list of used taxons incomplete!
 				try:
 					descendants = ncbi.get_descendant_taxa(shortname.split("_")[0])

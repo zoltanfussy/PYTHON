@@ -338,6 +338,18 @@ data = np.genfromtxt('file.pdb') #effective way how to import tables directly in
 array = data[:, -3:] #if the data is here
 np.mean(data[:,-3:], axis=0) #mean along the vertical axis, more or less means calculate centroid
 
+
+def mean(lst):
+	#mean without numpy
+	if len(lst) > 0:
+		return sum(lst) / len(lst)
+
+
+def second(lst):
+	#second-best in list
+	return sorted(lst, reverse=True)[1]
+
+
 def get_cmap(n, name='viridis'): #hsv for very divergent data?
     '''Returns a function that maps each index in 0, 1, ..., n-1 to a distinct 
     RGB color; the keyword argument name must be a standard mpl colormap name.'''

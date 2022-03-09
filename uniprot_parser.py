@@ -1,10 +1,14 @@
 import re
+import sys
 
 orgnpattern = r"OS=(.*)OX="
 
-with open("some.fasta") as f:
+with open(sys.argv[1]) as f:
 	result = f.read()
 	#print(result)
+suffix = sys.argv[1].split(".")[-1]
+outfile = sys.argv[1].replace(suffix, "uni."+suffix)
+
 rawresult = result.replace("tr|", "").replace("sp|", "")
 resultstring = ""
 for line in rawresult.split(">")[1:]:
@@ -18,5 +22,5 @@ for line in rawresult.split(">")[1:]:
 	except IndexError:
 		pass
 
-with open("some_converted.fasta", "w") as out:
+with open(outfile, "w") as out:
 	out.write(resultstring)

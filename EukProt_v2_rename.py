@@ -60,8 +60,10 @@ def newick_rename(infile, outfile, outtable, keyfile, keycolumn, add_prefix):
 	support_re = r'(\[&label=([\d\.]+)\])'
 	with open(infile) as f:
 		treedata = f.read()
-		if treedata.startswith("#NEXUS"):
-			quit("Nexus format detected, use newick or rename to *nex!")
+	if treedata.startswith("#NEXUS"):
+		print("Nexus format detected, switching to nexus_rename()!")
+		nexus_rename(infile, outfile, outtable, keyfile, keycolumn, add_prefix)
+		quit("Finished!")
 	for hit in re.findall(support_re, treedata):
 		treedata = treedata.replace(hit[0], hit[1])
 	#print(treedata)
