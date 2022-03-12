@@ -16,8 +16,13 @@ def find_supported(node, support):
             n.add_features(name="SUP")
     return matches
 
+
 def tag_replace(string):
     #print("Lineage lookup began, please use the following list of unrecognized genera to update your fetch_lineages.tsv")
+    taxareplfile = csv.reader(open(coredata + "taxarepl9.tsv"), delimiter="\t", skipinitialspace=False)
+    taxarepl9 = {row[0]:row[1] for row in taxareplfile}
+
+
     if "-" in string:
         string = string.replace("-", "_")
     if " " in string:
@@ -44,8 +49,8 @@ def tag_replace(string):
 ### DATA READ ###
 #################
 
-filename = "hapto_slow0.9_newick"
-prunefile = "hapto_slow0.9_skip_cafe.txt"
+filename = "_matrix_filt1-iq"
+prunefile = "_matrix_filt1_skip_cafe.txt"
 
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
     home = "/Users/morpholino/OwnCloud/"
@@ -62,9 +67,6 @@ if True:
 #load additional data
 print("loading data files")  
 LocDataFile = csv.reader(open(wd + "4pred-preds.txt"), delimiter="\t", skipinitialspace=True)
-
-taxareplfile = csv.reader(open(coredata + "taxarepl9.tsv"), delimiter="\t", skipinitialspace=False)
-taxarepl9 = {row[0]:row[1] for row in taxareplfile}
 
 lineagefile = csv.reader(open(coredata + "fetch_lineages.tsv"), delimiter="\t", skipinitialspace=False)
 fetch_lineages = {row[0]:row[1] for row in lineagefile}
